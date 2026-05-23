@@ -1,0 +1,228 @@
+diff --git a/docs/api.md b/docs/api.md
+index b154409e..bde5f7bc 100644
+--- a/docs/api.md
++++ b/docs/api.md
+@@ -1962,8 +1962,8 @@ This function returns a `Promise`, with `void` as its argument upon completion.
+ Punch a note block, open a door, etc.
+ 
+  * `block` - the block to activate
+- * `direction` Optional defaults to `new Vec3(0, 1, 0)` (up). A vector off the direction the container block should be interacted with. Does nothing when a container entity is targeted.
+- * `cursorPos` Optional defaults to `new Vec3(0.5, 0.5, 0.5)` (block center). The curos position when opening the block instance. This is send with the activate block packet. Does nothing when a container entity is targeted.
++ * `direction` Optional. The face vector the block should be interacted with. If omitted, mineflayer raycasts from the bot's eyes to pick the face the bot can actually see (and falls back to the nearest face by bot position when the block isn't directly visible). Pass an explicit `Vec3` (e.g. `new Vec3(0, 1, 0)` for the top face) to force a specific face. Previously defaulted to `new Vec3(0, 1, 0)` (up), which silently failed for two-block-tall blocks such as doors. Does nothing when a container entity is targeted.
++ * `cursorPos` Optional. The cursor position on the clicked face, sent with the activate block packet. When `direction` is auto-detected this defaults to the raycast hit point on that face; otherwise it defaults to `new Vec3(0.5, 0.5, 0.5)` (block center). Does nothing when a container entity is targeted.
+ 
+ #### bot.activateEntity(entity)
+ 
+diff --git a/lib/plugins/inventory.js b/lib/plugins/inventory.js
+index c47600fa..e70a9028 100644
+--- a/lib/plugins/inventory.js
++++ b/lib/plugins/inventory.js
+@@ -187,29 +187,68 @@ function inject (bot, { hideErrors }) {
+     }
+   }
+ 
++  // Maps a prismarine-world raycast face index to a unit direction vector.
++  // Index = BlockFace: 0 down(-Y) 1 up(+Y) 2 north(-Z) 3 south(+Z) 4 west(-X) 5 east(+X),
++  // matching both the block_place `direction` field and vectorToDirection().
++  const faceToVector = [
++    new Vec3(0, -1, 0),
++    new Vec3(0, 1, 0),
++    new Vec3(0, 0, -1),
++    new Vec3(0, 0, 1),
++    new Vec3(-1, 0, 0),
++    new Vec3(1, 0, 0)
++  ]
++
++  // Pick the face the bot can actually see by raycasting from its eyes to the
++  // block, mirroring how bot.dig(..., 'raycast') chooses a server-acceptable
++  // face. Returns { direction, cursorPos } with the cursor on the hit point, or
++  // null when the target block isn't directly visible (occluded / out of reach).
++  function raycastInteractFace (block) {
++    const eye = bot.entity.position.offset(0, bot.entity.eyeHeight, 0)
++    const center = block.position.offset(0.5, 0.5, 0.5)
++    // Range = real distance (+ margin) so we always reach the intended block;
++    // the hit-is-target check below still rejects clicks blocked by occluders.
++    const range = eye.distanceTo(center) + 0.5
++    const hit = bot.world.raycast(eye, center.minus(eye).normalize(), range)
++    if (!hit || !hit.position.equals(block.position)) return null
++    return {
++      direction: faceToVector[hit.face],
++      cursorPos: hit.intersect.minus(block.position) // block-relative, on the face
++    }
++  }
++
+   async function activateBlock (block, direction, cursorPos) {
+     if (direction == null) {
+-      // Auto-detect the approach face from bot position relative to block center.
+-      // The old default (Vec3(0,1,0) = UP) silently fails for 2-block-tall blocks
+-      // like bamboo_door: clicking the top face of the lower half is rejected by
+-      // the server because the upper half already occupies y+1.
+-      const botPos = bot.entity.position
+-      const dx = botPos.x - (block.position.x + 0.5)
+-      const dz = botPos.z - (block.position.z + 0.5)
+-      // Use bot midpoint Y so horizontal interactions near eye height aren't
+-      // misclassified as UP/DOWN.
+-      const dy = (botPos.y + (bot.entity.height ?? 1.8) * 0.5) - (block.position.y + 0.5)
+-      const adx = Math.abs(dx)
+-      const ady = Math.abs(dy)
+-      const adz = Math.abs(dz)
+-      if (adx >= adz && adx >= ady) direction = new Vec3(dx > 0 ? 1 : -1, 0, 0)
+-      else if (adz >= adx && adz >= ady) direction = new Vec3(0, 0, dz > 0 ? 1 : -1)
+-      else direction = new Vec3(0, dy > 0 ? 1 : -1, 0)
++      // No face given: reproduce the server's ray-trace so the face and cursor we
++      // send describe a surface the server can actually reach. This fixes silent
++      // failures on 2-block-tall blocks like bamboo_door, where the old default
++      // (Vec3(0,1,0) = UP) clicks the lower half's top face — occluded by the
++      // upper half — and the server drops the interaction with no error.
++      const hit = raycastInteractFace(block)
++      if (hit) {
++        direction = hit.direction
++        cursorPos = cursorPos ?? hit.cursorPos
++      } else {
++        // Block not directly visible: fall back to the nearest face by bot
++        // position (still better than a fixed UP default). Use bot midpoint Y so
++        // horizontal interactions near eye height aren't misclassified as UP/DOWN.
++        const botPos = bot.entity.position
++        const dx = botPos.x - (block.position.x + 0.5)
++        const dz = botPos.z - (block.position.z + 0.5)
++        const dy = (botPos.y + (bot.entity.height ?? 1.8) * 0.5) - (block.position.y + 0.5)
++        const adx = Math.abs(dx)
++        const ady = Math.abs(dy)
++        const adz = Math.abs(dz)
++        if (adx >= adz && adx >= ady) direction = new Vec3(dx > 0 ? 1 : -1, 0, 0)
++        else if (adz >= adx && adz >= ady) direction = new Vec3(0, 0, dz > 0 ? 1 : -1)
++        else direction = new Vec3(0, dy > 0 ? 1 : -1, 0)
++      }
+     }
+     const directionNum = vectorToDirection(direction) // The packet needs a number as the direction
+     cursorPos = cursorPos ?? new Vec3(0.5, 0.5, 0.5)
+     // TODO: tell the server that we are not sneaking while doing this
+-    await bot.lookAt(block.position.offset(0.5, 0.5, 0.5), false)
++    // Look at the actual click point so look direction, face and cursor agree.
++    await bot.lookAt(block.position.plus(cursorPos), false)
+     // place block message
+     // TODO: logic below can likely be simplified
+     if (bot.supportFeature('blockPlaceHasHeldItem')) {
+diff --git a/test/externalTests/activateBlockFace.js b/test/externalTests/activateBlockFace.js
+index 00b2dd57..480ece5b 100644
+--- a/test/externalTests/activateBlockFace.js
++++ b/test/externalTests/activateBlockFace.js
+@@ -15,20 +15,32 @@ module.exports = () => async (bot) => {
+   await blockUpdate
+   await bot.test.wait(500)
+ 
+-  // Helper: intercept the next block_place packet and return the direction field
+-  function captureNextBlockPlaceDirection () {
++  // Helper: intercept the next block_place packet and return its full data
++  function captureNextBlockPlace () {
+     return new Promise((resolve) => {
+       const origWrite = bot._client.write
+       bot._client.write = function (name, data) {
+         origWrite.apply(bot._client, arguments)
+         if (name === 'block_place') {
+           bot._client.write = origWrite
+-          resolve(data.direction)
++          resolve(data)
+         }
+       }
+     })
+   }
+ 
++  // The cursor is scaled by 16 on older versions and raw [0,1] on newer ones.
++  // Assert it lands on the reported face.
++  const faceAxis = ['y', 'y', 'z', 'z', 'x', 'x']
++  const faceValue = [0, 1, 0, 1, 0, 1]
++  function assertCursorOnFace (data, dir) {
++    const scale = (Math.abs(data.cursorX) > 1.001 || Math.abs(data.cursorY) > 1.001 || Math.abs(data.cursorZ) > 1.001) ? 16 : 1
++    const cursor = { x: data.cursorX / scale, y: data.cursorY / scale, z: data.cursorZ / scale }
++    const axis = faceAxis[dir]
++    assert.ok(Math.abs(cursor[axis] - faceValue[dir]) < 0.05,
++      `Cursor ${axis}=${cursor[axis]} not on the expected face (${faceValue[dir]}) for direction ${dir}`)
++  }
++
+   // Test cases: [botPosition, expectedDirection, label]
+   // Bot east of block (+X) => should click east face (direction 5)
+   // Bot west of block (-X) => should click west face (direction 4)
+@@ -48,12 +60,46 @@ module.exports = () => async (bot) => {
+     const block = bot.blockAt(blockPos)
+     assert(block, `Could not find block at ${blockPos}`)
+ 
+-    const dirPromise = captureNextBlockPlaceDirection()
++    const placePromise = captureNextBlockPlace()
+     await bot.activateBlock(block)
+-    const actualDir = await dirPromise
++    const data = await placePromise
++
++    bot.test.sayEverywhere(`activateBlock face ${label}: expected=${expectedDir} actual=${data.direction}`)
++    assert.strictEqual(data.direction, expectedDir, `Face direction mismatch for ${label}: expected ${expectedDir}, got ${data.direction}`)
++    assertCursorOnFace(data, expectedDir)
++  }
++
++  // Regression for #3851: a 2-block-tall door must actually open with the default
++  // (no direction). The old UP default clicked the lower half's top face, which the
++  // server rejects because the upper half occupies y+1 — the door silently stayed shut.
++  const doorName = ['bamboo_door', 'oak_door'].find(n => bot.registry.blocksByName[n])
++  if (doorName) {
++    const lower = new Vec3(9, groundY + 1, 9)
++    const upper = lower.offset(0, 1, 0)
++    const ls = lower.toArray().join(' ')
++    const us = upper.toArray().join(' ')
++    // facing=west => the door front faces the bot, which stands to its west (lower x)
++    bot.chat(`/setblock ${ls} air`)
++    bot.chat(`/setblock ${us} air`)
++    await bot.test.wait(300)
++    bot.chat(`/setblock ${ls} minecraft:${doorName}[half=lower,facing=west,hinge=left,open=false,powered=false]`)
++    bot.chat(`/setblock ${us} minecraft:${doorName}[half=upper,facing=west,hinge=left,powered=false]`)
++    await bot.test.wait(600)
++
++    await bot.test.teleport(lower.offset(-2, 0, 0))
++    await bot.test.wait(500)
++
++    const isOpen = () => {
++      const p = bot.blockAt(lower).getProperties()
++      return p.open === true || p.open === 'true'
++    }
++    assert.strictEqual(isOpen(), false, `${doorName} should start closed`)
++
++    await bot.activateBlock(bot.blockAt(lower)) // no direction -> auto-detect
++    await bot.test.wait(800)
+ 
+-    bot.test.sayEverywhere(`activateBlock face ${label}: expected=${expectedDir} actual=${actualDir}`)
+-    assert.strictEqual(actualDir, expectedDir, `Face direction mismatch for ${label}: expected ${expectedDir}, got ${actualDir}`)
++    bot.test.sayEverywhere(`activateBlock ${doorName}: open after default activate = ${isOpen()}`)
++    assert.strictEqual(isOpen(), true, `${doorName} did not open with the auto-detected face (regression of #3851)`)
+   }
+ 
+   bot.test.sayEverywhere('activateBlock face direction test: pass')
+diff --git a/test/internalTest.js b/test/internalTest.js
+index cf454fca..46fe72ba 100644
+--- a/test/internalTest.js
++++ b/test/internalTest.js
+@@ -307,6 +307,19 @@ for (const supportedVersion of mineflayer.testedVersions) {
+     describe('activateBlock face direction', () => {
+       // Direction mapping: 0=down(-y), 1=up(+y), 2=north(-z), 3=south(+z), 4=west(-x), 5=east(+x)
+       const blockPos = vec3(8, 65, 8)
++      // For each direction, the cursor axis that should sit on the face boundary, and its value (0 = min side, 1 = max side)
++      const faceAxis = ['y', 'y', 'z', 'z', 'x', 'x']
++      const faceValue = [0, 1, 0, 1, 0, 1]
++
++      // The cursor is sent scaled by 16 on older versions and raw [0,1] on newer ones;
++      // detect the scale from the in-face coordinates (which sit around the block middle).
++      function assertCursorOnFace (data, expectedDirection) {
++        const scale = (Math.abs(data.cursorX) > 1.001 || Math.abs(data.cursorY) > 1.001 || Math.abs(data.cursorZ) > 1.001) ? 16 : 1
++        const cursor = { x: data.cursorX / scale, y: data.cursorY / scale, z: data.cursorZ / scale }
++        const axis = faceAxis[expectedDirection]
++        assert.ok(Math.abs(cursor[axis] - faceValue[expectedDirection]) < 0.05,
++          `Cursor ${axis}=${cursor[axis]} not on the expected face (${faceValue[expectedDirection]}) for direction ${expectedDirection}`)
++      }
+ 
+       async function setupAndActivate (botPosition, done, expectedDirection) {
+         return new Promise((resolve, reject) => {
+@@ -341,6 +354,7 @@ for (const supportedVersion of mineflayer.testedVersions) {
+                 try {
+                   assert.strictEqual(data.direction, expectedDirection,
+                     `Expected direction ${expectedDirection} but got ${data.direction}`)
++                  assertCursorOnFace(data, expectedDirection)
+                   resolve()
+                 } catch (e) {
+                   reject(e)
