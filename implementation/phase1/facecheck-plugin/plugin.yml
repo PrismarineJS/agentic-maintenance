@@ -1,0 +1,4 @@
+name: FaceCheck
+version: '1.0'
+main: com.example.FaceCheckPlugin
+api-version: '1.21'
