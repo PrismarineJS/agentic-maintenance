@@ -1,0 +1,9 @@
+{
+  "recorded_at": "2026-09-14T09:18:56.408392+00:00",
+  "predictions": 18,
+  "sha256": "75a7d2d3060f7c2f520cbd5502e98119e05ecd991a73589b70f063e5ee41e362",
+  "files": {
+    "confirmation-01-baseline.jsonl": "5ccb32cd0491fb459189a02fbc774c13f348c7622c25b26fbc36410ac4d7eb20",
+    "confirmation-01-skills.jsonl": "b405bb8337c6568f7cc69c9fb2c86f758499e617ed6a54daec11c5376d429a62"
+  }
+}

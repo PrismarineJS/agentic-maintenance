@@ -1,0 +1,15 @@
+{
+  "recorded_at": "2026-09-14T09:00:21.282127+00:00",
+  "predictions": 72,
+  "sha256": "60d9aa64f5e93f8099cc9ac5c76e89898d23ab0417e3e253a473fadac2379774",
+  "files": {
+    "initial_evaluation-01-baseline.jsonl": "7ae8a969973dd61a807df97c6e968ebc035893f45e264fa9fe56e97d5c3bf2cb",
+    "initial_evaluation-01-skills.jsonl": "2444f2bebe0fdadc805f2aba7ae7cbec6649bca2488e72bc9f883726fa5fdd43",
+    "initial_evaluation-02-baseline.jsonl": "8d663c6a00f66114db2f8df7f9d3445410affe8ad3b6611e8d8c4f36a3575439",
+    "initial_evaluation-02-skills.jsonl": "8ae894f6aa9deecdee27d3a367c3f12adaa3c499b6693dd285f90194348d5231",
+    "initial_evaluation-03-baseline.jsonl": "996471e9811cdfe515ad22214a262b31e9f3ba7985557226792d5cf4998c7433",
+    "initial_evaluation-03-skills.jsonl": "ec4909a532ce96d55cf9f34e9288c7377cca5f8d240304ac3e73e59315deb5d9",
+    "initial_evaluation-04-baseline.jsonl": "41343c43a5a62e063777ea6c2efa3e3c291c1b67f2a1164612b1ddd98e3ab68f",
+    "initial_evaluation-04-skills.jsonl": "ac09cfdbefa63cba529429cc0fd33321aa1c9e64fbf2cbd2e66441c50719dc03"
+  }
+}

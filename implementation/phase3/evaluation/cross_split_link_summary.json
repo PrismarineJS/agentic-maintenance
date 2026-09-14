@@ -1,0 +1,317 @@
+[
+  {
+    "case_id": "case-1f394bc23758",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-928bf61eeb24",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-7d6e6098489d",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-7948f45de291",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-dc1d73df505a",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-ffcb13e2a188",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-362beacc6d85",
+    "cross_discovery_link_count": 3,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "generic_or_uncertain_reference"
+  },
+  {
+    "case_id": "case-fef185a38358",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-741c2de7a3f1",
+    "cross_discovery_link_count": 2,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "generic_or_uncertain_reference"
+  },
+  {
+    "case_id": "case-a8f10ae8e2f3",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-f04dcd3baf70",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-4ba40d92819c",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-a54f976485d4",
+    "cross_discovery_link_count": 1,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 1,
+    "risk": "potential_same_change"
+  },
+  {
+    "case_id": "case-cd1878573852",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-4728a02bafa7",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-d4140bb309e2",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-78a4ab81b353",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-d71d7e4326be",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-71018346b751",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-a00ba99d8d3d",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-6ebff9a64a95",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-05324cab112c",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-d38b12e4bb9e",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-4aaf1fbf3ed4",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-d03f269e7db8",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-ffb4575ce459",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-6d72b8140e17",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-0e8cbd2f340e",
+    "cross_discovery_link_count": 3,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 3,
+    "risk": "potential_same_change"
+  },
+  {
+    "case_id": "case-5f38204ed6a1",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-585cb11428ef",
+    "cross_discovery_link_count": 5,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 3,
+    "risk": "potential_same_change"
+  },
+  {
+    "case_id": "case-f164402a33d2",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-5975c401eca7",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-affd6fa4d55f",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-818c2b13951d",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-4827eb7ce80b",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-a57c5bc2bda9",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-70365e3e6e16",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-94fb6e3c75da",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-7ae05735d8e2",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-fd9157c452a5",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-e65599751bc6",
+    "cross_discovery_link_count": 3,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 2,
+    "risk": "potential_same_change"
+  },
+  {
+    "case_id": "case-1470a7fce44e",
+    "cross_discovery_link_count": 1,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 1,
+    "risk": "potential_same_change"
+  },
+  {
+    "case_id": "case-705127eb8e43",
+    "cross_discovery_link_count": 1,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "generic_or_uncertain_reference"
+  },
+  {
+    "case_id": "case-2c1df8e6f116",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  },
+  {
+    "case_id": "case-bd14b0656680",
+    "cross_discovery_link_count": 0,
+    "cross_evaluation_stage_link_count": 0,
+    "relation_signal_count": 0,
+    "risk": "no_direct_link_found"
+  }
+]

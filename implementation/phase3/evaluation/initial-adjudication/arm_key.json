@@ -1,0 +1,287 @@
+{
+  "finding-de7dd596f08ff9f0": {
+    "case_id": "case-1f394bc23758",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-233a0bcd3295e58a": {
+    "case_id": "case-1f394bc23758",
+    "arm": "baseline",
+    "index": 1
+  },
+  "finding-577524e69e76d955": {
+    "case_id": "case-1f394bc23758",
+    "arm": "baseline",
+    "index": 2
+  },
+  "finding-5d8414e47c03dce6": {
+    "case_id": "case-1f394bc23758",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-a6b32a3a572d61f8": {
+    "case_id": "case-741c2de7a3f1",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-bb074a154b9f0fad": {
+    "case_id": "case-741c2de7a3f1",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-3f37852c05621104": {
+    "case_id": "case-a8f10ae8e2f3",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-8c8da3bc057a296a": {
+    "case_id": "case-a8f10ae8e2f3",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-1ac1f7f9e117dd87": {
+    "case_id": "case-cd1878573852",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-e13570ca9d3c21fd": {
+    "case_id": "case-71018346b751",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-7426f8d58fdf530e": {
+    "case_id": "case-71018346b751",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-b02285c5cbf4e456": {
+    "case_id": "case-6ebff9a64a95",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-e39a1d3ec9cbc504": {
+    "case_id": "case-6ebff9a64a95",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-884138b5d15a45fd": {
+    "case_id": "case-05324cab112c",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-44490dd016133585": {
+    "case_id": "case-d38b12e4bb9e",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-b59997871e830002": {
+    "case_id": "case-d38b12e4bb9e",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-05f8a1a7886e9aad": {
+    "case_id": "case-4aaf1fbf3ed4",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-26728ea013c15b51": {
+    "case_id": "case-4aaf1fbf3ed4",
+    "arm": "baseline",
+    "index": 1
+  },
+  "finding-8bee792a5bfc3e03": {
+    "case_id": "case-4aaf1fbf3ed4",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-18749d48f31dca8e": {
+    "case_id": "case-4aaf1fbf3ed4",
+    "arm": "skills",
+    "index": 1
+  },
+  "finding-62c559b15868a9bc": {
+    "case_id": "case-0e8cbd2f340e",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-5ee5ba8dd66ce903": {
+    "case_id": "case-0e8cbd2f340e",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-022b275689f1c331": {
+    "case_id": "case-5f38204ed6a1",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-2c9462873da38ca8": {
+    "case_id": "case-5f38204ed6a1",
+    "arm": "baseline",
+    "index": 1
+  },
+  "finding-1649d87fccabd249": {
+    "case_id": "case-5f38204ed6a1",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-f1fed50fbf7e7e48": {
+    "case_id": "case-5f38204ed6a1",
+    "arm": "skills",
+    "index": 1
+  },
+  "finding-8df89c0b17f12538": {
+    "case_id": "case-585cb11428ef",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-abbb8fddc50973d4": {
+    "case_id": "case-585cb11428ef",
+    "arm": "baseline",
+    "index": 1
+  },
+  "finding-f2a1a050dcea47e9": {
+    "case_id": "case-585cb11428ef",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-eadd9e656cb95344": {
+    "case_id": "case-585cb11428ef",
+    "arm": "skills",
+    "index": 1
+  },
+  "finding-6608c068dc0ba235": {
+    "case_id": "case-f164402a33d2",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-d084c290a0ab7f98": {
+    "case_id": "case-f164402a33d2",
+    "arm": "baseline",
+    "index": 1
+  },
+  "finding-ce65fedd7554d5d1": {
+    "case_id": "case-f164402a33d2",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-5b917586a15acb4d": {
+    "case_id": "case-f164402a33d2",
+    "arm": "skills",
+    "index": 1
+  },
+  "finding-539a16a7c7312117": {
+    "case_id": "case-4827eb7ce80b",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-96eed10efb1caa41": {
+    "case_id": "case-4827eb7ce80b",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-4bab33ec89acc6a1": {
+    "case_id": "case-a57c5bc2bda9",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-0847f41b7d0e0957": {
+    "case_id": "case-a57c5bc2bda9",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-c6c853a07c02f3ac": {
+    "case_id": "case-70365e3e6e16",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-73cb887520dc500b": {
+    "case_id": "case-70365e3e6e16",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-e79775973aea1b57": {
+    "case_id": "case-94fb6e3c75da",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-f742c2febd78d18b": {
+    "case_id": "case-94fb6e3c75da",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-89eba782ee38778b": {
+    "case_id": "case-7ae05735d8e2",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-c0fdbfc36592c962": {
+    "case_id": "case-7ae05735d8e2",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-e7c58d0fcbbb3f02": {
+    "case_id": "case-fd9157c452a5",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-08f39d6fb29709a1": {
+    "case_id": "case-fd9157c452a5",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-2f02ae923de2378e": {
+    "case_id": "case-e65599751bc6",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-c1be2feabe616d81": {
+    "case_id": "case-e65599751bc6",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-7177726c25570788": {
+    "case_id": "case-1470a7fce44e",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-640298c5ef5e6949": {
+    "case_id": "case-1470a7fce44e",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-8ca663ecaebe7be0": {
+    "case_id": "case-705127eb8e43",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-f93c9b235b04f730": {
+    "case_id": "case-2c1df8e6f116",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-1b7a182ed2f71a98": {
+    "case_id": "case-2c1df8e6f116",
+    "arm": "baseline",
+    "index": 1
+  },
+  "finding-26185e30ecf94dbf": {
+    "case_id": "case-2c1df8e6f116",
+    "arm": "baseline",
+    "index": 2
+  },
+  "finding-cd83fccb0dbab098": {
+    "case_id": "case-2c1df8e6f116",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-af247f9b417a1248": {
+    "case_id": "case-2c1df8e6f116",
+    "arm": "skills",
+    "index": 1
+  },
+  "finding-2ed9f4061c0557ca": {
+    "case_id": "case-2c1df8e6f116",
+    "arm": "skills",
+    "index": 2
+  }
+}

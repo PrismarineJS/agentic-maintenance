@@ -1,0 +1,65 @@
+{
+  "batch_id": "initial_evaluation-02-baseline",
+  "arm": "baseline",
+  "split": "initial_evaluation",
+  "model": "inherited coordinator model and reasoning configuration; exact serving identifier unobserved",
+  "budget": {
+    "seconds_per_case": 120,
+    "external_requests": 0,
+    "maximum_actionable_findings": 3,
+    "maximum_optional_findings": 1,
+    "measurement": "Declared cap; elapsed and token usage must be reported separately when observable."
+  },
+  "cases": [
+    {
+      "case_id": "case-5975c401eca7",
+      "packet": "/tmp/prismarine-phase3/evaluation/packets/case-5975c401eca7.json",
+      "packet_sha256": "89c1137e1a892cae90c1e7f5a91a5c3b42ffae5d7055b1950a9a4fd7e68c2455"
+    },
+    {
+      "case_id": "case-5f38204ed6a1",
+      "packet": "/tmp/prismarine-phase3/evaluation/packets/case-5f38204ed6a1.json",
+      "packet_sha256": "9b0a49c293ebc7f2b1e7830bda77b12381f2b15bbcfe5707305ec87184ba2b63"
+    },
+    {
+      "case_id": "case-6d72b8140e17",
+      "packet": "/tmp/prismarine-phase3/evaluation/packets/case-6d72b8140e17.json",
+      "packet_sha256": "7a96f39a2acd7973e312e41b669027d1d0ae5ab35844d3f2a99f9efb2a911e18"
+    },
+    {
+      "case_id": "case-6ebff9a64a95",
+      "packet": "/tmp/prismarine-phase3/evaluation/packets/case-6ebff9a64a95.json",
+      "packet_sha256": "3eb87d746876e43d0f7f967ad9341cc50c2de97d125b935951c46357fef55eb6"
+    },
+    {
+      "case_id": "case-70365e3e6e16",
+      "packet": "/tmp/prismarine-phase3/evaluation/packets/case-70365e3e6e16.json",
+      "packet_sha256": "b1d7a4405ba2718e7cada5873ed9ddc1f30f26aae0f0015c6407c015cfd73cf8"
+    },
+    {
+      "case_id": "case-705127eb8e43",
+      "packet": "/tmp/prismarine-phase3/evaluation/packets/case-705127eb8e43.json",
+      "packet_sha256": "43939da96e9e0b202c2a87272b013ec0ffc72efd06c94f71b61f26bc6e639a8b"
+    },
+    {
+      "case_id": "case-71018346b751",
+      "packet": "/tmp/prismarine-phase3/evaluation/packets/case-71018346b751.json",
+      "packet_sha256": "438c8e513bd8fd4d772c1351c7d5ddb8e912d7a059e0c51cb59031ea192e5060"
+    },
+    {
+      "case_id": "case-741c2de7a3f1",
+      "packet": "/tmp/prismarine-phase3/evaluation/packets/case-741c2de7a3f1.json",
+      "packet_sha256": "02e5d4a95580db187ce1c58f24bf4ff9c2dfe8cbf7824b06d12cdc367fdbe831"
+    },
+    {
+      "case_id": "case-7948f45de291",
+      "packet": "/tmp/prismarine-phase3/evaluation/packets/case-7948f45de291.json",
+      "packet_sha256": "b8359dd2ebd60f3d2d5d91d3c68d06c6ecd0ebf7a594af72c6e9e049ae10323c"
+    }
+  ],
+  "predictions": "/tmp/prismarine-phase3/evaluation/batches/predictions/initial_evaluation-02-baseline.jsonl",
+  "skill_set_sha256": null,
+  "skill_root": null,
+  "skill_freeze": null,
+  "ready": true
+}

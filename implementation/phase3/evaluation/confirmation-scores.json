@@ -1,0 +1,217 @@
+{
+  "all": {
+    "baseline": {
+      "cases": 9,
+      "no_comment_cases": 7,
+      "cases_exceeding_declared_cap": 0,
+      "findings": 4,
+      "supported_actionable": 4,
+      "actionable_proposed": 3,
+      "actionable_supported_actionable": 3,
+      "optional_proposed": 1,
+      "optional_supported_actionable": 1,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 203.96894700000001,
+      "cases_with_elapsed_measurement": 9
+    },
+    "skills": {
+      "cases": 9,
+      "no_comment_cases": 7,
+      "cases_exceeding_declared_cap": 0,
+      "findings": 5,
+      "supported_actionable": 4,
+      "actionable_proposed": 4,
+      "actionable_supported_actionable": 4,
+      "supported_optional": 1,
+      "optional_proposed": 1,
+      "optional_supported_optional": 1,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 217.00188827514648,
+      "cases_with_elapsed_measurement": 9
+    }
+  },
+  "strict": {
+    "baseline": {
+      "cases": 9,
+      "no_comment_cases": 7,
+      "cases_exceeding_declared_cap": 0,
+      "findings": 4,
+      "supported_actionable": 4,
+      "actionable_proposed": 3,
+      "actionable_supported_actionable": 3,
+      "optional_proposed": 1,
+      "optional_supported_actionable": 1,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 203.96894700000001,
+      "cases_with_elapsed_measurement": 9
+    },
+    "skills": {
+      "cases": 9,
+      "no_comment_cases": 7,
+      "cases_exceeding_declared_cap": 0,
+      "findings": 5,
+      "supported_actionable": 4,
+      "actionable_proposed": 4,
+      "actionable_supported_actionable": 4,
+      "supported_optional": 1,
+      "optional_proposed": 1,
+      "optional_supported_optional": 1,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 217.00188827514648,
+      "cases_with_elapsed_measurement": 9
+    }
+  },
+  "strict_cumulative": {
+    "baseline": {
+      "cases": 8,
+      "no_comment_cases": 6,
+      "cases_exceeding_declared_cap": 0,
+      "findings": 4,
+      "supported_actionable": 4,
+      "actionable_proposed": 3,
+      "actionable_supported_actionable": 3,
+      "optional_proposed": 1,
+      "optional_supported_actionable": 1,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 188.252021,
+      "cases_with_elapsed_measurement": 8
+    },
+    "skills": {
+      "cases": 8,
+      "no_comment_cases": 6,
+      "cases_exceeding_declared_cap": 0,
+      "findings": 5,
+      "supported_actionable": 4,
+      "actionable_proposed": 4,
+      "actionable_supported_actionable": 4,
+      "supported_optional": 1,
+      "optional_proposed": 1,
+      "optional_supported_optional": 1,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 202.0256063938141,
+      "cases_with_elapsed_measurement": 8
+    }
+  },
+  "strict_hunk_only": {
+    "baseline": {
+      "cases": 1,
+      "no_comment_cases": 1,
+      "cases_exceeding_declared_cap": 0,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 15.716926,
+      "cases_with_elapsed_measurement": 1
+    },
+    "skills": {
+      "cases": 1,
+      "no_comment_cases": 1,
+      "cases_exceeding_declared_cap": 0,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 14.976281881332397,
+      "cases_with_elapsed_measurement": 1
+    }
+  },
+  "overlap_sensitive": {
+    "baseline": {
+      "cases": 0,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 0,
+      "cases_with_elapsed_measurement": 0
+    },
+    "skills": {
+      "cases": 0,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 0,
+      "cases_with_elapsed_measurement": 0
+    }
+  },
+  "clean_sensitivity": {
+    "baseline": {
+      "cases": 7,
+      "no_comment_cases": 6,
+      "cases_exceeding_declared_cap": 0,
+      "findings": 3,
+      "supported_actionable": 3,
+      "actionable_proposed": 2,
+      "actionable_supported_actionable": 2,
+      "optional_proposed": 1,
+      "optional_supported_actionable": 1,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 158.63056300000002,
+      "cases_with_elapsed_measurement": 7
+    },
+    "skills": {
+      "cases": 7,
+      "no_comment_cases": 6,
+      "cases_exceeding_declared_cap": 0,
+      "findings": 3,
+      "supported_actionable": 3,
+      "actionable_proposed": 3,
+      "actionable_supported_actionable": 3,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 154.74519276618958,
+      "cases_with_elapsed_measurement": 7
+    }
+  },
+  "clean_cumulative_sensitivity": {
+    "baseline": {
+      "cases": 6,
+      "no_comment_cases": 5,
+      "cases_exceeding_declared_cap": 0,
+      "findings": 3,
+      "supported_actionable": 3,
+      "actionable_proposed": 2,
+      "actionable_supported_actionable": 2,
+      "optional_proposed": 1,
+      "optional_supported_actionable": 1,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 142.91363700000002,
+      "cases_with_elapsed_measurement": 6
+    },
+    "skills": {
+      "cases": 6,
+      "no_comment_cases": 5,
+      "cases_exceeding_declared_cap": 0,
+      "findings": 3,
+      "supported_actionable": 3,
+      "actionable_proposed": 3,
+      "actionable_supported_actionable": 3,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 139.76891088485718,
+      "cases_with_elapsed_measurement": 6
+    }
+  },
+  "clean_hunk_sensitivity": {
+    "baseline": {
+      "cases": 1,
+      "no_comment_cases": 1,
+      "cases_exceeding_declared_cap": 0,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 15.716926,
+      "cases_with_elapsed_measurement": 1
+    },
+    "skills": {
+      "cases": 1,
+      "no_comment_cases": 1,
+      "cases_exceeding_declared_cap": 0,
+      "eligible_reference_issues": 0,
+      "recovered_actionable_references": 0,
+      "reported_case_seconds_total": 14.976281881332397,
+      "cases_with_elapsed_measurement": 1
+    }
+  }
+}

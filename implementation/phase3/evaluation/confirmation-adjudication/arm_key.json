@@ -1,0 +1,47 @@
+{
+  "finding-d775bd01f78afc41": {
+    "case_id": "case-ffb4575ce459",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-9bac0e2b9ed1b947": {
+    "case_id": "case-ffb4575ce459",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-ca1edec357be4a84": {
+    "case_id": "case-ffb4575ce459",
+    "arm": "skills",
+    "index": 1
+  },
+  "finding-b2371b5d3c26bc3c": {
+    "case_id": "case-bd14b0656680",
+    "arm": "baseline",
+    "index": 0
+  },
+  "finding-712fe8d694fc443f": {
+    "case_id": "case-bd14b0656680",
+    "arm": "baseline",
+    "index": 1
+  },
+  "finding-52c2430ee3722deb": {
+    "case_id": "case-bd14b0656680",
+    "arm": "baseline",
+    "index": 2
+  },
+  "finding-a8f0d8dc949749f3": {
+    "case_id": "case-bd14b0656680",
+    "arm": "skills",
+    "index": 0
+  },
+  "finding-fb0d8d2abcb11908": {
+    "case_id": "case-bd14b0656680",
+    "arm": "skills",
+    "index": 1
+  },
+  "finding-494bd05f36aef668": {
+    "case_id": "case-bd14b0656680",
+    "arm": "skills",
+    "index": 2
+  }
+}

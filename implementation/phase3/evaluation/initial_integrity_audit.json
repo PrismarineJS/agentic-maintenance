@@ -1,0 +1,1661 @@
+{
+  "scope": "Initial evaluation only; no confirmation packets, discussions, predictions, or skills read or changed. Compact metadata filtered to initial case IDs. No semantic re-adjudication.",
+  "checks": [
+    {
+      "check": "paired_initial_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "adjudicated_initial_case_coverage",
+      "passed": true,
+      "detail": {
+        "total_initial_cases": 80,
+        "paired_cases": 36,
+        "contextual_only_cases": 44
+      }
+    },
+    {
+      "check": "finding_judgment_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "packet_content_digests_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "prediction_packet_digests_match",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "initial_prediction_freeze_hash",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "finding_caps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "score_arithmetic",
+      "passed": true,
+      "detail": []
+    }
+  ],
+  "location_method": "Unified diff hunk RIGHT/LEFT mapping of actually displayed lines; unchanged context counted separately from additions/deletions. Source file length is supplemental and does not make an undisplayed line an inline diff location. Findings remain frozen.",
+  "location_summary": {
+    "baseline": {
+      "displayed_added": 30,
+      "outside_displayed_hunks": 1
+    },
+    "skills": {
+      "displayed_added": 25,
+      "displayed_context": 1
+    }
+  },
+  "locations": [
+    {
+      "case_id": "case-05324cab112c",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-884138b5d15a45fd",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/plugins/digging.js",
+      "line": 245,
+      "side": "RIGHT",
+      "packet_scope": "original_inline_hunks",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "      bot.blockAt(bot.entity.position.offset(0, bot.entity.eyeHeight, 0)).name === 'water',",
+          "hunk_header": "@@ -242,7 +242,7 @@ function inject (bot) {",
+          "patch_line": 6
+        }
+      ],
+      "source_right_line_count": 260,
+      "source_right_line_exists": true,
+      "source_right_text": "      bot.blockAt(bot.entity.position.offset(0, bot.entity.eyeHeight, 0)).name === 'water',"
+    },
+    {
+      "case_id": "case-0e8cbd2f340e",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-62c559b15868a9bc",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/client/profileKeys.js",
+      "line": 30,
+      "side": "RIGHT",
+      "packet_scope": "original_inline_hunks",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  return new Promise((resolve, reject) => {",
+          "hunk_header": "@@ -0,0 +1,69 @@",
+          "patch_line": 31
+        }
+      ],
+      "source_right_line_count": 69,
+      "source_right_line_exists": true,
+      "source_right_text": "  return new Promise((resolve, reject) => {"
+    },
+    {
+      "case_id": "case-1470a7fce44e",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-7177726c25570788",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/bedrock/index.js",
+      "line": 53,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "        var s = nbt.writeUncompressed(tag, 'little').toString()",
+          "hunk_header": "@@ -27,6 +28,54 @@ module.exports = (data) => {",
+          "patch_line": 46
+        }
+      ],
+      "source_right_line_count": 81,
+      "source_right_line_exists": true,
+      "source_right_text": "        var s = nbt.writeUncompressed(tag, 'little').toString()"
+    },
+    {
+      "case_id": "case-1f394bc23758",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-de7dd596f08ff9f0",
+      "kind": "actionable",
+      "verdict": "uncertain",
+      "path": "src/lib/plugins/login.js",
+      "line": 157,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "        action: { remove_player: true },",
+          "hunk_header": "@@ -152,25 +152,41 @@ module.exports.player = async function (player, serv, settings) {",
+          "patch_line": 15
+        }
+      ],
+      "source_right_line_count": 358,
+      "source_right_line_exists": true,
+      "source_right_text": "        action: { remove_player: true },"
+    },
+    {
+      "case_id": "case-1f394bc23758",
+      "arm": "baseline",
+      "finding_index": 1,
+      "finding_id": "finding-233a0bcd3295e58a",
+      "kind": "actionable",
+      "verdict": "uncertain",
+      "path": "src/lib/plugins/login.js",
+      "line": 206,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "        action: { add_player: true },",
+          "hunk_header": "@@ -185,31 +201,59 @@ module.exports.player = async function (player, serv, settings) {",
+          "patch_line": 76
+        }
+      ],
+      "source_right_line_count": 358,
+      "source_right_line_exists": true,
+      "source_right_text": "        action: { add_player: true },"
+    },
+    {
+      "case_id": "case-1f394bc23758",
+      "arm": "baseline",
+      "finding_index": 2,
+      "finding_id": "finding-577524e69e76d955",
+      "kind": "actionable",
+      "verdict": "uncertain",
+      "path": "src/lib/plugins/sound.js",
+      "line": 65,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "          sound: {",
+          "hunk_header": "@@ -59,9 +60,11 @@ module.exports.server = function (serv, { version }) {",
+          "patch_line": 26
+        }
+      ],
+      "source_right_line_count": 195,
+      "source_right_line_exists": true,
+      "source_right_text": "          sound: {"
+    },
+    {
+      "case_id": "case-2c1df8e6f116",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-f93c9b235b04f730",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "package.json",
+      "line": 8,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    \"test\": \"npm run test\",",
+          "hunk_header": "@@ -1,10 +1,11 @@",
+          "patch_line": 11
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-2c1df8e6f116",
+      "arm": "baseline",
+      "finding_index": 1,
+      "finding_id": "finding-1b7a182ed2f71a98",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "viewer/lib/models.js",
+      "line": 482,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  if (block.name.includes('air')) return []",
+          "hunk_header": "@@ -478,7 +478,9 @@ function matchProperties (block, properties) {",
+          "patch_line": 18
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-2c1df8e6f116",
+      "arm": "baseline",
+      "finding_index": 2,
+      "finding_id": "finding-26185e30ecf94dbf",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "viewer/lib/viewer.js",
+      "line": 44,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "      window.alert(msg)",
+          "hunk_header": "@@ -28,15 +27,30 @@ class Viewer {",
+          "patch_line": 24
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-4827eb7ce80b",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-539a16a7c7312117",
+      "kind": "optional",
+      "verdict": "supported_optional",
+      "path": "test/lpVec3Test.js",
+      "line": 7,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "describe('lpVec3', () => {",
+          "hunk_header": "@@ -0,0 +1,38 @@",
+          "patch_line": 8
+        }
+      ],
+      "source_right_line_count": 38,
+      "source_right_line_exists": true,
+      "source_right_text": "describe('lpVec3', () => {"
+    },
+    {
+      "case_id": "case-4aaf1fbf3ed4",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-05f8a1a7886e9aad",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/plugins/blocks.js",
+      "line": 49,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    const dist = Math.max(Math.abs(dx), Math.abs(dz))",
+          "hunk_header": "@@ -20,44 +19,48 @@ const dimensionNames = {",
+          "patch_line": 45
+        }
+      ],
+      "source_right_line_count": 513,
+      "source_right_line_exists": true,
+      "source_right_text": "    const dist = Math.max(Math.abs(dx), Math.abs(dz))"
+    },
+    {
+      "case_id": "case-4aaf1fbf3ed4",
+      "arm": "baseline",
+      "finding_index": 1,
+      "finding_id": "finding-26728ea013c15b51",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/plugins/blocks.js",
+      "line": 49,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    const dist = Math.max(Math.abs(dx), Math.abs(dz))",
+          "hunk_header": "@@ -20,44 +19,48 @@ const dimensionNames = {",
+          "patch_line": 45
+        }
+      ],
+      "source_right_line_count": 513,
+      "source_right_line_exists": true,
+      "source_right_text": "    const dist = Math.max(Math.abs(dx), Math.abs(dz))"
+    },
+    {
+      "case_id": "case-585cb11428ef",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-8df89c0b17f12538",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/server/login.js",
+      "line": 216,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    client.state = states.PLAY",
+          "hunk_header": "@@ -217,6 +208,14 @@ module.exports = function (client, server, options) {",
+          "patch_line": 62
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-585cb11428ef",
+      "arm": "baseline",
+      "finding_index": 1,
+      "finding_id": "finding-abbb8fddc50973d4",
+      "kind": "actionable",
+      "verdict": "uncertain",
+      "path": "src/client/play.js",
+      "line": 50,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "      client.state = states.CONFIGURATION",
+          "hunk_header": "@@ -32,30 +32,53 @@ module.exports = function (client, options) {",
+          "patch_line": 36
+        }
+      ],
+      "source_right_line_count": 84,
+      "source_right_line_exists": true,
+      "source_right_text": "      client.state = states.CONFIGURATION"
+    },
+    {
+      "case_id": "case-0e8cbd2f340e",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-5ee5ba8dd66ce903",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/client/profileKeys.js",
+      "line": 30,
+      "side": "RIGHT",
+      "packet_scope": "original_inline_hunks",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  return new Promise((resolve, reject) => {",
+          "hunk_header": "@@ -0,0 +1,69 @@",
+          "patch_line": 31
+        }
+      ],
+      "source_right_line_count": 69,
+      "source_right_line_exists": true,
+      "source_right_text": "  return new Promise((resolve, reject) => {"
+    },
+    {
+      "case_id": "case-1470a7fce44e",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-640298c5ef5e6949",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/bedrock/index.js",
+      "line": 53,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "        var s = nbt.writeUncompressed(tag, 'little').toString()",
+          "hunk_header": "@@ -27,6 +28,54 @@ module.exports = (data) => {",
+          "patch_line": 46
+        }
+      ],
+      "source_right_line_count": 81,
+      "source_right_line_exists": true,
+      "source_right_text": "        var s = nbt.writeUncompressed(tag, 'little').toString()"
+    },
+    {
+      "case_id": "case-1f394bc23758",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-5d8414e47c03dce6",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/lib/plugins/login.js",
+      "line": 269,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    } else if (serv.supportFeature('playerInfoActionIsBitfield')) {",
+          "hunk_header": "@@ -222,6 +266,22 @@ module.exports.player = async function (player, serv, settings) {",
+          "patch_line": 145
+        }
+      ],
+      "source_right_line_count": 358,
+      "source_right_line_exists": true,
+      "source_right_text": "    } else if (serv.supportFeature('playerInfoActionIsBitfield')) {"
+    },
+    {
+      "case_id": "case-2c1df8e6f116",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-cd83fccb0dbab098",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "viewer/lib/models.js",
+      "line": 482,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  if (block.name.includes('air')) return []",
+          "hunk_header": "@@ -478,7 +478,9 @@ function matchProperties (block, properties) {",
+          "patch_line": 18
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-2c1df8e6f116",
+      "arm": "skills",
+      "finding_index": 1,
+      "finding_id": "finding-af247f9b417a1248",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "package.json",
+      "line": 9,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_context",
+      "matches": [
+        {
+          "classification": "context",
+          "text": "    \"pretest\": \"npm run lint\",",
+          "hunk_header": "@@ -1,10 +1,11 @@",
+          "patch_line": 12
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-2c1df8e6f116",
+      "arm": "skills",
+      "finding_index": 2,
+      "finding_id": "finding-2ed9f4061c0557ca",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "viewer/lib/viewer.js",
+      "line": 45,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "      console.log(msg)",
+          "hunk_header": "@@ -28,15 +27,30 @@ class Viewer {",
+          "patch_line": 25
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-4827eb7ce80b",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-96eed10efb1caa41",
+      "kind": "actionable",
+      "verdict": "supported_optional",
+      "path": "test/lpVec3Test.js",
+      "line": 7,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "describe('lpVec3', () => {",
+          "hunk_header": "@@ -0,0 +1,38 @@",
+          "patch_line": 8
+        }
+      ],
+      "source_right_line_count": 38,
+      "source_right_line_exists": true,
+      "source_right_text": "describe('lpVec3', () => {"
+    },
+    {
+      "case_id": "case-4aaf1fbf3ed4",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-8bee792a5bfc3e03",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/plugins/blocks.js",
+      "line": 49,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    const dist = Math.max(Math.abs(dx), Math.abs(dz))",
+          "hunk_header": "@@ -20,44 +19,48 @@ const dimensionNames = {",
+          "patch_line": 45
+        }
+      ],
+      "source_right_line_count": 513,
+      "source_right_line_exists": true,
+      "source_right_text": "    const dist = Math.max(Math.abs(dx), Math.abs(dz))"
+    },
+    {
+      "case_id": "case-4aaf1fbf3ed4",
+      "arm": "skills",
+      "finding_index": 1,
+      "finding_id": "finding-18749d48f31dca8e",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/plugins/blocks.js",
+      "line": 44,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    const viewDist = bot.settings.viewDistance ?? 8",
+          "hunk_header": "@@ -20,44 +19,48 @@ const dimensionNames = {",
+          "patch_line": 40
+        }
+      ],
+      "source_right_line_count": 513,
+      "source_right_line_exists": true,
+      "source_right_text": "    const viewDist = bot.settings.viewDistance ?? 8"
+    },
+    {
+      "case_id": "case-585cb11428ef",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-f2a1a050dcea47e9",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/server/login.js",
+      "line": 216,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    client.state = states.PLAY",
+          "hunk_header": "@@ -217,6 +208,14 @@ module.exports = function (client, server, options) {",
+          "patch_line": 62
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-585cb11428ef",
+      "arm": "skills",
+      "finding_index": 1,
+      "finding_id": "finding-eadd9e656cb95344",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "test/serverTest.js",
+      "line": 326,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "        player1.on('playerJoin', async function (packet) {",
+          "hunk_header": "@@ -323,7 +323,7 @@ for (const supportedVersion of mc.supportedVersions) {",
+          "patch_line": 24
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-5f38204ed6a1",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-022b275689f1c331",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "docs/README.md",
+      "line": 104,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "var client = mc.createClient({",
+          "hunk_header": "@@ -95,6 +95,20 @@ client.on('chat', function(packet) {",
+          "patch_line": 11
+        }
+      ],
+      "source_right_line_count": 197,
+      "source_right_line_exists": true,
+      "source_right_text": "var client = mc.createClient({"
+    },
+    {
+      "case_id": "case-5f38204ed6a1",
+      "arm": "baseline",
+      "finding_index": 1,
+      "finding_id": "finding-2c9462873da38ca8",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/index.d.ts",
+      "line": 266,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "\t\tpickRealm?: (realms: Realm[]) => Realm",
+          "hunk_header": "@@ -259,6 +261,11 @@ declare module 'minecraft-protocol' {",
+          "patch_line": 23
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-6ebff9a64a95",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-b02285c5cbf4e456",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/plugins/entities.js",
+      "line": 140,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    entity.eyeHeight = CROUCH_EYEHEIGHT",
+          "hunk_header": "@@ -130,11 +137,13 @@ function inject (bot) {",
+          "patch_line": 31
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-70365e3e6e16",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-c6c853a07c02f3ac",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/pc/1.15/ChunkColumn.js",
+      "line": 214,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "        return Buffer.alloc(4096)",
+          "hunk_header": "@@ -210,6 +210,9 @@ module.exports = (Block, mcData) => {",
+          "patch_line": 6
+        }
+      ],
+      "source_right_line_count": 345,
+      "source_right_line_exists": true,
+      "source_right_text": "        return Buffer.alloc(4096)"
+    },
+    {
+      "case_id": "case-705127eb8e43",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-8ca663ecaebe7be0",
+      "kind": "optional",
+      "verdict": "supported_optional",
+      "path": "lib/pc/index.js",
+      "line": 26,
+      "side": "RIGHT",
+      "packet_scope": "original_inline_hunks",
+      "strict": false,
+      "status": "outside_displayed_hunks",
+      "matches": [],
+      "source_right_line_count": 145,
+      "source_right_line_exists": true,
+      "source_right_text": "              data.chatFormattingById[chatType.id + 1] = n"
+    },
+    {
+      "case_id": "case-71018346b751",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-e13570ca9d3c21fd",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/plugins/blocks.js",
+      "line": 279,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "      chunksPerTick: 25 / chunkPerMill",
+          "hunk_header": "@@ -268,6 +268,17 @@ function inject (bot, { version, storageBuilder, hideErrors }) {",
+          "patch_line": 13
+        }
+      ],
+      "source_right_line_count": 583,
+      "source_right_line_exists": true,
+      "source_right_text": "      chunksPerTick: 25 / chunkPerMill"
+    },
+    {
+      "case_id": "case-741c2de7a3f1",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-a6b32a3a572d61f8",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "tools/js/fillDataVersions.js",
+      "line": 12,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    current -= 1",
+          "hunk_header": "@@ -0,0 +1,26 @@",
+          "patch_line": 13
+        }
+      ],
+      "source_right_line_count": 26,
+      "source_right_line_exists": true,
+      "source_right_text": "    current -= 1"
+    },
+    {
+      "case_id": "case-5f38204ed6a1",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-1649d87fccabd249",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/index.d.ts",
+      "line": 266,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "\t\tpickRealm?: (realms: Realm[]) => Realm",
+          "hunk_header": "@@ -259,6 +261,11 @@ declare module 'minecraft-protocol' {",
+          "patch_line": 23
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-5f38204ed6a1",
+      "arm": "skills",
+      "finding_index": 1,
+      "finding_id": "finding-f1fed50fbf7e7e48",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "docs/README.md",
+      "line": 105,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  realms: {",
+          "hunk_header": "@@ -95,6 +95,20 @@ client.on('chat', function(packet) {",
+          "patch_line": 12
+        }
+      ],
+      "source_right_line_count": 197,
+      "source_right_line_exists": true,
+      "source_right_text": "  realms: {"
+    },
+    {
+      "case_id": "case-6ebff9a64a95",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-e39a1d3ec9cbc504",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/plugins/entities.js",
+      "line": 9,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "const CROUCH_EYEHEIGHT = 1.27",
+          "hunk_header": "@@ -1,8 +1,12 @@",
+          "patch_line": 13
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-70365e3e6e16",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-73cb887520dc500b",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/pc/1.15/ChunkColumn.js",
+      "line": 214,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "        return Buffer.alloc(4096)",
+          "hunk_header": "@@ -210,6 +210,9 @@ module.exports = (Block, mcData) => {",
+          "patch_line": 6
+        }
+      ],
+      "source_right_line_count": 345,
+      "source_right_line_exists": true,
+      "source_right_text": "        return Buffer.alloc(4096)"
+    },
+    {
+      "case_id": "case-71018346b751",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-7426f8d58fdf530e",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/plugins/blocks.js",
+      "line": 279,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "      chunksPerTick: 25 / chunkPerMill",
+          "hunk_header": "@@ -268,6 +268,17 @@ function inject (bot, { version, storageBuilder, hideErrors }) {",
+          "patch_line": 13
+        }
+      ],
+      "source_right_line_count": 583,
+      "source_right_line_exists": true,
+      "source_right_text": "      chunksPerTick: 25 / chunkPerMill"
+    },
+    {
+      "case_id": "case-741c2de7a3f1",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-bb074a154b9f0fad",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "tools/js/fillDataVersions.js",
+      "line": 12,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    current -= 1",
+          "hunk_header": "@@ -0,0 +1,26 @@",
+          "patch_line": 13
+        }
+      ],
+      "source_right_line_count": 26,
+      "source_right_line_exists": true,
+      "source_right_text": "    current -= 1"
+    },
+    {
+      "case_id": "case-7ae05735d8e2",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-89eba782ee38778b",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/pc/common/PaletteChunkSection.js",
+      "line": 64,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "      const parsed = JSON.parse(j)",
+          "hunk_header": "@@ -9,142 +9,179 @@ function getBlockIndex (pos) {",
+          "patch_line": 92
+        }
+      ],
+      "source_right_line_count": 187,
+      "source_right_line_exists": true,
+      "source_right_text": "      const parsed = JSON.parse(j)"
+    },
+    {
+      "case_id": "case-94fb6e3c75da",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-e79775973aea1b57",
+      "kind": "actionable",
+      "verdict": "uncertain",
+      "path": "test/bedrock.test.js",
+      "line": 137,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "          await processCachedSubChunk(packet.x, packet.y, packet.z, packet.blob_id, Buffer.from(packet.data))",
+          "hunk_header": "@@ -125,14 +125,16 @@ for (const version of versions) {",
+          "patch_line": 45
+        }
+      ],
+      "source_right_line_count": 202,
+      "source_right_line_exists": true,
+      "source_right_text": "          await processCachedSubChunk(packet.x, packet.y, packet.z, packet.blob_id, Buffer.from(packet.data))"
+    },
+    {
+      "case_id": "case-a57c5bc2bda9",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-4bab33ec89acc6a1",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/transforms/serializer.js",
+      "line": 19,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  if (cacheDir === '0') return null",
+          "hunk_header": "@@ -11,6 +11,23 @@ const merge = require('lodash.merge')",
+          "patch_line": 10
+        }
+      ],
+      "source_right_line_count": 88,
+      "source_right_line_exists": true,
+      "source_right_text": "  if (cacheDir === '0') return null"
+    },
+    {
+      "case_id": "case-a8f10ae8e2f3",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-3f37852c05621104",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "tools/js/test/audit_version_regression.js",
+      "line": 96,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "",
+          "hunk_header": "@@ -0,0 +1,125 @@",
+          "patch_line": 97
+        }
+      ],
+      "source_right_line_count": 125,
+      "source_right_line_exists": true,
+      "source_right_text": ""
+    },
+    {
+      "case_id": "case-7ae05735d8e2",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-c0fdbfc36592c962",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/pc/common/PaletteChunkSection.js",
+      "line": 65,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "      return new ChunkSection({",
+          "hunk_header": "@@ -9,142 +9,179 @@ function getBlockIndex (pos) {",
+          "patch_line": 93
+        }
+      ],
+      "source_right_line_count": 187,
+      "source_right_line_exists": true,
+      "source_right_text": "      return new ChunkSection({"
+    },
+    {
+      "case_id": "case-94fb6e3c75da",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-f742c2febd78d18b",
+      "kind": "actionable",
+      "verdict": "uncertain",
+      "path": "test/bedrock.test.js",
+      "line": 134,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "            await processCachedSubChunk(packet.origin.x + entry.dx, packet.origin.y + entry.dy, packet.origin.z + entry.dz, entry.blob_id, Buffer.from(entry.payload))",
+          "hunk_header": "@@ -125,14 +125,16 @@ for (const version of versions) {",
+          "patch_line": 41
+        }
+      ],
+      "source_right_line_count": 202,
+      "source_right_line_exists": true,
+      "source_right_text": "            await processCachedSubChunk(packet.origin.x + entry.dx, packet.origin.y + entry.dy, packet.origin.z + entry.dz, entry.blob_id, Buffer.from(entry.payload))"
+    },
+    {
+      "case_id": "case-a57c5bc2bda9",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-0847f41b7d0e0957",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/transforms/serializer.js",
+      "line": 20,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  const inputs = [",
+          "hunk_header": "@@ -11,6 +11,23 @@ const merge = require('lodash.merge')",
+          "patch_line": 11
+        }
+      ],
+      "source_right_line_count": 88,
+      "source_right_line_exists": true,
+      "source_right_text": "  const inputs = ["
+    },
+    {
+      "case_id": "case-a8f10ae8e2f3",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-8c8da3bc057a296a",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "tools/js/test/audit_version_regression.js",
+      "line": 96,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "",
+          "hunk_header": "@@ -0,0 +1,125 @@",
+          "patch_line": 97
+        }
+      ],
+      "source_right_line_count": 125,
+      "source_right_line_exists": true,
+      "source_right_text": ""
+    },
+    {
+      "case_id": "case-cd1878573852",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-1ac1f7f9e117dd87",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "1.10.2/src/main/java/dev/u9g/minecraftdatagenerator/generators/BiomesDataGenerator.java",
+      "line": 34,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "        biomeDesc.addProperty(\"color\", biome.getSkyColor(biome.getTemperature()));",
+          "hunk_header": "@@ -118,7 +31,7 @@ public static JsonObject generateBiomeInfo(SimpleRegistry<Identifier, Biome> reg",
+          "patch_line": 109
+        }
+      ],
+      "source_right_line_count": 105,
+      "source_right_line_exists": true,
+      "source_right_text": "        biomeDesc.addProperty(\"color\", biome.getSkyColor(biome.getTemperature()));"
+    },
+    {
+      "case_id": "case-d38b12e4bb9e",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-44490dd016133585",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/plugins/blocks.js",
+      "line": 271,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    visibleFaces.shift()",
+          "hunk_header": "@@ -218,19 +227,61 @@ function inject (bot, { version, storageBuilder, hideErrors }) {",
+          "patch_line": 73
+        }
+      ],
+      "source_right_line_count": 660,
+      "source_right_line_exists": true,
+      "source_right_text": "    visibleFaces.shift()"
+    },
+    {
+      "case_id": "case-e65599751bc6",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-2f02ae923de2378e",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "index.js",
+      "line": 40,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  if (blocksByName.iron_trapdoor) { trapdoorIds.add(blocksByName.iron_trapdoor.id) } // 1.8+",
+          "hunk_header": "@@ -34,6 +34,21 @@ function Physics (mcData, world) {",
+          "patch_line": 8
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-f164402a33d2",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-6608c068dc0ba235",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "scripts/genTypes.js",
+      "line": 25,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  const packets = Object.entries(protocol.play.toServer.types).map(([name, [type, props]]) => {",
+          "hunk_header": "@@ -0,0 +1,134 @@",
+          "patch_line": 26
+        }
+      ],
+      "source_right_line_count": 134,
+      "source_right_line_exists": true,
+      "source_right_text": "  const packets = Object.entries(protocol.play.toServer.types).map(([name, [type, props]]) => {"
+    },
+    {
+      "case_id": "case-f164402a33d2",
+      "arm": "baseline",
+      "finding_index": 1,
+      "finding_id": "finding-d084c290a0ab7f98",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "package.json",
+      "line": 17,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    \"prepublishOnly\": \"cp docs/README.md README.md && node scripts/genTypes.js\"",
+          "hunk_header": "@@ -14,7 +14,7 @@",
+          "patch_line": 6
+        }
+      ],
+      "source_right_line_count": 66,
+      "source_right_line_exists": true,
+      "source_right_text": "    \"prepublishOnly\": \"cp docs/README.md README.md && node scripts/genTypes.js\""
+    },
+    {
+      "case_id": "case-fd9157c452a5",
+      "arm": "baseline",
+      "finding_index": 0,
+      "finding_id": "finding-e7c58d0fcbbb3f02",
+      "kind": "optional",
+      "verdict": "supported_actionable",
+      "path": "test/versions.js",
+      "line": 4,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  try { registry(v); return true } catch { return false }",
+          "hunk_header": "@@ -1,5 +1,8 @@",
+          "patch_line": 6
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-d38b12e4bb9e",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-b59997871e830002",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "lib/plugins/blocks.js",
+      "line": 271,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    visibleFaces.shift()",
+          "hunk_header": "@@ -218,19 +227,61 @@ function inject (bot, { version, storageBuilder, hideErrors }) {",
+          "patch_line": 73
+        }
+      ],
+      "source_right_line_count": 660,
+      "source_right_line_exists": true,
+      "source_right_text": "    visibleFaces.shift()"
+    },
+    {
+      "case_id": "case-e65599751bc6",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-c1be2feabe616d81",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "index.js",
+      "line": 40,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": false,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  if (blocksByName.iron_trapdoor) { trapdoorIds.add(blocksByName.iron_trapdoor.id) } // 1.8+",
+          "hunk_header": "@@ -34,6 +34,21 @@ function Physics (mcData, world) {",
+          "patch_line": 8
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-f164402a33d2",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-ce65fedd7554d5d1",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "src/index.d.ts",
+      "line": 31,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "\t\twrite: IsAny<typeof clientWrite> extends true ? (name: string, params: any) => void : typeof clientWrite",
+          "hunk_header": "@@ -26,7 +28,7 @@ declare module 'minecraft-protocol' {",
+          "patch_line": 17
+        }
+      ],
+      "source_right_line_count": 292,
+      "source_right_line_exists": true,
+      "source_right_text": "\t\twrite: IsAny<typeof clientWrite> extends true ? (name: string, params: any) => void : typeof clientWrite"
+    },
+    {
+      "case_id": "case-f164402a33d2",
+      "arm": "skills",
+      "finding_index": 1,
+      "finding_id": "finding-5b917586a15acb4d",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "package.json",
+      "line": 17,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    \"prepublishOnly\": \"cp docs/README.md README.md && node scripts/genTypes.js\"",
+          "hunk_header": "@@ -14,7 +14,7 @@",
+          "patch_line": 6
+        }
+      ],
+      "source_right_line_count": 66,
+      "source_right_line_exists": true,
+      "source_right_text": "    \"prepublishOnly\": \"cp docs/README.md README.md && node scripts/genTypes.js\""
+    },
+    {
+      "case_id": "case-fd9157c452a5",
+      "arm": "skills",
+      "finding_index": 0,
+      "finding_id": "finding-08f39d6fb29709a1",
+      "kind": "actionable",
+      "verdict": "supported_actionable",
+      "path": "test/versions.js",
+      "line": 4,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "  try { registry(v); return true } catch { return false }",
+          "hunk_header": "@@ -1,5 +1,8 @@",
+          "patch_line": 6
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    }
+  ],
+  "recomputed_metrics": {
+    "all": {
+      "baseline": {
+        "cases": 36,
+        "no_comment_cases": 13,
+        "cases_exceeding_declared_cap": 0,
+        "findings": 31,
+        "supported_actionable": 24,
+        "actionable_proposed": 28,
+        "actionable_supported_actionable": 23,
+        "uncertain": 5,
+        "actionable_uncertain": 5,
+        "supported_optional": 2,
+        "optional_proposed": 3,
+        "optional_supported_optional": 2,
+        "optional_supported_actionable": 1,
+        "eligible_reference_issues": 11,
+        "recovered_actionable_references": 6,
+        "reported_case_seconds_total": 877.483837,
+        "cases_with_elapsed_measurement": 36
+      },
+      "skills": {
+        "cases": 36,
+        "no_comment_cases": 16,
+        "cases_exceeding_declared_cap": 0,
+        "findings": 26,
+        "supported_actionable": 24,
+        "actionable_proposed": 26,
+        "actionable_supported_actionable": 24,
+        "supported_optional": 1,
+        "actionable_supported_optional": 1,
+        "uncertain": 1,
+        "actionable_uncertain": 1,
+        "eligible_reference_issues": 11,
+        "recovered_actionable_references": 7,
+        "reported_case_seconds_total": 1082.076873,
+        "cases_with_elapsed_measurement": 36
+      }
+    },
+    "strict": {
+      "baseline": {
+        "cases": 28,
+        "no_comment_cases": 11,
+        "cases_exceeding_declared_cap": 0,
+        "findings": 24,
+        "supported_actionable": 19,
+        "actionable_proposed": 22,
+        "actionable_supported_actionable": 18,
+        "uncertain": 4,
+        "actionable_uncertain": 4,
+        "supported_optional": 1,
+        "optional_proposed": 2,
+        "optional_supported_optional": 1,
+        "optional_supported_actionable": 1,
+        "eligible_reference_issues": 9,
+        "recovered_actionable_references": 4,
+        "reported_case_seconds_total": 701.640926,
+        "cases_with_elapsed_measurement": 28
+      },
+      "skills": {
+        "cases": 28,
+        "no_comment_cases": 13,
+        "cases_exceeding_declared_cap": 0,
+        "findings": 20,
+        "supported_actionable": 18,
+        "actionable_proposed": 20,
+        "actionable_supported_actionable": 18,
+        "supported_optional": 1,
+        "actionable_supported_optional": 1,
+        "uncertain": 1,
+        "actionable_uncertain": 1,
+        "eligible_reference_issues": 9,
+        "recovered_actionable_references": 5,
+        "reported_case_seconds_total": 846.4515110000001,
+        "cases_with_elapsed_measurement": 28
+      }
+    },
+    "strict_cumulative": {
+      "baseline": {
+        "cases": 27,
+        "no_comment_cases": 11,
+        "cases_exceeding_declared_cap": 0,
+        "findings": 23,
+        "uncertain": 4,
+        "actionable_proposed": 21,
+        "actionable_uncertain": 4,
+        "supported_actionable": 18,
+        "actionable_supported_actionable": 17,
+        "supported_optional": 1,
+        "optional_proposed": 2,
+        "optional_supported_optional": 1,
+        "optional_supported_actionable": 1,
+        "eligible_reference_issues": 9,
+        "recovered_actionable_references": 4,
+        "reported_case_seconds_total": 681.640926,
+        "cases_with_elapsed_measurement": 27
+      },
+      "skills": {
+        "cases": 27,
+        "no_comment_cases": 12,
+        "cases_exceeding_declared_cap": 0,
+        "findings": 20,
+        "supported_actionable": 18,
+        "actionable_proposed": 20,
+        "actionable_supported_actionable": 18,
+        "supported_optional": 1,
+        "actionable_supported_optional": 1,
+        "uncertain": 1,
+        "actionable_uncertain": 1,
+        "eligible_reference_issues": 9,
+        "recovered_actionable_references": 5,
+        "reported_case_seconds_total": 828.451511,
+        "cases_with_elapsed_measurement": 27
+      }
+    },
+    "strict_hunk_only": {
+      "baseline": {
+        "cases": 1,
+        "no_comment_cases": 0,
+        "cases_exceeding_declared_cap": 0,
+        "findings": 1,
+        "supported_actionable": 1,
+        "actionable_proposed": 1,
+        "actionable_supported_actionable": 1,
+        "eligible_reference_issues": 0,
+        "recovered_actionable_references": 0,
+        "reported_case_seconds_total": 20,
+        "cases_with_elapsed_measurement": 1
+      },
+      "skills": {
+        "cases": 1,
+        "no_comment_cases": 1,
+        "cases_exceeding_declared_cap": 0,
+        "eligible_reference_issues": 0,
+        "recovered_actionable_references": 0,
+        "reported_case_seconds_total": 18,
+        "cases_with_elapsed_measurement": 1
+      }
+    },
+    "overlap_sensitive": {
+      "baseline": {
+        "cases": 8,
+        "no_comment_cases": 2,
+        "cases_exceeding_declared_cap": 0,
+        "findings": 7,
+        "supported_actionable": 5,
+        "actionable_proposed": 6,
+        "actionable_supported_actionable": 5,
+        "uncertain": 1,
+        "actionable_uncertain": 1,
+        "supported_optional": 1,
+        "optional_proposed": 1,
+        "optional_supported_optional": 1,
+        "eligible_reference_issues": 2,
+        "recovered_actionable_references": 2,
+        "reported_case_seconds_total": 175.842911,
+        "cases_with_elapsed_measurement": 8
+      },
+      "skills": {
+        "cases": 8,
+        "no_comment_cases": 3,
+        "cases_exceeding_declared_cap": 0,
+        "findings": 6,
+        "supported_actionable": 6,
+        "actionable_proposed": 6,
+        "actionable_supported_actionable": 6,
+        "eligible_reference_issues": 2,
+        "recovered_actionable_references": 2,
+        "reported_case_seconds_total": 235.62536199999997,
+        "cases_with_elapsed_measurement": 8
+      }
+    }
+  },
+  "source_hashes": {
+    "initial-predictions.jsonl": "60d9aa64f5e93f8099cc9ac5c76e89898d23ab0417e3e253a473fadac2379774",
+    "initial-scores.json": "694a6555f8dd7c8b5c20720b6de8c8b402c7744d31303b06e2b18795e8cdd0c4",
+    "initial-adjudication/arm_key.json": "2032d288d14e432d95eef67feb55ef827b2a4790e10c898278e2b32ef6b0e294",
+    "initial-adjudication/results-01.jsonl": "44f2c815e3ee67e62e21e9c2bdb309ca0c067c4be029f275ff3b679e43f30ea5",
+    "initial-adjudication/results-02.jsonl": "93e8d71f8dab328c2c96886e3b1ba170919e15f12833b49857b849d1f9c42017",
+    "initial-adjudication/results-03.jsonl": "b791cdedeaff627f6500b2d25b3b94bb8e51339d8e5a246ce69ba95b3f2057e5"
+  },
+  "limitations": [
+    "Location existence does not validate scenario, contract, causality, severity, or publication readiness. Frozen verdicts and scores were not changed.",
+    "All 57 findings specify RIGHT. The parser handles both sides but these predictions do not exercise LEFT anchors. Partial original hunks are mapped from actual displayed rows, not advertised header lengths.",
+    "Two unrecovered strict historical references (minecraft-data #749 R749-1 and #784 R784-1) rely on historical signed-wire-contract evidence unavailable in review packets. Recorded recall remains 4/9 versus 5/9; this audit does not change eligibility.",
+    "Shared-filesystem blinding, reviewer freshness, serving model identity, skill-loading overhead, actual total compute, and no-external-request compliance cannot be independently established from these artifacts.",
+    "No historical integration tests or network requests were executed. Confirmation stage and skill contents were not inspected."
+  ],
+  "reviewed_claims": {
+    "initial_case_counts": "36 paired packets; 27 strict cumulative, 1 strict hunk-only, 8 overlap-sensitive; 44 additional initial contextual cases.",
+    "initial_results_table": "All counts and mean seconds agree with recomputation.",
+    "paired_examples": "Viewer #408, flying-squid #691, protocol #1498, chunk #278, minecraft-data #1086 and generator #29 summaries agree with frozen adjudication.",
+    "finding_location_exception_count": 2,
+    "missing_paths": 0,
+    "missing_or_null_lines": 0,
+    "invalid_sides": 0,
+    "out_of_range_supplied_source_lines": 0
+  }
+}

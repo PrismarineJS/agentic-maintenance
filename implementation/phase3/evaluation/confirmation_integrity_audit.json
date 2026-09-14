@@ -1,0 +1,312 @@
+{
+  "scope": "Mechanical confirmation audit after prediction freeze. Only the 18 frozen predictions, their 9 raw packets, matching compact metadata, task declarations, and prediction freeze were inspected. No semantic adjudication or adoption inference.",
+  "prediction_sha256": "75a7d2d3060f7c2f520cbd5502e98119e05ecd991a73589b70f063e5ee41e362",
+  "checks": [
+    {
+      "check": "prediction_freeze_digest",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "paired_confirmation_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "task_manifest_coverage",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "task_model_budget_matched_between_arms",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "prediction_model_budget_match_tasks",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "prediction_skill_digest_match_tasks",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "packet_content_digests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "prediction_manifest_task_packet_digests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "arm_prediction_file_digests",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "arm_prediction_rows_match_frozen_combination",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "finding_caps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "reported_elapsed_within_caps",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "check": "empty_findings_have_rationale",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "location_method": "Unified diff RIGHT/LEFT mapping of actually displayed rows, distinguishing unchanged context from added/deleted lines. Header lengths do not create omitted display rows. Historical full source checked separately when supplied.",
+  "location_summary": {
+    "baseline": {
+      "displayed_added": 3,
+      "displayed_context": 1
+    },
+    "skills": {
+      "displayed_added": 5
+    }
+  },
+  "locations": [
+    {
+      "case_id": "case-bd14b0656680",
+      "arm": "baseline",
+      "finding_index": 0,
+      "kind": "actionable",
+      "path": "src/world.js",
+      "line": 6,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "const blockLoader = require('prismarine-block')",
+          "hunk_header": "@@ -3,6 +3,7 @@ const { EventEmitter } = require('events')",
+          "patch_line": 5
+        }
+      ],
+      "source_right_line_count": 336,
+      "source_right_line_exists": true,
+      "source_right_text": "const blockLoader = require('prismarine-block')"
+    },
+    {
+      "case_id": "case-bd14b0656680",
+      "arm": "baseline",
+      "finding_index": 1,
+      "kind": "actionable",
+      "path": "src/world.js",
+      "line": 202,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    clearTimeout(timer)",
+          "hunk_header": "@@ -182,6 +188,20 @@ class World extends EventEmitter {",
+          "patch_line": 36
+        }
+      ],
+      "source_right_line_count": 336,
+      "source_right_line_exists": true,
+      "source_right_text": "    clearTimeout(timer)"
+    },
+    {
+      "case_id": "case-bd14b0656680",
+      "arm": "baseline",
+      "finding_index": 2,
+      "kind": "optional",
+      "path": "src/worldsync.js",
+      "line": 109,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    const block = this.blockCache[chunk.getBlockStateId(posInChunk(pos))]",
+          "hunk_header": "@@ -94,6 +94,21 @@ class WorldSync extends EventEmitter {",
+          "patch_line": 17
+        }
+      ],
+      "source_right_line_count": 228,
+      "source_right_line_exists": true,
+      "source_right_text": "    const block = this.blockCache[chunk.getBlockStateId(posInChunk(pos))]"
+    },
+    {
+      "case_id": "case-ffb4575ce459",
+      "arm": "baseline",
+      "finding_index": 0,
+      "kind": "actionable",
+      "path": "lib/plugins/entities.js",
+      "line": 898,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_context",
+      "matches": [
+        {
+          "classification": "context",
+          "text": "      }",
+          "hunk_header": "@@ -882,23 +882,26 @@ function inject (bot) {",
+          "patch_line": 32
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-bd14b0656680",
+      "arm": "skills",
+      "finding_index": 0,
+      "kind": "actionable",
+      "path": "src/world.js",
+      "line": 6,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "const blockLoader = require('prismarine-block')",
+          "hunk_header": "@@ -3,6 +3,7 @@ const { EventEmitter } = require('events')",
+          "patch_line": 5
+        }
+      ],
+      "source_right_line_count": 336,
+      "source_right_line_exists": true,
+      "source_right_text": "const blockLoader = require('prismarine-block')"
+    },
+    {
+      "case_id": "case-bd14b0656680",
+      "arm": "skills",
+      "finding_index": 1,
+      "kind": "actionable",
+      "path": "src/world.js",
+      "line": 202,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    clearTimeout(timer)",
+          "hunk_header": "@@ -182,6 +188,20 @@ class World extends EventEmitter {",
+          "patch_line": 36
+        }
+      ],
+      "source_right_line_count": 336,
+      "source_right_line_exists": true,
+      "source_right_text": "    clearTimeout(timer)"
+    },
+    {
+      "case_id": "case-bd14b0656680",
+      "arm": "skills",
+      "finding_index": 2,
+      "kind": "actionable",
+      "path": "src/worldsync.js",
+      "line": 109,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "    const block = this.blockCache[chunk.getBlockStateId(posInChunk(pos))]",
+          "hunk_header": "@@ -94,6 +94,21 @@ class WorldSync extends EventEmitter {",
+          "patch_line": 17
+        }
+      ],
+      "source_right_line_count": 228,
+      "source_right_line_exists": true,
+      "source_right_text": "    const block = this.blockCache[chunk.getBlockStateId(posInChunk(pos))]"
+    },
+    {
+      "case_id": "case-ffb4575ce459",
+      "arm": "skills",
+      "finding_index": 0,
+      "kind": "actionable",
+      "path": "lib/plugins/entities.js",
+      "line": 897,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "        bot.setControlState('sneak', false)",
+          "hunk_header": "@@ -882,23 +882,26 @@ function inject (bot) {",
+          "patch_line": 31
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    },
+    {
+      "case_id": "case-ffb4575ce459",
+      "arm": "skills",
+      "finding_index": 1,
+      "kind": "optional",
+      "path": "test/internalTest.js",
+      "line": 318,
+      "side": "RIGHT",
+      "packet_scope": "cumulative_review_revision",
+      "strict": true,
+      "status": "displayed_added",
+      "matches": [
+        {
+          "classification": "added",
+          "text": "            bot.waitForTicks = async (ticks) => { events.push(['tick', ticks]) }",
+          "hunk_header": "@@ -302,6 +305,33 @@ for (const supportedVersion of mineflayer.testedVersions) {",
+          "patch_line": 25
+        }
+      ],
+      "source_right_line_count": null,
+      "source_right_line_exists": null
+    }
+  ],
+  "case_scope_counts": {
+    "cumulative_review_revision": 8,
+    "original_inline_hunks": 1
+  },
+  "limitations": [
+    "Location existence does not establish validity, severity, publication readiness, review quality, or adoption value.",
+    "Model and budgets are matched declarations; exact serving identity, token use, setup overhead, actual compute, fresh-agent isolation, and access compliance are not independently verified.",
+    "Prediction skill-set digest matches the task and supplied expected revised digest; this audit did not read or rehash skill contents.",
+    "All findings use RIGHT; LEFT mapping is implemented but not exercised by these predictions.",
+    "No historical runtime tests, network requests, or semantic re-adjudication were performed. Scores were not yet available at this mechanical audit."
+  ],
+  "source_hashes": {
+    "/tmp/prismarine-phase3/evaluation/confirmation-predictions.jsonl": "75a7d2d3060f7c2f520cbd5502e98119e05ecd991a73589b70f063e5ee41e362",
+    "/tmp/prismarine-phase3/evaluation/confirmation-predictions-freeze.json": "33e7ab59f08b1332721aa6744bd646355007cf1d20ca7945d5065f0887a7b9c0",
+    "/home/ai/prismarinejs/agentic-maintenance/implementation/phase3/evaluation/confirmation-tasks/confirmation-01-baseline.json": "0cadf4b27007b9a1b6845891fede97f64acf5ecd0119fdeea6b2ae94e552cf38",
+    "/home/ai/prismarinejs/agentic-maintenance/implementation/phase3/evaluation/confirmation-tasks/confirmation-01-skills.json": "388f6eb80ac869697c2e18adc7f694fee78a998e5622e9f700e640c34d3ada30"
+  },
+  "prior_exposure_addendum": {
+    "audit": "prior_review_overlap_audit.json",
+    "confirmed_prior_phase2_cases": [
+      "case-d03f269e7db8",
+      "case-ffb4575ce459"
+    ],
+    "interpretation": "Original mechanical checks pass, but two originally strict cumulative confirmation packets have exact prior phase2 exposure at the same revision. Original groups/scores remain preserved; report a separate post-hoc exclusion."
+  }
+}

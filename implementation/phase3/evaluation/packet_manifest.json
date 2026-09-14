@@ -1,0 +1,782 @@
+[
+  {
+    "case_id": "case-be54e7aad54f",
+    "split": "confirmation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-fd81ad295ff1",
+    "split": "confirmation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-1f394bc23758",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "83312e8cb11c5543156ac529e6a113ab1159fb50814a033e508c2d731567fd13",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-1f394bc23758.json",
+    "file_count": 2,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-a7413a5e4ac2",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-928bf61eeb24",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "f3238d8d31a3a42372e40a3744f20baf3fabfde7f9b987962d7d0f583a0e41f3",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-928bf61eeb24.json",
+    "file_count": 6,
+    "omitted_file_count": 3
+  },
+  {
+    "case_id": "case-08a2766ca6eb",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-ecbcedfa2a0a",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-cea6fbb189e0",
+    "split": "confirmation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-7d6e6098489d",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "52f96c3f1b771e143fdcac15612554f568e3a2014ed42b09789007498e125225",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-7d6e6098489d.json",
+    "file_count": 2,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-7948f45de291",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "b8359dd2ebd60f3d2d5d91d3c68d06c6ecd0ebf7a594af72c6e9e049ae10323c",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-7948f45de291.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-d8779571707e",
+    "split": "confirmation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-dc1d73df505a",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "f3001168456a454f26a9c8a34c2871f975f62e81c0342f91f7a5ab2bcae07c0c",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-dc1d73df505a.json",
+    "file_count": 19,
+    "omitted_file_count": 52
+  },
+  {
+    "case_id": "case-ffcb13e2a188",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "741448502e5e8d88d43c9a41aaec2292c53820e868fda4dfa295073f777ff165",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-ffcb13e2a188.json",
+    "file_count": 7,
+    "omitted_file_count": 3
+  },
+  {
+    "case_id": "case-d95d5fbc3d73",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-52b424597fb9",
+    "split": "confirmation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-2aea14210828",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-7c04dbfe1f53",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-a40bffc6bcb7",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-b6e3f675ee4e",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-362beacc6d85",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "5170b30acc2373100cf7400806971b832b36fbe6eed086f9d7644235e4d0cec4",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-362beacc6d85.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-fef185a38358",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "48b9aa938ff083a0d348042cd8c941bf61865d4d8e17336e3d711cb4b39a1751",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-fef185a38358.json",
+    "file_count": 2,
+    "omitted_file_count": 14
+  },
+  {
+    "case_id": "case-741c2de7a3f1",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "02e5d4a95580db187ce1c58f24bf4ff9c2dfe8cbf7824b06d12cdc367fdbe831",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-741c2de7a3f1.json",
+    "file_count": 2,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-5d011b12d805",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-10e7fefc5c0b",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-5d989e6e84c8",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-a8f10ae8e2f3",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "752f657014496cefd187783534e9bae897efd7f3d42e2390d512be246ac6580c",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-a8f10ae8e2f3.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-0a61fa169e94",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-319874bcafff",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-0e0d74162e86",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-f04dcd3baf70",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "b5fe86fe1a9c7363741f9accc3171e85d9fa573c127a00a27390de0a823e7645",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-f04dcd3baf70.json",
+    "file_count": 6,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-4ba40d92819c",
+    "split": "confirmation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "5ea2315ebaea11f85f4e918b8192118d30ccf650abfb77adaf02b90f6cc6ecea",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-4ba40d92819c.json",
+    "file_count": 3,
+    "omitted_file_count": 3
+  },
+  {
+    "case_id": "case-a54f976485d4",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "2eccc050b81d781f58da5829b0ffc556506d67b7a38fc51e76184ad5f5a3a7f0",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-a54f976485d4.json",
+    "file_count": 6,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-70927484fbe3",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-afca53f8fe7c",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-cd1878573852",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "98a8068f5798deccf1ebbf944c0f422e8550b9bfb1d7973b7b57b47b56ec040b",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-cd1878573852.json",
+    "file_count": 20,
+    "omitted_file_count": 171
+  },
+  {
+    "case_id": "case-f90bd489c8be",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-4728a02bafa7",
+    "split": "confirmation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "3b3268128e660144ce321d81e4aac26119cbda771c54c8867040fa3bd33c2d4c",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-4728a02bafa7.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-d4140bb309e2",
+    "split": "confirmation",
+    "status": "prepared",
+    "scope": "original_inline_hunks",
+    "packet_sha256": "66ce1e51a2e3a136e3e9c9048bc42ca3faea2e902f91ce09cf66c1d6b44d9a2a",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-d4140bb309e2.json",
+    "file_count": 2,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-78a4ab81b353",
+    "split": "confirmation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "adcf56959a62797f1a8be1714cb0925ac74c5ca36fd98598287731e6beedb01b",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-78a4ab81b353.json",
+    "file_count": 4,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-90eb3f94132d",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-6025d916ee26",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-e42b8d891f50",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-4a3ed76dfa93",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-d71d7e4326be",
+    "split": "confirmation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "8643c2634455b533ede51970a13eba332495f7f0d193d6ec451c1d2b72568d81",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-d71d7e4326be.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-71018346b751",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "438c8e513bd8fd4d772c1351c7d5ddb8e912d7a059e0c51cb59031ea192e5060",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-71018346b751.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-097ecf5d2282",
+    "split": "confirmation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-a00ba99d8d3d",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "333ff277c3d4e05752e11415ca21631db98cd3159f9e6f61ee9ca9f7a6d780b9",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-a00ba99d8d3d.json",
+    "file_count": 10,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-6ebff9a64a95",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "3eb87d746876e43d0f7f967ad9341cc50c2de97d125b935951c46357fef55eb6",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-6ebff9a64a95.json",
+    "file_count": 18,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-557105a70f0d",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-05324cab112c",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "original_inline_hunks",
+    "packet_sha256": "facdef65d87ab3a5018dfaec3b3066c27f472d65a26e7f4d75dbd8852a81948c",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-05324cab112c.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-82859593c636",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-d38b12e4bb9e",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "a63f69a88f28243e18ea19b1653377e3395cf9cbdc6b77b1259b2a8d20c88f30",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-d38b12e4bb9e.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-39b34396db28",
+    "split": "confirmation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-4aaf1fbf3ed4",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "6be923f8367ca2d39de2e990537432566af4558e59691c7fa05a8491bff358db",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-4aaf1fbf3ed4.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-e0924b6b66b4",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-c6d64121a488",
+    "split": "confirmation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-04f388412ecb",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-38455decc28e",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-9186ffe491d3",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-d03f269e7db8",
+    "split": "confirmation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "f6e3cd287994ef30d8f81621ceabde56a4cd8162cb0cc3f35b309d98fe393a80",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-d03f269e7db8.json",
+    "file_count": 2,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-ffb4575ce459",
+    "split": "confirmation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "62022b82b9c3177860eee0b4f227a8d68af71c6b796273bd64bcc25cbd165acd",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-ffb4575ce459.json",
+    "file_count": 4,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-6d72b8140e17",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "7a96f39a2acd7973e312e41b669027d1d0ae5ab35844d3f2a99f9efb2a911e18",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-6d72b8140e17.json",
+    "file_count": 8,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-9306f4535a02",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-d2366cf90630",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-0e8cbd2f340e",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "original_inline_hunks",
+    "packet_sha256": "62efc08ba287d3dec63c350b442878e562d64f99a2b413f2d9a3276be7acb93b",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-0e8cbd2f340e.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-5f38204ed6a1",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "9b0a49c293ebc7f2b1e7830bda77b12381f2b15bbcfe5707305ec87184ba2b63",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-5f38204ed6a1.json",
+    "file_count": 8,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-3d0119369c6c",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-585cb11428ef",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "998a58112d1d473b83e409ff0788862db9be6d1ae161103da72a41b041674f5b",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-585cb11428ef.json",
+    "file_count": 14,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-f164402a33d2",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "887d8e577f2da0616912f535675526531a765ab4faa7480d53ef13ca72082aa3",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-f164402a33d2.json",
+    "file_count": 4,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-bf92bd558c93",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-5975c401eca7",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "89c1137e1a892cae90c1e7f5a91a5c3b42ffae5d7055b1950a9a4fd7e68c2455",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-5975c401eca7.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-e26d91057175",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-c66aa9e00ce4",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-5156ac875041",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-61421a4eb0d2",
+    "split": "confirmation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-affd6fa4d55f",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "7b68172be905c65fd0ff7abc2bc7ab7c487c36f2bc9f8a026d55804042945265",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-affd6fa4d55f.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-69bc78964c35",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-5306e94f7695",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-8a768d594bfb",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-818c2b13951d",
+    "split": "confirmation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "ccf75f4a30cd627b98a4a07fbaf030bcaabb5b0cb1d0c80a0af802746554a9d9",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-818c2b13951d.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-7c81ab0d5f17",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-4827eb7ce80b",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "ba137bbcbea74ef24e72409583944eb45f042ded6a81b97ea6d00f02c7b4bd38",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-4827eb7ce80b.json",
+    "file_count": 5,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-a57c5bc2bda9",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "d8ae2037e509feb0bf3c634c9afd8525842d987d8848a1df08278fd550c590cf",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-a57c5bc2bda9.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-89176f0aede9",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-f40f5f1f7eee",
+    "split": "confirmation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-70365e3e6e16",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "b1d7a4405ba2718e7cada5873ed9ddc1f30f26aae0f0015c6407c015cfd73cf8",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-70365e3e6e16.json",
+    "file_count": 8,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-3ad1bd58675b",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-94fb6e3c75da",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "764a2d232a6c9c2ffb3748771b506d1f2bf30654ae7d60a98f4d5304c0dabdef",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-94fb6e3c75da.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-7ae05735d8e2",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "4e53067d48deb3fb653e128e46673ee83a38ad0b4a895abcdff14a66e6f60e99",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-7ae05735d8e2.json",
+    "file_count": 5,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-fd9157c452a5",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "e4079508bc4fe5cf2fe7d27257da2996b603625f2a943c12500b33e026a23230",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-fd9157c452a5.json",
+    "file_count": 5,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-e65599751bc6",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "32cf8b224231d83bf12a6d479f23b40d2da5eb5b7824add4551e432725ecc953",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-e65599751bc6.json",
+    "file_count": 2,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-1470a7fce44e",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "748910cdf9955dc9c0f54e252c9d5e968bace0214b26c48123fb315c9a7eeee7",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-1470a7fce44e.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-705127eb8e43",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "original_inline_hunks",
+    "packet_sha256": "43939da96e9e0b202c2a87272b013ec0ffc72efd06c94f71b61f26bc6e639a8b",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-705127eb8e43.json",
+    "file_count": 1,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-03e2f94aa282",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-81a2a67fc5fb",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-2c1df8e6f116",
+    "split": "initial_evaluation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "0d64ddc2b5c4b136d6bc985bfdaf4dcd4072a0f8aedcd3268f6f071f35e360d7",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-2c1df8e6f116.json",
+    "file_count": 31,
+    "omitted_file_count": 3
+  },
+  {
+    "case_id": "case-65c7eb3d1664",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-bd14b0656680",
+    "split": "confirmation",
+    "status": "prepared",
+    "scope": "cumulative_review_revision",
+    "packet_sha256": "b634f2877336667046c1976a3fdd5604fe8452630cd2aad8c0f026c81b461d55",
+    "packet": "/tmp/prismarine-phase3/evaluation/packets/case-bd14b0656680.json",
+    "file_count": 6,
+    "omitted_file_count": 0
+  },
+  {
+    "case_id": "case-124a4d72fb74",
+    "split": "initial_evaluation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  },
+  {
+    "case_id": "case-37b32b66d0d9",
+    "split": "confirmation",
+    "status": "excluded",
+    "reason": "No non-explicitly-generated target review anchored to an exact revision."
+  }
+]

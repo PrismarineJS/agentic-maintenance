@@ -1,0 +1,99 @@
+{
+  "manifest": "survey_manifest.json",
+  "selected": {
+    "cases": 500,
+    "verified_target_participation": 500,
+    "endpoint_error_cases": 0,
+    "cases_with_only_explicit_agent_target_content": 14,
+    "empty_final_file_lists": 5
+  },
+  "split_counts": {
+    "discovery": 400,
+    "confirmation": 20,
+    "initial_evaluation": 80
+  },
+  "outcomes": {
+    "closed_unmerged": 183,
+    "merged": 250,
+    "open": 67
+  },
+  "repository_counts": {
+    "PrismarineJS/flying-squid": 10,
+    "PrismarineJS/minecraft-data": 140,
+    "PrismarineJS/minecraft-data-generator": 10,
+    "PrismarineJS/mineflayer": 152,
+    "PrismarineJS/mineflayer-pathfinder": 6,
+    "PrismarineJS/node-minecraft-data": 7,
+    "PrismarineJS/node-minecraft-protocol": 95,
+    "PrismarineJS/prismarine-chat": 5,
+    "PrismarineJS/prismarine-chunk": 11,
+    "PrismarineJS/prismarine-entity": 6,
+    "PrismarineJS/prismarine-item": 9,
+    "PrismarineJS/prismarine-physics": 9,
+    "PrismarineJS/prismarine-registry": 6,
+    "PrismarineJS/prismarine-viewer": 10,
+    "PrismarineJS/prismarine-world": 8,
+    "ProtoDef-io/ProtoDef": 3,
+    "ProtoDef-io/node-protodef": 13
+  },
+  "verified_target_account_case_counts": {
+    "rom1504": 298,
+    "extremeheat": 308
+  },
+  "target_comment_authorship_labels": {
+    "uncertain_or_undisclosed": 1796,
+    "explicitly_agent_generated": 42,
+    "explicit_agent_content_in_mixed_or_uncertain_comment": 3
+  },
+  "captured_record_counts": {
+    "reviews": 802,
+    "inline_comments": 833,
+    "issue_comments": 1702,
+    "files": 3049,
+    "commits": 2254,
+    "review_threads": 448
+  },
+  "endpoint_completeness": {
+    "pr": {
+      "retrieved": 500
+    },
+    "reviews": {
+      "complete_paginated": 500
+    },
+    "inline_comments": {
+      "complete_paginated": 500
+    },
+    "issue_comments": {
+      "complete_paginated": 500
+    },
+    "commits": {
+      "complete_paginated": 500
+    },
+    "files": {
+      "complete_paginated": 500
+    },
+    "checks": {
+      "retrieved": 500
+    },
+    "status": {
+      "retrieved": 500
+    },
+    "review_threads": {
+      "thread_metadata_complete; comment_ids_first100_perthread; full_bodies_in_paginated_REST_inline_comments": 500
+    },
+    "file_patches": {
+      "all_present_but_api_may_truncate_large_patches": 443,
+      "some_missing_or_binary": 57
+    }
+  },
+  "errors": [],
+  "limitations": [
+    "No Karang search participation found in these repositories/date window. Do not infer Karang-specific principles.",
+    "Account identity does not prove manual authorship. Explicit agent and mixed-content disclosures are separated; remaining authorship is uncertain or undisclosed.",
+    "Final PR metadata and original inline review hunks do not guarantee complete historical review snapshots. Exact evaluation reconstruction is reported separately.",
+    "Files API patches can omit binary/large content or truncate hunks even when pagination is complete.",
+    "Checks/status reflect captured-head API state, not historical CI logs.",
+    "Selection balances repositories, years and outcomes within a reviewer-participation search frame; it is not a random sample of all PRs.",
+    "Title-normalized family grouping is incomplete; evaluation requires additional cross-reference screening."
+  ]
+}
