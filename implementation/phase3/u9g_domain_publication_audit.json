@@ -1,0 +1,114 @@
+[
+  {
+    "repo": "PrismarineJS/mineflayer",
+    "number": 4063,
+    "review_id": 5199680301,
+    "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4063#pullrequestreview-5199680301",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nOne distinct sprint-state regression is inline. A focused real 1.21.4 protocol client/server head/base comparison reproduces the missing stop action after disabling physics and clearing controls. Dependencies: minecraft-protocol 1.68.0, minecraft-data 3.116.0. No vanilla server or full version suite was run.\n\nSkills used: prismarine-lifecycle-action-review helped separate simulation readiness from outgoing input state; prismarine-geometry-movement-review helped trace the derived sprint state; prismarine-review checked this against the existing feedback.",
+    "review_head": "fc480ee8c456de87ce77769b31ba8bcf88703043",
+    "current_head": "fc480ee8c456de87ce77769b31ba8bcf88703043",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T15:34:37.886471+00:00",
+    "inline_comments": [
+      {
+        "id": 4006809187,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4063#discussion_r4006809187",
+        "path": "lib/plugins/physics.js",
+        "line": 99,
+        "original_line": 99,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T15:32:38Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  },
+  {
+    "repo": "PrismarineJS/prismarine-item",
+    "number": 184,
+    "review_id": 5199697586,
+    "review_url": "https://github.com/PrismarineJS/prismarine-item/pull/184#pullrequestreview-5199697586",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nReviewed the current head and all existing discussion. This finding is separate from the existing anonymous-body issue: named scalar enchantment hashes work, but resolving a server-added enchantment throws before hashing. The reproduction used Minecraft protocol 1.68.0, data 3.116.0 and registry 1.12.0, plus the explicit candidate item #184 / node-protodef #177 / ProtoDef #65 heads. No live server was run.\n\nSkills used: prismarine-review guided deduplication against earlier feedback; prismarine-item-inventory-review and prismarine-protocol-data-review guided the registry-packet, item conversion and fallback checks.\nprismarine-architecture-review helped trace registry ownership and identify the bounded fallback.",
+    "review_head": "0e154a4f48a65f8364c57a691d755064b68f24c4",
+    "current_head": "0e154a4f48a65f8364c57a691d755064b68f24c4",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T15:36:26.702929+00:00",
+    "inline_comments": [
+      {
+        "id": 4006823197,
+        "url": "https://github.com/PrismarineJS/prismarine-item/pull/184#discussion_r4006823197",
+        "path": "lib/hashedSlot.js",
+        "line": 27,
+        "original_line": 27,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T15:34:09Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  },
+  {
+    "repo": "PrismarineJS/mineflayer-pathfinder",
+    "number": 377,
+    "review_id": 5199820221,
+    "review_url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/377#pullrequestreview-5199820221",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nA synchronous stop followed by a same-goal restart can reuse the cancelled walk's promise. I compared the unmodified head and base controllers with an EventEmitter/planner adapter and checked active-join and post-cleanup restart controls. No live server or full suite was run.\n\nSkills used: prismarine-lifecycle-action-review helped test cancellation and promise cleanup ordering; prismarine-geometry-movement-review helped check the caller's walk contract; prismarine-review helped compare current discussions and avoid duplicate feedback.",
+    "review_head": "021933ef4a41ccd07d56538d0f9df02e4cf3aaa1",
+    "current_head": "021933ef4a41ccd07d56538d0f9df02e4cf3aaa1",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T15:48:05.785647+00:00",
+    "inline_comments": [
+      {
+        "id": 4006928824,
+        "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/377#discussion_r4006928824",
+        "path": "lib/human.js",
+        "line": 437,
+        "original_line": 437,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T15:46:08Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  },
+  {
+    "repo": "PrismarineJS/prismarine-viewer",
+    "number": 484,
+    "review_id": 5199865945,
+    "review_url": "https://github.com/PrismarineJS/prismarine-viewer/pull/484#pullrequestreview-5199865945",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nA deferred removal can cross a world replacement and delete current geometry. Compared actual base and head with the production renderer, real THREE objects, and controlled bounds/worker completion; no browser/WebGL run.\n\nSkills used: prismarine-world-render-review guided the world-generation lifetime check; prismarine-review helped verify the current diff and deduplicate the existing barrier feedback.",
+    "review_head": "dc777aa049507363ecefbb5e1dc8dba2c2160a11",
+    "current_head": "dc777aa049507363ecefbb5e1dc8dba2c2160a11",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T15:52:18.338646+00:00",
+    "inline_comments": [
+      {
+        "id": 4006969200,
+        "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/484#discussion_r4006969200",
+        "path": "viewer/lib/worldrenderer.js",
+        "line": 168,
+        "original_line": 168,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T15:50:30Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  }
+]

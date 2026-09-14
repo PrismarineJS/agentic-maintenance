@@ -1,0 +1,146 @@
+{
+  "started_at": "2026-09-14T15:25:56.705714+00:00",
+  "completed_at": "2026-09-14T15:55:26.832627+00:00",
+  "skill_commit": "74bea29cc79b35a6cdd8ca87ba6602bfe84af0e5",
+  "unique_prs": 54,
+  "distinct_subagents": 10,
+  "maximum_concurrent_workers": 3,
+  "workers": {
+    "hashing": "/root/domain_review_hashing",
+    "movement": "/root/domain_review_movement",
+    "viewer_core": "/root/domain_review_viewer_core",
+    "interactions": "/root/domain_review_interactions",
+    "bot_lifecycle": "/root/domain_review_bot_lifecycle",
+    "bot_tests_scoreboard": "/root/domain_review_bot_tests_scoreboard",
+    "pathfinder_physics": "/root/domain_review_pathfinder_physics",
+    "protocol_diagnostics": "/root/domain_review_protocol_diagnostics",
+    "data_generation": "/root/domain_review_data_generation",
+    "viewer_stack_items": "/root/domain_review_viewer_stack_items"
+  },
+  "statuses": {
+    "no_new_comment": 50,
+    "posted": 4
+  },
+  "new_inline_comments": 4,
+  "new_reviews": 4,
+  "all_final_prs_open_unmerged": true,
+  "all_final_heads_and_bases_match": true,
+  "new_or_missed_prs": [],
+  "initial_inline_comments": 106,
+  "coordinator_checks": [
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4063,
+      "candidate": "Sprint state freezes when physics simulation disabled",
+      "result": "supported for publication",
+      "checks": [
+        "Read actual head tickPhysics/updateSprinting, docs, base/head real-NMP test and results",
+        "Compared all prior inline/review/issue discussion: no session reset or feature-availability premise in new failure"
+      ],
+      "evidence": "work/movement/4063-disabled-{head,base}.log",
+      "limits": [
+        "Coordinator inspected agent test and output; did not independently rerun NMP test",
+        "No vanilla server or broad version matrix"
+      ],
+      "checked_at": "2026-09-14T15:33:37.851182+00:00"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-item",
+      "number": 184,
+      "candidate": "Unresolved configured enchantment ID throws before hash-zero fallback",
+      "result": "supported for publication",
+      "checks": [
+        "Read PR body/all prior discussion and candidate converter/hashComponent/toHashedNotch",
+        "Read real registry loadDimensionCodec",
+        "Coordinator reran actual compiled configuration registry_data and play set_slot + candidate item probe on1.21.5/1.21.11 with normal enchant controls"
+      ],
+      "evidence": "work/hashing/custom-enchantment.cjs",
+      "limits": [
+        "Configured registry derived from released valid fixture with added entry, no live vanilla server",
+        "Candidate ProtoDef dependency distinct from NMP runtime dependency"
+      ],
+      "checked_at": "2026-09-14T15:33:37.851205+00:00"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 377,
+      "candidate": "Synchronous stop then same-goal restart joins cancelled promise",
+      "result": "supported for publication",
+      "checked_at": "2026-09-14T15:44:59.443739+00:00",
+      "checks": [
+        "Read head walkTo/startWalk/failWalk/stop plus full PR body/prior discussion",
+        "Coordinator reran lifecycle.cjs: base restart resolves; head reuses rejected promise; active joining and restart after microtask cleanup controls pass"
+      ],
+      "evidence": "work/pathfinder_physics/lifecycle.cjs",
+      "limits": [
+        "Actual production controller with EventEmitter/planner adapter, not live server or actual path planning/physics"
+      ]
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 484,
+      "candidate": "Old deferred column removal deletes replacement world mesh",
+      "result": "supported for publication",
+      "checked_at": "2026-09-14T15:48:55.319546+00:00",
+      "checks": [
+        "Read exact renderer setVersion/boundsReady/addColumn/removeColumn and prior readiness-barrier thread",
+        "Coordinator reran real renderer/THREE controlled loader-worker probe: base mesh survives; head disposes mesh and sends24 cancellations while loaded flag stays true"
+      ],
+      "evidence": "work/viewer_stack_items/484/lifetime.cjs",
+      "limits": [
+        "Production renderer and THREE resources, controlled loader and worker reply",
+        "No browser/WebGL or full generated asset pipeline"
+      ]
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1278,
+      "candidate": "Maintained YAML regenerates the mapper removed only from JSON",
+      "result": "withheld_as_redundant_supporting_evidence",
+      "checked_at": "2026-09-14T15:51:34.569527+00:00",
+      "checks": [
+        "Read full current prior inline and author discussion",
+        "Existing r4003031847 requests retaining named mapper or explicit compatibility migration; restoring mapper also restores YAML/JSON agreement"
+      ],
+      "reason": "On this unchanged head a separate source-sync inline adds supporting evidence for an already-requested action; record internally rather than duplicate feedback",
+      "limits": [
+        "Coordinator inspected deduplication premise, not an independent YAML compilation run"
+      ]
+    }
+  ],
+  "source_result_hashes": {
+    "hashing": "8827b44288c49d700523d8922a0cab871289f2ae21239d3c7582f1567a7674ad",
+    "movement": "b3c3121305fb1e2d588b622a244ea61792a817af87fd07d60314e112422e1410",
+    "viewer_core": "e2742e8e3b09af7e4b93b444d10cddf0898bb4c46bbfeaed7a67c206683e245e",
+    "interactions": "0b2dd25366f7e0ed8570d3005ff62aaba23c7ac81d57ed97a87c94c884461a3e",
+    "bot_lifecycle": "886222264e5d7dd3f8d87a01d7af16896d86ab18bb3555c7a97c32ad255e2910",
+    "bot_tests_scoreboard": "52c539d89a22920c637eb9bee1b2153e2800b6cdd4e9945779fcc88182046125",
+    "pathfinder_physics": "9ce74f1133dabb2d0f3301629b06275f6bed3800b7d99a59916149d0ae62e409",
+    "protocol_diagnostics": "b96a250d217bb38de97f8de1deade57dd1874c1dc3838bef24bdecd0ec76c93d",
+    "data_generation": "20c28cc4fea559fb101e7ccff96318011eeb7c2b5209211ac8b87735d195a1c5",
+    "viewer_stack_items": "6970a3b1f84321156fb1cf174158a4873c2bd86ca437d13ecf2a7afa070d3f0d"
+  },
+  "skill_files_sha256": {
+    "skills/prismarine-architecture-review/SKILL.md": "e6260bbf371c3473d3b7d12a5ba97645a7be8376acc0419908bc71a99213cd46",
+    "skills/prismarine-architecture-review/references/api_checks.md": "3bdbed7d293fb44a1c9cdf5532a8dffed018798d7f25bb2e72484c7ac5908fc9",
+    "skills/prismarine-geometry-movement-review/SKILL.md": "d949ba00529f4c84f62379f30e8fb80253650519848ceb453783aa3721e55d57",
+    "skills/prismarine-geometry-movement-review/references/recipes.md": "b3fdc97df851b3c2a317f913ad3290f6d9deb4e06e02ffafbd44058e94a66155",
+    "skills/prismarine-item-inventory-review/SKILL.md": "d265740b27acf5064f5cbef1ca1f902b66da25e36212036d6773e10dd872a790",
+    "skills/prismarine-item-inventory-review/references/recipes.md": "f17d3cdf2168dc47441ca7d16ec8af90fe8c10dcc9b3f34ba87a6338fa6ea5ab",
+    "skills/prismarine-lifecycle-action-review/SKILL.md": "dced0c5ba882d1ca8f8da3b0e0eeee051ada47aafd76dd4d274d761696851739",
+    "skills/prismarine-lifecycle-action-review/references/recipes.md": "d6bf28d84de1f160410f01acfae27b10f8f68ce96f3a6e785074efd5ae19dc86",
+    "skills/prismarine-protocol-data-review/SKILL.md": "5e2bf3744bf7aec5c352810d9802eb44c255fcbd7a23fd7545d8b6de1d6be5ea",
+    "skills/prismarine-protocol-data-review/references/codec_checks.md": "5977cad46a002403e20e5574c396da67adc6c567027f666d4ca9ffb678a06384",
+    "skills/prismarine-protocol-data-review/references/sources.md": "9a13af06bfefea7fc2f9cb8d29d9c2d8d4c46e7045c083293af5e8e1a13cc1f4",
+    "skills/prismarine-protocol-data-review/scripts/numeric_mapper_paths.cjs": "0c3061201f0d006a57d89d26ade811c6a86d0d7487f5cfd65342c6441c730ed8",
+    "skills/prismarine-review/SKILL.md": "8b88f30480982c7c624a8f2af8b06dcbba7be20c1d75c604f5da687cec1b4aba",
+    "skills/prismarine-review/references/evidence.md": "c85e9e34288e6f060f3fa0718ac51b4566a6754cfad170926a40148b358e9319",
+    "skills/prismarine-world-render-review/SKILL.md": "f9bf36a10cbd3ffad91d7a7c8758eabd1308464f05fa0c85023f617786e4d0a0",
+    "skills/prismarine-world-render-review/references/recipes.md": "2d5e44289a176fc052204e72e5389c2c984b8ceacfdc0008a61f2a8e1a67b99a"
+  },
+  "limits": [
+    "No universal vanilla-server/browser test matrix or new review-accuracy benchmark",
+    "Prior examples and review records were supplied explicitly; not blinded",
+    "Temporary application probes reside outside this repository; exact revisions, commands, outcomes and limits are recorded per PR"
+  ]
+}
