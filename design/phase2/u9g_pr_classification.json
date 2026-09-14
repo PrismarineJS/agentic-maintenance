@@ -1,0 +1,1079 @@
+{
+  "snapshot": "2026-09-14",
+  "scope": "Original 78 PR inventory; 9 merged excluded",
+  "counts": {
+    "1": 15,
+    "2": 49,
+    "3": 2,
+    "4": 3
+  },
+  "pullRequests": [
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1273,
+      "url": "https://github.com/PrismarineJS/minecraft-data/pull/1273",
+      "title": "pc/protocol: entity_teleport layout for 1.21.2+ (velocity, f32 rotation, relative flags)",
+      "head": "30dc8ae4cd271c1a652481e467a6efe5dec0e716",
+      "category": 1,
+      "rationale": "Narrow wire-layout correction; the author answered the decompiled-source question with codec excerpts. Current checks pass.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4062,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4062",
+      "title": "entities: read the 1.21.2+ entity_teleport layout (velocity, float rotation, relative flags)",
+      "head": "cb6e354d203dc3cdf39deff6b171918041e137b4",
+      "category": 2,
+      "rationale": "Focused correctness fix: relative teleport code handles dx/dy/dz but omits flags.yawDelta (ROTATE_DELTA), despite the codec/source evidence defining it. Add rotated-relative-velocity coverage, and land/release minecraft-data #1273.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4063,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4063",
+      "title": "physics: send the movement input packets the vanilla client sends",
+      "head": "fc480ee8c456de87ce77769b31ba8bcf88703043",
+      "category": 2,
+      "rationale": "The patch has broad scope, but breadth and a preference to split sprint policy from packet parity do not establish a necessary major redesign. The new sprint state and packet order are localized to physics.js and can be reviewed with focused corrections. Concrete review points: require a minecraft-data version carrying sneakUsesEntityAction (or a backward-compatible fallback), since a missing feature now suppresses legacy sneak entity_action packets; reset or resynchronize the added sent-input/sprint state on login/respawn; clarify and cover sprint control with physics disabled and the supported cross-version water/flying rules. These are bounded dependency/state-policy fixes, not evidence that the overall packet/simulation approach must be replaced.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer",
+        "check-movement"
+      ],
+      "previousCategory": 3
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1278,
+      "url": "https://github.com/PrismarineJS/minecraft-data/pull/1278",
+      "title": "Fix pc/26.1 use_entity hand: plain varint, not a mapper",
+      "head": "b3eb1d49bbf717ca07d0d269a5c682b225a69ef5",
+      "category": 4,
+      "rationale": "Recommend rejecting this mapper-removal direction: the entire diff replaces the named hand enum with varint, and the author reports mineflayer has already adapted and explicitly offers making the other hand fields mappers instead. A reversal would replace the proposed solution, rather than repair it. No maintainer comment on this PR establishes rejection or consensus; this recommendation extends the named-enum preference stated on #1284. Failing CI is a separate, unresolved blocker.",
+      "ci": "FAILURE",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data",
+        "check-enum"
+      ],
+      "previousCategory": 4
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4089,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4089",
+      "title": "Right-click entities like the vanilla client: interact pair, real sneak state, hit point; useOn and mount share the path",
+      "head": "ba08fc075d213babf4487e10c3becb7614ab0645",
+      "category": 2,
+      "rationale": "Resolve conflicts and test the real serializer on old interact/interact_at versus 26.1 location packets. Use named hand enums; do not make this depend on accepting the mapper rollback in data #1278.",
+      "ci": "FAILURE",
+      "mergeable": "CONFLICTING",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1282,
+      "url": "https://github.com/PrismarineJS/minecraft-data/pull/1282",
+      "title": "Add the useEntityHasLocation feature",
+      "head": "2427e5b1733c135bcc876bc4329467e36c641162",
+      "category": 1,
+      "rationale": "Small feature flag for the new use_entity shape; useful independently of the downstream implementation.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/prismarine-item",
+      "number": 184,
+      "url": "https://github.com/PrismarineJS/prismarine-item/pull/184",
+      "title": "Add Item.toHashedNotch for 1.21.5+ window_click slot claims",
+      "head": "0e154a4f48a65f8364c57a691d755064b68f24c4",
+      "category": 2,
+      "rationale": "The current diff substantially implements the requested design: a generic ProtoDef hash dependency, HashOps types separated from item code, declarative component codec shapes in hashedSlot.json, and a small registry-dependent conversion layer. A full item-component registry remains a useful broader maintenance project, but no concrete residual issue here requires that architectural prerequisite. Remaining work is bounded: release/pin the hash dependency, reconcile anonymous composite hash bodies used by writeMap (e.g. custom_model_data floats/list fields and the container list element) with node-protodef #177 now requiring named body types, guard null nested slots in the container converter, and run version coverage. These are focused integration/correctness fixes, not grounds for a big refactor classification.",
+      "ci": "FAILURE",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data",
+        "check-hash"
+      ],
+      "previousCategory": 3
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4027,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4027",
+      "title": "inventory: claim clicked slots by hash on 1.21.5+",
+      "head": "63bada466843c3eb701827518a6918ddc4a98afd",
+      "category": 2,
+      "rationale": "Still calls Item.toHashedNotch from open prismarine-item #184 without changing the dependency requirement. Current modern-version checks fail. Release the upstream API, bump the minimum dependency, and rerun; no broader redesign is needed.",
+      "ci": "FAILURE",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer",
+        "check-stacks"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "ProtoDef-io/node-protodef",
+      "number": 177,
+      "url": "https://github.com/ProtoDef-io/node-protodef/pull/177",
+      "title": "Add the hash datatype",
+      "head": "dde6ce755124e8f42b4fc1e53ce2d84c73acdb09",
+      "category": 2,
+      "rationale": "Earlier compiler requests have been implemented: one-way sizeOf-to-write context, named bodies and CRC32C-only contract. Focused review of digest-type restrictions remains: constant size >=4 bytes permits float output and can lose digest bits. Check interpreter/compiler agreement and signed conversion; update stale PR description. No wholesale redesign established.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "ProtoDef-io/ProtoDef",
+      "number": 65,
+      "url": "https://github.com/ProtoDef-io/ProtoDef/pull/65",
+      "title": "Add the hash datatype",
+      "head": "a2b1cd2d84488012b7949fbe578d3781cc3329a4",
+      "category": 2,
+      "rationale": "Current spec already explicitly restricts algorithms to crc32c and body to a named type. Review with implementation #177 and tighten digest representation: constant size >=4 bytes alone permits lossy floating-point types or incompatible fixed types; specify exact integer representations and signed behavior. Stale PR body still advertises crypto algorithms.",
+      "ci": "NO CHECKS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1267,
+      "url": "https://github.com/PrismarineJS/minecraft-data/pull/1267",
+      "title": "pc: fix intangible_projectile NBT and 26.1 item stack templates",
+      "head": "8b81a202a449de10a3ff1975c260b5c18d5ab464",
+      "category": 1,
+      "rationale": "NBT/component and nested-stack corrections have specific decompiled codec evidence; current checks pass.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1284,
+      "url": "https://github.com/PrismarineJS/minecraft-data/pull/1284",
+      "title": "Fix pc/26.1 client_command actionId: plain varint, not a mapper",
+      "head": "2c7d1074d3feb595fc6988cb78e5c235b4d00798",
+      "category": 4,
+      "rationale": "Recommend rejecting removal of the actionId mapper. The diff directly opposes extremeheat's explicit preference here to eliminate numerical enum datatypes and retain stable names across version-dependent ordinal changes. Adapt consumers and make version representations consistent instead. This is supported by one maintainer's stated direction, not an explicit rejection decision or demonstrated project-wide consensus; passing CI does not resolve that direction disagreement.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data",
+        "check-enum"
+      ],
+      "previousCategory": 4
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1292,
+      "url": "https://github.com/PrismarineJS/minecraft-data/pull/1292",
+      "title": "Revert the 1.21.6 enum mappers whose ordinals never moved",
+      "head": "8f96413d2be41112d22f4c92c167ace72ee98474",
+      "category": 4,
+      "rationale": "Recommend rejecting the broad rollback of four named-enum fields. Stable historical ordinals do not justify a second API migration after consumers adopt names; retain named representations and address compatibility deliberately. The diff also changes difficulty/newDifficulty from varint to u8, despite discussion identifying vanilla varint encoding; correct wire types separately. The comments on this PR do not explicitly reject mapper removal: category 4 is our assessment informed by #1284's named-enum preference, not maintainer consensus. Fixing the wire-type issue alone would leave the direction objection intact.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data",
+        "check-enum"
+      ],
+      "previousCategory": 4
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1283,
+      "url": "https://github.com/PrismarineJS/minecraft-data/pull/1283",
+      "title": "Regenerate pc 1.10, 1.11 and 1.12 recipes from the game",
+      "head": "2e266c199adf7b0e1275ae9a826468555ff53289",
+      "category": 2,
+      "rationale": "Review with generator #81 and require reproducible output, including mixed metadata ingredients. The API omitted the three large recipes.json patches, so I have not audited the complete generated diff.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data-generator",
+      "number": 81,
+      "url": "https://github.com/PrismarineJS/minecraft-data-generator/pull/81",
+      "title": "Generate recipes for 1.10.2, 1.11.2 and 1.12.2",
+      "head": "07febf489ae33431b74ccdeb5f4d748996080585",
+      "category": 2,
+      "rationale": "Ask for reproducible generation and crafting checks covering wildcard metadata, mixed alternatives, and intentionally omitted dynamic recipes. This needs domain validation, not a new architecture.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4021,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4021",
+      "title": "placeBlock: reject an occupied target up front; nether test clears its sign spot",
+      "head": "4a16956f26e512b96550c8da11d3b319a37b0af5",
+      "category": 3,
+      "rationale": "Keep category 3: the current plugin owns two hard-coded replaceability tables and its own tags listener. The unresolved maintainer request is a concrete ownership change: represent replaceability in versioned minecraft-data block metadata, let prismarine-registry update that property from server tags, and consume the resulting property in placeBlock. That requires a shared data/schema and registry contract plus version/reload coverage, not just extracting the arrays into a helper. The nether fixture cleanup itself is independently small; the production guard is what needs restructuring.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer",
+        "check-remaining-refactors"
+      ],
+      "previousCategory": 3
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4064,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4064",
+      "title": "health: send player_loaded when the vanilla client would",
+      "head": "1fc5227b448f0050f7cf4e09fd37ff786d7a6247",
+      "category": 2,
+      "rationale": "Request transfer/respawn coverage for the player_loaded state machine. In particular, verify that chunksAnnounced from the previous world cannot satisfy readiness in the next world.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4068,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4068",
+      "title": "fix: drop the physics tick backlog after an event-loop stall instead of draining it",
+      "head": "47b1b39a0a48260ccd8ccaca0af17b078c80338b",
+      "category": 1,
+      "rationale": "Reviewed actual production patch and regression: modulo drops capped whole-tick backlog and preserves the fractional timestep; no concrete blocker found. Timing-test variability is a follow-up concern, not a demonstrated failure with current passing CI.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer",
+        "check-merge-candidates"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4069,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4069",
+      "title": "fix: send held_item_slot only when the slot differs from the slot the server holds",
+      "head": "d21e8324741b3663eed691dfc4495a596a9c9653",
+      "category": 1,
+      "rationale": "Reviewed held-slot handlers and simple-inventory integration. Tracks last outbound carried slot, resets on login, ignores invalid inbound hotbar slots and suppresses duplicate writes. Tests cover same-slot server updates and repeated login. No concrete regression established; the server-holds wording is less precise than last-sent tracking.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer",
+        "check-merge-candidates"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4071,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4071",
+      "title": "fix: reset teams and scoreboards on every login",
+      "head": "07248e2cbb250529cc6d3cffeb496c5e43b95820",
+      "category": 1,
+      "rationale": "Reviewed reset loops and surrounding scoreboard implementation. Login clears per-bot teams/objectives/member mappings and numeric display slots while preserving accessor aliases and public object identity. Respawn intentionally retains state. No concrete blocker found.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer",
+        "check-merge-candidates"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4085,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4085",
+      "title": "use_item and use_item_on like the vanilla client: shared prediction sequence, cursor on the clicked face, no empty-hand use, swing after the packet",
+      "head": "fa678c81777cb5584f6fabd4493b4a9716d75d73",
+      "category": 2,
+      "rationale": "Resolve the existing counter ownership/plugin review, isolate unrelated interaction behavior where useful, and test sequencing through the serializer, including boat placement. The shared counter already exists in this PR; I would not demand a large new framework.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4086,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4086",
+      "title": "Send the client_command respawn after win_game with the actionId field",
+      "head": "02bc8ced4f231e5baf7fdfe525a7c1d6e793bd22",
+      "category": 2,
+      "rationale": "The field-name correction is useful, but actionId: 0 still needs reconciliation with the 26.1 named mapper. Add a serialized 26.1 win_game/respawn regression instead of relying on data #1284.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4087,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4087",
+      "title": "Report resource packs as ACCEPTED, DOWNLOADED, SUCCESSFULLY_LOADED and deny once",
+      "head": "dc290378d252dda9026c5183e2dd2431a58e1ae5",
+      "category": 2,
+      "rationale": "The production fix looks localized. Address the existing test-quality feedback and verify status order and exactly one decline through actual packets on the relevant versions.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4088,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4088",
+      "title": "internal tests: wait for plugin injection before driving the bot from playerJoin",
+      "head": "45ec70455263d41bc9be510a4a13f03161ddca97",
+      "category": 1,
+      "rationale": "Reviewed test-only readiness waits against plugin_loader: inject_allowed invokes plugin injection synchronously before the newly registered promise resolver. The awaits therefore remove the mock-server race. No concrete blocker found.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer",
+        "check-merge-candidates"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4093,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4093",
+      "title": "Dismount by holding sneak for one tick on 1.21.3+",
+      "head": "9eb574f3849981d1dfa784258cbaa88411911ecb",
+      "category": 2,
+      "rationale": "Modern dismount always resets sneak to false in finally, overriding an already-held sneak control. Preserve prior state and cover rejected waitForTicks/disabled physics. Existing asynchronous API/test review is focused work.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4100,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4100",
+      "title": "Make the named scoreboard display slots non-enumerable",
+      "head": "2938fa213d44163d4b484d6a369762f5af30cb75",
+      "category": 1,
+      "rationale": "Reviewed non-enumerable accessor change against scoreboard display/removal handlers. Numeric slots remain enumerable and aliases resolve correctly; change is compatible with login reset #4071. Existing multiple-display-slot removal and empty-name clearing limitations predate this patch and do not establish a new blocker.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer",
+        "check-merge-candidates"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4103,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4103",
+      "title": "Window state across close, re-login and respawn: stateId per window, close_window on respawn, closeWindow(null)",
+      "head": "5d4dab47f3bfe1f414222cd6c1d39b8b234c6107",
+      "category": 2,
+      "rationale": "Resolve conflicts and exercise per-window stateId, close, relogin and respawn ordering against the server. Several related edge cases, but no demonstrated need for a major redesign.",
+      "ci": "SUCCESS",
+      "mergeable": "CONFLICTING",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4104,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4104",
+      "title": "Accept play-phase resource packs when no resourcePack listener answers them",
+      "head": "217e7f928f87e973a16115c5047a6586c783b2ed",
+      "category": 2,
+      "rationale": "Confirmed local bug: autoAcceptResourcePack reads listenerCount after resourcePack emission. A once listener removes itself before its callback declines, so default acceptance follows the decline. Capture listener/handled state before emission and add that regression. Configuration-phase listener behavior also needs explicit policy.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4107,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4107",
+      "title": "fix: answer pings and teleports at the start of the next tick, in arrival order",
+      "head": "4ac7233799487bc7b105bb8504dd50e04dd9306b",
+      "category": 2,
+      "rationale": "A concrete ordering bug needs correction: queuing the entire position handler while player_rotation remains immediate means position(yaw A) followed by player_rotation(yaw B) between ticks ends at A instead of B; immediate velocity updates have the same interaction with deferred teleports. However, the shared FIFO for pong and teleport replies remains useful. A focused revision can apply incoming teleport state in arrival order, capture immutable reply values, and defer the outgoing replies, or consistently schedule the relevant state handlers. Add regression coverage for the mixed-packet sequence and explicitly discard old-world queued work on respawn/configuration transitions; resolve the existing merge conflict. This warrants focused blocking review comments, with no demonstrated need for a substantial redesign of the entire physics system.",
+      "ci": "SUCCESS",
+      "mergeable": "CONFLICTING",
+      "auditSources": [
+        "audit-mineflayer",
+        "check-movement"
+      ],
+      "previousCategory": 3
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4108,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4108",
+      "title": "physics: a teleport leaves the standing flag alone",
+      "head": "4f31b3e149a462651e5744497f0d81a6d31990d6",
+      "category": 2,
+      "rationale": "Narrow state change has a real server/client test proving retained grounded state after teleport with physics disabled. Coordinate immediate teleport-reply flags with #4063 and cover airborne login/teleport independently; current test starts observing after the reply and therefore does not check its flags.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4111,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4111",
+      "title": "Read the scoreboard objective title as a chat component",
+      "head": "4ec9950e598d1349388e3303dfb74e590e1dc3aa",
+      "category": 2,
+      "rationale": "The conversion belongs in prismarine-chat as implemented, but title changes from string to ChatMessage. Confirm compatibility/release handling and update examples; coordinate overlap with #4112.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4112,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4112",
+      "title": "scoreboard: read the 1.20.3+ objective and score packets",
+      "head": "b5668ef0bc38907c7c4a526b99696639913c2697",
+      "category": 2,
+      "rationale": "Confirmed distinction lost: reset_score with an explicitly named unknown objective passes undefined into removeScore, which deletes the entity score from every objective. Distinguish missing objective_name from unknown objective; also resolve overlap with #4111 title conversion.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4115,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4115",
+      "title": "placeBlock: derive the face and the cursor from a raycast, like the client does",
+      "head": "27805567aa88bbc140c5b3d91766fe8a47fd105b",
+      "category": 2,
+      "rationale": "The current head already preserves and documents legacy fallback (bot.placeFaceStrict defaults false), validates both hit.position and hit.face, and tests actual prismarine-world/chunk raycasts. The PR body still describes unconditional rejection, but docs and implementation supersede it. The strongest bounded correctness question is that aimAtFace computes eye/hit before awaited bot.lookAt and then sends that saved cursor; movement during the await can invalidate the promised correspondence with the bot's actual look. Add moving-during-look and partial-shape coverage as focused revisions. Shared activation/placement architecture is optional cleanup; no major redesign prerequisite is established.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer",
+        "check-interaction"
+      ],
+      "previousCategory": 3
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4116,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4116",
+      "title": "waitForTicks: say when it is physics that is missing, not the server",
+      "head": "33f944e44f92b9eff7579fa66e24837d596ed974",
+      "category": 2,
+      "rationale": "Small useful diagnostic change. Address the existing request to exercise it with a real mineflayer/nmp pair; no shared fixture refactor is necessary to do that.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4118,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4118",
+      "title": "Expose the interaction ranges the server sends, and the reach check vanilla makes",
+      "head": "e0f82108183ceff1aeb9c8721720b68726d23c23",
+      "category": 2,
+      "rationale": "Unresolved reviewer feedback warrants revisions, but does not establish a substantial redesign prerequisite. extremeheat asks 'Why not inside prismarine-entity ?' on lib/attributes.js (discussion_r3998184615), and requests a node-minecraft-protocol server/client test rather than the fake bot (discussion_r3998183658). The helper totals 38 lines, including unchanged getAttributeValue math moved out of explosion.js; ownership can be resolved by a small upstream extraction plus consumer wiring. Attribute tests currently assign bot.entity.attributes directly and therefore do not verify entity_update_attributes packet decoding. Resolve ownership and exercise that real packet path before landing; describe an upstream dependency conditionally until the reviewer confirms that location is required. Category 3 would overstate the evidence by converting a reviewer question into a mandatory major redesign.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer",
+        "check-interaction"
+      ],
+      "previousCategory": 3
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 376,
+      "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/376",
+      "title": "createHuman: cap the wait for the head to settle",
+      "head": "e836c40bb6a57660700c911c4e9511f9555546f5",
+      "category": 2,
+      "rationale": "Clarify whether timeout means best-effort completion or an error: settled() now resolves even if the head never settled. Make public lookAt behavior and tests match that choice.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-pathfinder-physics"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 377,
+      "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/377",
+      "title": "createHuman: a walkTo for the goal in flight joins that walk instead of superseding it",
+      "head": "021933ef4a41ccd07d56538d0f9df02e4cf3aaa1",
+      "category": 2,
+      "rationale": "Joining a nearby in-flight goal ignores potentially different radius, timeout and other options. Define equivalence before coalescing requests and test differing options.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-pathfinder-physics"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 378,
+      "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/378",
+      "title": "createHuman: take three-block drops",
+      "head": "ea588494b27fc1c077126d1a87973e1b70cbd26d",
+      "category": 1,
+      "rationale": "Localized correction for maxDropDown counting the landing block, with a regression for the intended three-block fall; checks pass.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-pathfinder-physics"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 379,
+      "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/379",
+      "title": "createHuman: hold the controller through a setback storm",
+      "head": "79bed54cb602a431d2210811faf8d936cf584b2b",
+      "category": 2,
+      "rationale": "Make the default setback policy explicit and test interrupted/in-flight actions. In particular, recheck the hold after lookAt's reaction delay; a pre-delay check alone can miss a new setback.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-pathfinder-physics"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 380,
+      "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/380",
+      "title": "createHuman: a walk that stops under an unreachable goal rejects instead of resolving",
+      "head": "3191bf0e97f7949aee023c2632093f5c24d0132f",
+      "category": 1,
+      "rationale": "Narrow vertical-proximity guard prevents false success beneath unreachable goals; targeted regression coverage and passing checks.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-pathfinder-physics"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 381,
+      "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/381",
+      "title": "createHuman: walkTo and lookAt say so when physics is disabled",
+      "head": "c1cc510b8d892d43d0b154de68b7a70db3f8e5df",
+      "category": 1,
+      "rationale": "Clear upfront errors when physics is disabled, with diagnostics for a mid-walk timeout. Small documented behavior change with passing checks.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-pathfinder-physics"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/node-minecraft-protocol",
+      "number": 1522,
+      "url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1522",
+      "title": "Match the vanilla client in the login/configuration handshake: cookies, brand, per-login chat session, known packs",
+      "head": "cb12f2a990b11e238acdd7eb7d9f9c68c3469cc6",
+      "category": 2,
+      "rationale": "Separate the cookie schema defect from the handshake fix; the empty-buffer workaround only addresses the absent-cookie case. Request non-empty cookie round trips and reconfiguration/chat-session tests, and coordinate settings ownership with mineflayer #4065.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/node-minecraft-protocol",
+      "number": 1523,
+      "url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1523",
+      "title": "fix: write the 0 holder id for inline registryEntryHolder entries",
+      "head": "3e4dea271bf4b3cba920b3bc96dc2730bea26399",
+      "category": 1,
+      "rationale": "Writes the previously uninitialized inline-holder discriminator. The 0xff-filled buffer regression detects the skipped byte; the discussion explains why encoding zero writes the required byte. Checks pass.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/node-minecraft-protocol",
+      "number": 1524,
+      "url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1524",
+      "title": "test: retry the vanilla ping while the server has no status yet",
+      "head": "cd762d7bab4d35de514de41a88f5f20a23b34a93",
+      "category": 1,
+      "rationale": "Test-only bounded retry for a specific vanilla startup race, preserving failure for unrelated errors; checks pass.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "PrismarineJS/node-minecraft-protocol",
+      "number": 1526,
+      "url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1526",
+      "title": "test: select the version under test with MC_VERSION instead of a title grep",
+      "head": "80bc3b87a9d62b5ac96c157a34b8988894206687",
+      "category": 2,
+      "rationale": "#1527 is merged, so its code fix is no longer an outstanding dependency. The current head nevertheless retains failures across every version job; update/rerun with merged #1527 and inspect newly enabled suites. The cached patch itself shows a focused, reasonable test-discovery correction, not a new architectural issue.",
+      "ci": "FAILURE",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data",
+        "check-stacks"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-item",
+      "number": 188,
+      "url": "https://github.com/PrismarineJS/prismarine-item/pull/188",
+      "title": "Render an item's custom name in displayName",
+      "head": "45fd22d6348da326887bdc11e8f3ea4c459b467c",
+      "category": 2,
+      "rationale": "Use prismarine-chat rather than another partial chat parser: translate components currently become empty text. Define displayName restoration when the custom name is removed and reconcile #189.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-item",
+      "number": 189,
+      "url": "https://github.com/PrismarineJS/prismarine-item/pull/189",
+      "title": "Read the custom name and lore components as the JSON string they used to be",
+      "head": "7cb3fc659f6e8565dcc09e7dd0a3ffae8936aa2a",
+      "category": 2,
+      "rationale": "Check the full component conversion rather than only nbt.simplify plus JSON.stringify: byte booleans and modern component shapes need correct JSON semantics. Test getter/setter round trips and the promised lore return type.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "ProtoDef-io/node-protodef",
+      "number": 178,
+      "url": "https://github.com/ProtoDef-io/node-protodef/pull/178",
+      "title": "FullPacketParser: emit partialReadError with the chunk it could not read",
+      "head": "0087395b45bec014d0f85e695905891809f5604b",
+      "category": 1,
+      "rationale": "Reviewed event emission, typing and interpreted/compiled regression tests. Adds chunk context and a non-error event to the existing partial-read recovery path without changing normal parsing; tests establish continued parsing. Documentation could distinguish partial-read errors more narrowly, but no code blocker found.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data",
+        "check-merge-candidates"
+      ],
+      "previousCategory": 1
+    },
+    {
+      "repo": "ProtoDef-io/node-protodef",
+      "number": 179,
+      "url": "https://github.com/ProtoDef-io/node-protodef/pull/179",
+      "title": "Throttle repeated packet-parse error logs in FullPacketParser",
+      "head": "3ce26e3df2038f2500f502823cbac4cbd2c28703",
+      "category": 2,
+      "rationale": "The throttle groups all size mismatches under one key and errors by their first line, which can hide distinct faults. Ask for an intentional bounded grouping policy and tests distinguishing different malformed packets.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "ProtoDef-io/node-protodef",
+      "number": 180,
+      "url": "https://github.com/ProtoDef-io/node-protodef/pull/180",
+      "title": "Serializer: name the packet in write errors from a compiled protocol",
+      "head": "d31ac124ee75e203797bc118af6b5e34df2f57ad",
+      "category": 2,
+      "rationale": "Follow existing feedback to fix missing compiler error fields, or justify this narrower wrapper separately. The current code assumes a packet.name convention inside generic ProtoDef; this is a concrete review discussion, not grounds to reject better diagnostics.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 488,
+      "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/488",
+      "title": "Render negative-Y sections on 1.18+ worlds",
+      "head": "8049729deabbfe39d5beb14af5a543c927bb66a3",
+      "category": 2,
+      "rationale": "Negative-Y fix is useful, but world.minY is frozen from a default Chunk rather than column/dimension bounds; direct addColumn callers omitting new arguments still schedule only 0..255. Ask to infer actual bounds and cover the core API.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-viewer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 490,
+      "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/490",
+      "title": "Render player skins",
+      "head": "832cb6d4fd06e46147b7298f88e997482334d474",
+      "category": 1,
+      "rationale": "Maintainer already said lgtm subject to screenshot and CI; author supplied a screenshot retaken at the branch tip and explains the subsequent rendering adjustments, and all version build checks pass. No specific blocking defect established in this bounded static review; generic requests to inspect lifecycle or take another screenshot do not justify category2.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-viewer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 506,
+      "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/506",
+      "title": "Render dropped items",
+      "head": "4c2502419e916aec7cba4e5f2005d745ef30eae0",
+      "category": 2,
+      "rationale": "Focused lifecycle bug: getItemMesh returns an empty group then asynchronously adds geometry after image loads, even if the entity was removed and dispose3 already ran. Also an item spawn without stack data is skipped, but a subsequent entityMoved partial update can create the fallback cube before metadata arrives. Request lifecycle/partial-update regression coverage and a narrow fix.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-viewer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 513,
+      "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/513",
+      "title": "Unload chunks the server unloads, and follow the world across a transfer",
+      "head": "814b753c96bbb311c4fc020a9c74e445abb642df",
+      "category": 2,
+      "rationale": "Confirmed against full head file: loadChunk awaits getColumnAt and then emits unconditionally. If unload or world replacement occurs while it waits, the late old-world result republishes the unloaded column. Add an invalidation/generation check and focused regression coverage.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-viewer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 514,
+      "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/514",
+      "title": "Draw nothing for an invisible entity, like the vanilla client",
+      "head": "45f7de5cec3e9db3097b5e95bb43ba16331eb3f8",
+      "category": 2,
+      "rationale": "Confirmed against full head file: invisible removes the entity from the mesh map, but entityMoved sends pos without invisible. update then recreates a fallback cube because the partial update passes the invisible check. Preserve visibility across partial updates; focused change.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-viewer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4065,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4065",
+      "title": "Send Client Information once, when the vanilla client does",
+      "head": "b59072e9559a766b3ebe5de714eec4b517750adc",
+      "category": 2,
+      "rationale": "Resolve your existing objection to the clientSettings/options interface and verify initialization order with nmp #1522. This is a targeted connection-settings contract decision.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 503,
+      "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/503",
+      "title": "Add viewer.waitForReady() for a fully textured first frame",
+      "head": "af9075bb69c4a8d895ea8710898c56cf25db2f42",
+      "category": 2,
+      "rationale": "Conflicting stack must be rebased. The readiness promise resolves on an atlas load failure (null is swallowed) and lazy entity textures only begin loading on first render, so the stated fully textured first-frame contract needs narrowing or error/lazy-texture handling. No broader architecture change is necessary.",
+      "ci": "SUCCESS",
+      "mergeable": "CONFLICTING",
+      "auditSources": [
+        "audit-viewer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 484,
+      "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/484",
+      "title": "Add Minecraft 26.1 support",
+      "head": "dc777aa049507363ecefbb5e1dc8dba2c2160a11",
+      "category": 2,
+      "rationale": "The 1.14.4 version build still fails while 26.1 succeeds. Resolve the existing maintainer request to release dependencies and rerun, and establish the cause of the old-version failure before merging.",
+      "ci": "FAILURE",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-viewer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4074,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4074",
+      "title": "test: gate the no-chunk physics check on a chunk load instead of a 2 s sleep",
+      "head": "3a78e927600cbfc638c13997c668e7dea369c691",
+      "category": 2,
+      "rationale": "Useful no-chunk test improvement, but attach event waits before triggering chunk delivery and obtain passing checks or demonstrate failures against the same base revision.",
+      "ci": "FAILURE",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4075,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4075",
+      "title": "test: build only the versions under test",
+      "head": "46c13151b62e71caa58587e061ca4f199f1ad38b",
+      "category": 2,
+      "rationale": "Code looks suitable for a small test-infrastructure merge; current checks fail. Establish baseline equivalence or get a passing rerun rather than treating the author's flake diagnosis as established.",
+      "ci": "FAILURE",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4081,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4081",
+      "title": "fix: give teamRemoved the team that was removed",
+      "head": "f021eb8ad904576ca4e20370ed32497bb6319ce6",
+      "category": 2,
+      "rationale": "The production fix is straightforward: emit the saved team object after deletion. Resolve existing fixture/data feedback and failing checks; no large refactor needed.",
+      "ci": "FAILURE",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4099,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4099",
+      "title": "fix: cancel the deferred respawn reply once it is stale, and write no movement packets outside play",
+      "head": "0556385444e76b348b7e16bad9cd476bbda21afc",
+      "category": 2,
+      "rationale": "Useful lifecycle fix, but current checks fail. Verify cancellation on newer teleport/configuration/login/end, and coordinate with the queue changes in #4107.",
+      "ci": "FAILURE",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 382,
+      "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/382",
+      "title": "createHuman: bridge over gaps the way a player does",
+      "head": "c59be20d646a23fe1be0b14413de944d5edbab19",
+      "category": 3,
+      "rationale": "Keep category 3: bridgeTo adds a separate async movement controller with no registered action identity. It cancels an existing walk once but cannot be superseded safely by another bridge/walk, checks human.active only between complete bridge steps, and toLip/stepOnto await bare physicsTick promises that can outlive their wall-clock deadlines indefinitely. Required repair is to integrate bridgeTo and standalone placeAhead with the existing controller lifecycle: shared operation ownership/cancellation across walk, bridge and stop; cancellation/deadline-aware waits through equip, aiming, lip movement and stepping; and guarded finally cleanup of head/forward/sneak controls so stale operations cannot move the bot or release a successor controls. This alters execution/ownership throughout the new feature, rather than adding an isolated timeout guard. Add stop-mid-step, supersession and physics-disabled tests.",
+      "ci": "FAILURE",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-pathfinder-physics",
+        "check-remaining-refactors"
+      ],
+      "previousCategory": 3
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4094,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4094",
+      "title": "Swing every tick while digging, skip STOP on instant breaks and abort with face DOWN",
+      "head": "36e6265f3b23a6fac255443b9041e1090c584cc8",
+      "category": 2,
+      "rationale": "Review after #4085; rebase away inherited changes and verify start/stop/abort/swing ordering through real packets, especially instant breaks and cancellation.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 510,
+      "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/510",
+      "title": "Decode host images without holding the event loop",
+      "head": "3bbee612580004597f382bfac18b520e4021dcda",
+      "category": 2,
+      "rationale": "Current base is still player-skins (#490), which remains open; merged #501 does not remove that stack dependency. The production change is focused and checks pass. Land/retarget the base and rerun; the single-sample event-loop timing comparison also deserves a small robustness adjustment.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-viewer",
+        "check-stacks"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 511,
+      "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/511",
+      "title": "Parse the block states in the mesher, not on the calling thread",
+      "head": "05bd6ecb5578ecc72ac45abc52c819f8e59f2422",
+      "category": 2,
+      "rationale": "Current base remains host-6-async-png (#510), itself based on open #490. Land/retarget the stack and rerun. The implementation and text-to-mesher coverage are focused; loadText is already documented in viewer/README.md and host/index.js, so documentation is not an outstanding blocker.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-viewer",
+        "check-stacks"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/node-minecraft-protocol",
+      "number": 1525,
+      "url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1525",
+      "title": "fix: send a command with no signable argument as chat_command",
+      "head": "1aca229d1f829ccccc70fa3fc419f5e4fd82f7b1",
+      "category": 2,
+      "rationale": "Packet selection is focused, but the new unsigned path still unconditionally clears _lastSeenMessages.pending although that packet carries no acknowledgement fields. Preserve pending acknowledgement state and cover an unsigned command followed by signed chat. #1527 has merged; #1526 remains relevant because the added suite is excluded by current CI title filtering.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-protocol-data",
+        "check-stacks"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4114,
+      "url": "https://github.com/PrismarineJS/mineflayer/pull/4114",
+      "title": "placeEntity: write a complete use_item when placing a boat",
+      "head": "b56eced2a30f1069f77b65689d27dad5be0e97a0",
+      "category": 2,
+      "rationale": "Tests already serialize every packet through real minecraft-protocol, so missing serialization is not a valid objection. Address the existing request for an actual nmp server/client test and coordinate the boat sequence with shared counter #4085 (current production sequence remains0).",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-mineflayer"
+      ],
+      "previousCategory": 2
+    },
+    {
+      "repo": "PrismarineJS/prismarine-physics",
+      "number": 142,
+      "url": "https://github.com/PrismarineJS/prismarine-physics/pull/142",
+      "title": "Obey the flight the server grants in the abilities packet",
+      "head": "73252f2cc9081751e9ae88e7c7b6fcd5c9f077ca",
+      "category": 2,
+      "rationale": "Focused flight correction still needs vertical-input behavior: the current simulatePlayer jump/sneak branch has no flying case, so an airborne flying bot with zero vertical velocity cannot ascend using jump. Add coverage for flight input and water/ground transitions; existing tests only cover hovering, damping and horizontal acceleration.",
+      "ci": "SUCCESS",
+      "mergeable": "MERGEABLE",
+      "auditSources": [
+        "audit-pathfinder-physics"
+      ],
+      "previousCategory": 2
+    }
+  ],
+  "parallelReview": {
+    "subagents": 10,
+    "concurrentSubagentsLimit": 3,
+    "method": "Three broad independent repository audits, primary-agent pathfinder/physics review, then seven focused adjudications. Primary agent reconciled the recommendations; no new branch test runs or GitHub writes.",
+    "previousCounts": {
+      "1": 14,
+      "2": 45,
+      "3": 7,
+      "4": 3
+    }
+  }
+}
