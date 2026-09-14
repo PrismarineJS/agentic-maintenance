@@ -1,0 +1,137 @@
+{
+  "completed_at": "2026-09-14T10:10:27.637846+00:00",
+  "prerequisite_commit": "cdfb9bf88c945d934176ecc873d4dc9e4d897820",
+  "prerequisite_commit_at": "2026-09-14T09:29:41+00:00",
+  "unique_prs": 54,
+  "domain_batches": 10,
+  "distinct_subagents": 10,
+  "concurrent_worker_limit": 3,
+  "workers": {
+    "/root/u9g_phase3_hashing": [
+      "hashing",
+      "interactions"
+    ],
+    "/root/u9g_phase3_movement": [
+      "movement"
+    ],
+    "/root/u9g_phase3_viewer_core": [
+      "viewer_core"
+    ],
+    "/root/u9g_phase3_bot_lifecycle": [
+      "bot_lifecycle"
+    ],
+    "/root/u9g_phase3_bot_tests_scoreboard": [
+      "bot_tests_scoreboard"
+    ],
+    "/root/u9g_phase3_pathfinder_physics": [
+      "pathfinder_physics"
+    ],
+    "/root/u9g_phase3_protocol_diagnostics": [
+      "protocol_diagnostics"
+    ],
+    "/root/u9g_phase3_data_generation": [
+      "data_generation"
+    ],
+    "/root/u9g_phase3_viewer_stack_items": [
+      "viewer_stack_items"
+    ],
+    "/root/u9g_phase3_independent_checks": [
+      "five selected findings/corrections"
+    ]
+  },
+  "source_results": [
+    {
+      "batch": "hashing",
+      "file": "hashing-results.json",
+      "sha256": "0f64f1bddf02fa1493e6606848ab5fa8f06a477b98d737ffa18be08ac9d5c755",
+      "cases": 4,
+      "agent": "/root/u9g_phase3_hashing"
+    },
+    {
+      "batch": "movement",
+      "file": "movement-results.json",
+      "sha256": "1e9ba8ae74a06a97f5a7baf2cdff4d58ececcb78177642e24575e249179b8640",
+      "cases": 6,
+      "agent": "/root/u9g_phase3_movement"
+    },
+    {
+      "batch": "viewer_core",
+      "file": "viewer_core-results.json",
+      "sha256": "97764aa76a0f57fe49006a049d3a00e4fe3ac5a242039ac8a9e0fb0274668395",
+      "cases": 4,
+      "agent": "/root/u9g_phase3_viewer_core"
+    },
+    {
+      "batch": "interactions",
+      "file": "interactions-results.json",
+      "sha256": "4ac021902773adcb2dc36b4040d256e14cb44af0e7fe4a0d5af95a391a860640",
+      "cases": 6,
+      "agent": "/root/u9g_phase3_hashing"
+    },
+    {
+      "batch": "bot_lifecycle",
+      "file": "bot_lifecycle-results.json",
+      "sha256": "11a0317bb759bc18d8dc493b949bc3e6d7e984fa268c23a015e4e59a36b27957",
+      "cases": 7,
+      "agent": "/root/u9g_phase3_bot_lifecycle"
+    },
+    {
+      "batch": "bot_tests_scoreboard",
+      "file": "bot_tests_scoreboard-results.json",
+      "sha256": "c20e7ec6bd071c9cd1ea082fcd63aef424980e3d994079a05d81e72bc4a8f1a8",
+      "cases": 6,
+      "agent": "/root/u9g_phase3_bot_tests_scoreboard"
+    },
+    {
+      "batch": "pathfinder_physics",
+      "file": "pathfinder_physics-results.json",
+      "sha256": "4ba48c1b73ffc915fecc8a0950a0fd111e40211be27a3e5c2b64dbe6f270a896",
+      "cases": 5,
+      "agent": "/root/u9g_phase3_pathfinder_physics"
+    },
+    {
+      "batch": "protocol_diagnostics",
+      "file": "protocol_diagnostics-results.json",
+      "sha256": "4cc4f8f4676244cb4179bc6db62d102432c61f648f6e660a17ee61ab3b918442",
+      "cases": 5,
+      "agent": "/root/u9g_phase3_protocol_diagnostics"
+    },
+    {
+      "batch": "data_generation",
+      "file": "data_generation-results.json",
+      "sha256": "e41c13f3afb5070a5702379c9b8d318f70b5918aa522c83cce47f856e0d91fa6",
+      "cases": 5,
+      "agent": "/root/u9g_phase3_data_generation"
+    },
+    {
+      "batch": "viewer_stack_items",
+      "file": "viewer_stack_items-results.json",
+      "sha256": "5e6ecb2b8719c19b407b277cca97634ee4667a5bacd48723b4d03aae13b5f7b2",
+      "cases": 6,
+      "agent": "/root/u9g_phase3_viewer_stack_items"
+    }
+  ],
+  "scheduling_note": "A replacement-worker creation briefly hit the thread limit; the hashing worker also completed interactions. A tenth distinct agent independently re-reviewed five consequential findings/corrections. These overlap the54 and are not extra unique PRs.",
+  "publication_counts_by_pr": {
+    "none": 44,
+    "new_review": 8,
+    "correction_only": 2
+  },
+  "new_reviews": 8,
+  "new_inline_findings": 8,
+  "corrective_thread_replies": 2,
+  "independent_crosschecks": 5,
+  "skill_usage_by_pr": {
+    "prismarine-review": 54,
+    "prismarine-protocol-data-review": 35,
+    "prismarine-behavior-test-review": 49,
+    "prismarine-architecture-review": 27,
+    "prismarine-code-quality-review": 4
+  },
+  "limitations": [
+    "No-comment decisions are not approvals.",
+    "Validation differs by case; no blanket full-suite or vanilla-server claim.",
+    "Live re-review and cross-checks are unblinded and are not a causal skills benchmark.",
+    "Earlier agent assessments are retained when coordinator evidence corrected them."
+  ]
+}

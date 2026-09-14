@@ -1,6 +1,6 @@
 # Survey historical reviews to build PrismarineJS review skills
 
-Date: 2026-09-14. Status: survey, skill authoring and evaluation executed; see the [phase3 report](../../implementation/phase3/report.md). This document preserves the plan and explicitly recorded execution adjustments.
+Date: 2026-09-14. Status: survey, skill authoring, evaluation and the authorized U9G re-review executed; see the [phase3 report](../../implementation/phase3/report.md). This document preserves the plan and explicitly recorded execution adjustments.
 
 Sources for this scoping investigation: the repository's phase2 review records, current PrismarineJS contribution documents, current pinned-issue metadata, and a small set of foundational issue discussions linked below. At the time of the scoping investigation, no historical PR corpus had been collected or classified and no skills had been written or installed. Execution results and deviations will be recorded under `implementation/phase3/`.
 

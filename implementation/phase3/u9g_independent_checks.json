@@ -1,0 +1,226 @@
+[
+  {
+    "repo": "PrismarineJS/mineflayer",
+    "number": 4086,
+    "head": "02bc8ced4f231e5baf7fdfe525a7c1d6e793bd22",
+    "state": "open",
+    "merged": false,
+    "verdict": "correction_supported_prior_serialization_claim_disproved",
+    "supported_or_disproved_claims": [
+      "Supported coordinator withdrawal: actual NMP Client parses the server game_state_change packet, invokes current game.js and writes client_command that decodes correctly on 1.8.9, 1.21.4 and 26.1.",
+      "26.1 numeric actionId 0 reaches compiled mapper successfully and decodes as perform_respawn. Original isolated-interpreter objection does not establish default production failure.",
+      "gameMode 0 negative control emits no command; gameMode 1 emits exactly one command."
+    ],
+    "skills_used": [
+      "prismarine-review",
+      "prismarine-protocol-data-review",
+      "prismarine-behavior-test-review"
+    ],
+    "skill_contributions": {
+      "prismarine-review": "Read fresh complete PR diff/discussion including original concern and corrective reply; attempted to disprove the correction rather than count feedback.",
+      "prismarine-protocol-data-review": "Inspected Client.setSerializer and default compiled=true plus released ProtoDef compiled mapper write/size behavior.",
+      "prismarine-behavior-test-review": "Built an independent packet-input to actual Client/plugin to packet-output probe with a no-command control."
+    },
+    "validation": {
+      "probe": "/tmp/prismarine-phase3/u9g/work/independent_checks/codecs.cjs 4086",
+      "log": "/tmp/prismarine-phase3/u9g/work/independent_checks/4086-validation.log",
+      "dependencies": "Node 24.18.0, minecraft-protocol 1.67.0, minecraft-data 3.114.0, ProtoDef 1.19.0",
+      "remote": "/tmp/prismarine-phase3/u9g/work/independent_checks/4086.json",
+      "verified_head_blob": "cb1371bec32be6182f7fa306a354ce1b611cb7cf"
+    },
+    "limits": [
+      "Actual Client codec/event/production-handler path, no network transport or vanilla server.",
+      "Default compiled codec tested; does not assert interpreted and compiled implementations are equivalent."
+    ],
+    "source_urls": [
+      "https://github.com/PrismarineJS/mineflayer/pull/4086",
+      "https://github.com/PrismarineJS/mineflayer/pull/4086#discussion_r4004019860",
+      "https://github.com/PrismarineJS/mineflayer/blob/02bc8ced4f231e5baf7fdfe525a7c1d6e793bd22/lib/plugins/game.js"
+    ],
+    "retrieved_at": "2026-09-14T10:04:07.583Z",
+    "review_kind": "unblinded independent code cross-check, not heldout benchmark",
+    "publication": "No new comments; existing corrected/new claims already covered remotely."
+  },
+  {
+    "repo": "PrismarineJS/mineflayer",
+    "number": 4118,
+    "head": "e0f82108183ceff1aeb9c8721720b68726d23c23",
+    "state": "open",
+    "merged": false,
+    "verdict": "published_clamping_finding_supported",
+    "supported_or_disproved_claims": [
+      "Raw bases and modifiers survive actual packet decoding and updateAttributes; neither dependency models nor helper clamps the final value.",
+      "Negative modifier totals -1 cause both predicates to accept a target 0.5 blocks away despite effective vanilla range 0.",
+      "Overflow totals 100 cause both predicates to accept targets 70 blocks away despite effective vanilla range 64. Normal total 5 provides a passing control.",
+      "Vanilla 1.21.1 source sends raw base/modifiers, clamps effective attribute after operations and consumes effective value in reach getters; official NeoForge 1.21.4 docs independently list both [0,64] bounds."
+    ],
+    "skills_used": [
+      "prismarine-review",
+      "prismarine-protocol-data-review",
+      "prismarine-behavior-test-review",
+      "prismarine-architecture-review"
+    ],
+    "skill_contributions": {
+      "prismarine-review": "Read fresh full patch and all discussion; tested alternate explanation of an upstream clamp.",
+      "prismarine-protocol-data-review": "Traced actual server bytes to stored attribute representation and compared vanilla raw-packet/effective-value separation.",
+      "prismarine-behavior-test-review": "Independent actual Client/parser plus production plugin probe distinguishes normal, underflow and overflow behavior.",
+      "prismarine-architecture-review": "Verified local getter clamp addresses this invariant independently of existing shared-helper ownership discussion."
+    },
+    "validation": {
+      "probe": "/tmp/prismarine-phase3/u9g/work/independent_checks/codecs.cjs 4118",
+      "log": "/tmp/prismarine-phase3/u9g/work/independent_checks/4118-validation.log",
+      "dependencies": "Node 24.18.0, minecraft-protocol 1.67.0, minecraft-data 3.114.0, ProtoDef 1.19.0, prismarine-entity 2.6.0",
+      "source": "/tmp/prismarine-phase3/u9g/work/bot_lifecycle/vanilla-1.21.1",
+      "remote": "/tmp/prismarine-phase3/u9g/work/independent_checks/4118.json",
+      "verified_head_blob": "0f9a944c00201b1dd264e1b5706f2c7b56006dcb"
+    },
+    "limits": [
+      "No socket transport or live vanilla server; vanilla implementation reviewed from cached decompiled 1.21.1 mirror and official 1.21.4 bounds documentation.",
+      "Only registered vanilla interaction ranges evaluated; custom modded bounds are outside the tested contract."
+    ],
+    "source_urls": [
+      "https://github.com/PrismarineJS/mineflayer/pull/4118",
+      "https://github.com/PrismarineJS/mineflayer/pull/4118#discussion_r4004011538",
+      "https://docs.neoforged.net/docs/1.21.4/entities/attributes/",
+      "https://github.com/PrismarineJS/mineflayer/blob/e0f82108183ceff1aeb9c8721720b68726d23c23/lib/plugins/entities.js"
+    ],
+    "retrieved_at": "2026-09-14T10:05:34.486Z",
+    "review_kind": "unblinded independent code cross-check, not heldout benchmark",
+    "publication": "No new comments; existing corrected/new claims already covered remotely."
+  },
+  {
+    "repo": "PrismarineJS/mineflayer",
+    "number": 4089,
+    "head": "ba08fc075d213babf4487e10c3becb7614ab0645",
+    "state": "open",
+    "merged": false,
+    "verdict": "correction_supported_prior_hand_serialization_claim_disproved",
+    "supported_or_disproved_claims": [
+      "Numeric 0/main_hand and 1/off_hand produce identical bytes through actual NMP Client.write and decode to the corresponding names on both released dependency caches.",
+      "The current full inventory.activateEntity path still selects the old branch on installed minecraft-data 3.114.0 and 3.116.0 because useEntityHasLocation is absent, and fails on missing location.x. This is the separately documented dependency prerequisite, not evidence of hand encoding failure."
+    ],
+    "skills_used": [
+      "prismarine-review",
+      "prismarine-protocol-data-review",
+      "prismarine-behavior-test-review"
+    ],
+    "skill_contributions": {
+      "prismarine-review": "Read fresh full patch and complete discussions, including explanations of earlier revisions, original finding and correction.",
+      "prismarine-protocol-data-review": "Compared actual Client compiled encoding with both released dependency stacks; separated hand representation from feature-release readiness.",
+      "prismarine-behavior-test-review": "Wrote own actual Client.write probe with nonzero location and sneak state, then exercised unchanged inventory.activateEntity with native installed feature flags."
+    },
+    "validation": {
+      "probe": "/tmp/prismarine-phase3/u9g/work/independent_checks/hand.cjs",
+      "log": "/tmp/prismarine-phase3/u9g/work/independent_checks/4089-validation.log",
+      "dependencies": [
+        "NMP 1.67.0/data 3.114.0/ProtoDef 1.19.0",
+        "NMP 1.68.0/data 3.116.0/ProtoDef 1.19.0"
+      ],
+      "remote": "/tmp/prismarine-phase3/u9g/work/independent_checks/4089.json",
+      "verified_head_blob": "8aa34f8f84d15fbd8f09707f82b1aa1567ae2838"
+    },
+    "limits": [
+      "No vanilla server or live transport; encoded packets prove hand representation compatibility only.",
+      "No pending data PR applied and no feature flags overridden; full 26.1 interaction is not claimed to work with installed released stacks."
+    ],
+    "source_urls": [
+      "https://github.com/PrismarineJS/mineflayer/pull/4089",
+      "https://github.com/PrismarineJS/mineflayer/pull/4089#discussion_r4004042201",
+      "https://github.com/PrismarineJS/mineflayer/blob/ba08fc075d213babf4487e10c3becb7614ab0645/lib/plugins/inventory.js"
+    ],
+    "retrieved_at": "2026-09-14T10:06:21.767Z",
+    "review_kind": "unblinded independent code cross-check, not heldout benchmark",
+    "publication": "No new comments; existing corrected/new claims already covered remotely."
+  },
+  {
+    "repo": "PrismarineJS/node-minecraft-protocol",
+    "number": 1522,
+    "head": "cb12f2a990b11e238acdd7eb7d9f9c68c3469cc6",
+    "state": "open",
+    "merged": false,
+    "verdict": "published_declarations_finding_supported",
+    "supported_or_disproved_claims": [
+      "Current package.json directs consumers to src/index.d.ts; its ClientOptions omit brand/cookies/knownPacks and Client omits _cookies. Fresh remote declaration blob matches the exercised file.",
+      "Independent TypeScript 5.9.3 consumer compile resolves the actual current-head declaration: baseline createClient compiles; brand, cookies object, cookies Map and knownPacks each emit TS2353; previousClient._cookies emits TS2339.",
+      "_cookies is explicitly documented as the transfer-seeding API; the underscore does not make this an unsolicited request to expose an undocumented internal field."
+    ],
+    "skills_used": [
+      "prismarine-review",
+      "prismarine-code-quality-review",
+      "prismarine-architecture-review"
+    ],
+    "skill_contributions": {
+      "prismarine-review": "Read fresh complete patch and all discussion; verified current declaration blob and restricted cross-check to the published claim.",
+      "prismarine-code-quality-review": "Traced new documented public options into declaration entry point and tested real package-import compilation with baseline control.",
+      "prismarine-architecture-review": "Checked runtime createClient/cookies ownership and documented transfer-map boundary rather than assuming an underscore means private API."
+    },
+    "validation": {
+      "probe": "/tmp/prismarine-phase3/u9g/work/independent_checks/types/check.cjs",
+      "log": "/tmp/prismarine-phase3/u9g/work/independent_checks/1522-validation.log",
+      "typescript": "5.9.3",
+      "declaration_blob": "bf52ca63ddb5a07b7ee86739a6384ba434364a5a",
+      "remote": "/tmp/prismarine-phase3/u9g/work/independent_checks/1522.json"
+    },
+    "limits": [
+      "Focused consumer compilation with strict=true, skipLibCheck=true and verified current-head package resolution; no handshake suite rerun by this independent checker.",
+      "Existing clientSettings declaration omission predates this change and is not added as a new finding."
+    ],
+    "source_urls": [
+      "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1522",
+      "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1522#discussion_r4004049893",
+      "https://github.com/PrismarineJS/node-minecraft-protocol/blob/cb12f2a990b11e238acdd7eb7d9f9c68c3469cc6/src/index.d.ts"
+    ],
+    "retrieved_at": "2026-09-14T10:07:49.545Z",
+    "review_kind": "unblinded independent code cross-check, not heldout benchmark",
+    "publication": "No new comments; existing corrected/new claims already covered remotely."
+  },
+  {
+    "repo": "PrismarineJS/prismarine-viewer",
+    "number": 506,
+    "head": "4c2502419e916aec7cba4e5f2005d745ef30eae0",
+    "state": "open",
+    "merged": false,
+    "verdict": "published_unsupported_texture_fallback_finding_supported",
+    "supported_or_disproved_claims": [
+      "Actual WorldView resolves pale_oak_planks and decorated_pot from 1.21.4 dropped-item metadata; their missing or unsupported texture entries leave the registered current Item group empty.",
+      "After repeated metadata and movement, the same empty group persists and no pixel/texture loads are scheduled; no later retry or fallback rescues it.",
+      "Actual base renderer retains one drawable fallback geometry for both items; current renderer has zero. Supported oak_planks control schedules pixel/texture loads and produces one actual THREE geometry.",
+      "The PR explicitly promises prior behavior for items without textures; this completed-known-stack failure differs from earlier pending-stack movement and disposal findings."
+    ],
+    "skills_used": [
+      "prismarine-review",
+      "prismarine-behavior-test-review",
+      "prismarine-architecture-review"
+    ],
+    "skill_contributions": {
+      "prismarine-review": "Read fresh full patch/body/discussion, checked promised fallback contract and distinctness; matched tested current/base source and released asset index to remote Git blobs.",
+      "prismarine-behavior-test-review": "Built an independent production WorldView-to-base/current Entities-to-Item check using actual THREE geometry, including supported-item positive control and repeated updates.",
+      "prismarine-architecture-review": "Traced registration and lifetime of empty item groups and checked that asset prerender copies the released index directly, without normalizing unsupported entries."
+    },
+    "validation": {
+      "probe": "/tmp/prismarine-phase3/u9g/work/independent_checks/viewer.cjs",
+      "log": "/tmp/prismarine-phase3/u9g/work/independent_checks/506-validation.log",
+      "dependencies": "THREE 0.128.0; released minecraft-assets 1.17.0 index, supported viewer 1.21.4; registry through minecraft-data 3.114.0",
+      "verified_blobs": {
+        "base_entities": "ee75bd9f2854e6de48a07866d15259249d684859",
+        "head_entities": "21a148a321bbdd2145794f01b2b2fd19580f1684",
+        "head_Item": "6f1b651229f2416ebd22c8f9db0a1c0ef30bea62",
+        "released_index": "10c70b0ebb4f0f869d3d2ba775a5c7fe07195d41"
+      },
+      "remote": "/tmp/prismarine-phase3/u9g/work/independent_checks/506.json"
+    },
+    "limits": [
+      "No WebGL or vanilla server; loaders and TWEEN controlled. Geometry, WorldView metadata routing, Entities and Item production code are real.",
+      "Supported-item control uses synthetic opaque pixel data and actual THREE.Texture; it establishes functioning allocation path, not visual image fidelity."
+    ],
+    "source_urls": [
+      "https://github.com/PrismarineJS/prismarine-viewer/pull/506",
+      "https://github.com/PrismarineJS/prismarine-viewer/pull/506#discussion_r4003931149",
+      "https://github.com/PrismarineJS/prismarine-viewer/blob/4c2502419e916aec7cba4e5f2005d745ef30eae0/viewer/lib/entity/Item.js",
+      "https://github.com/PrismarineJS/minecraft-assets/blob/1.17.0/data/1.21.4/items_textures.json"
+    ],
+    "retrieved_at": "2026-09-14T10:09:37.502Z",
+    "review_kind": "unblinded independent code cross-check, not heldout benchmark",
+    "publication": "No new comments; existing corrected/new claims already covered remotely."
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "repo": "PrismarineJS/mineflayer",
+    "number": 4086,
+    "head": "02bc8ced4f231e5baf7fdfe525a7c1d6e793bd22",
+    "kind": "withdraw_prior_finding",
+    "id": 4004019860,
+    "url": "https://github.com/PrismarineJS/mineflayer/pull/4086#discussion_r4004019860",
+    "in_reply_to_id": 4003034226,
+    "path": "lib/plugins/game.js",
+    "line": 126,
+    "side": "RIGHT",
+    "body": "**Astra agent review — AI-generated, not manually written by the maintainer.**\n\nCorrection: I withdraw the serialization-failure finding above. It came from the isolated interpreted ProtoDef mapper, which does not match node-minecraft-protocol's default compiled path. Rechecking this PR's actual `win_game` handler with released `minecraft-protocol@1.67.0`, `minecraft-data@3.114.0` and `protodef@1.19.0`, the 26.1 packet containing `actionId: 0` encodes successfully and decodes as `perform_respawn`. The compiled mapper explicitly permits raw numeric values. The corresponding 1.8.9 and 1.21.4 packet checks also pass. This was production packet encoding/decoding, not a vanilla-server run.\n\nSkills used: prismarine-protocol-data-review prompted checking the real compiled codec and allowed dependency versions; prismarine-review required correcting the earlier objection when that evidence disproved its premise.",
+    "created_at": "2026-09-14T09:53:37Z",
+    "verified_at": "2026-09-14T09:53:56.414Z",
+    "skills_used": [
+      "prismarine-protocol-data-review",
+      "prismarine-review"
+    ],
+    "validation": "Coordinator independently ran exact-head game handler through NMP1.67.0/data3.114.0/ProtoDef1.19.0 encoders and decoders on1.8.9,1.21.4,26.1; all succeed. Reviewed actual compiled mapper writer/sizer and default compiled=true path.",
+    "limits": "No vanilla-server run. Correction concerns the earlier claimed production serialization failure.",
+    "source_probe": "/tmp/prismarine-phase3/u9g/work/bot_lifecycle/check.cjs 4086"
+  },
+  {
+    "repo": "PrismarineJS/mineflayer",
+    "number": 4089,
+    "head": "ba08fc075d213babf4487e10c3becb7614ab0645",
+    "kind": "withdraw_prior_finding",
+    "id": 4004042201,
+    "url": "https://github.com/PrismarineJS/mineflayer/pull/4089#discussion_r4004042201",
+    "in_reply_to_id": 4003037700,
+    "path": "lib/plugins/inventory.js",
+    "line": 277,
+    "side": "RIGHT",
+    "body": "**Astra agent review — AI-generated, not manually written by the maintainer.**\n\nCorrection: I withdraw the claim that `hand: 0` fails in this PR's production serializer. node-minecraft-protocol defaults to compiled ProtoDef, whose released mapper permits raw numeric values; my earlier isolated interpreted-mapper check did not represent that path. With `minecraft-protocol@1.67.0` / `minecraft-data@3.114.0` / `protodef@1.19.0`, a valid 26.1 `use_entity` packet using `0` or `main_hand` produces identical bytes and decodes as `main_hand`; `1` and `off_hand` also agree. The same checks pass with protocol 1.68.0 and data 3.116.0. This verifies the hand encoding; the separately documented `useEntityHasLocation` data-release prerequisite still needs to be accounted for when exercising the complete interaction path.\n\nSkills used: prismarine-protocol-data-review guided the actual compiled-codec and released-dependency comparison; prismarine-review required retracting the earlier finding after its production-failure premise was disproved.",
+    "created_at": "2026-09-14T09:56:50Z",
+    "verified_at": "2026-09-14T09:57:09.486Z",
+    "skills_used": [
+      "prismarine-protocol-data-review",
+      "prismarine-review"
+    ],
+    "validation": "Actual released NMP compiled serializer/decoder numeric and named main/off hands yield identical complete use_entity bytes. Tested NMP1.67.0+data3.114.0 and NMP1.68.0+data3.116.0, both ProtoDef1.19.0.",
+    "limits": "Valid location explicitly supplied to isolate disputed hand encoding. Does not establish full interaction integration while useEntityHasLocation feature is absent from installed releases.",
+    "source_probe": "/tmp/prismarine-phase3/u9g/check-released-hand.cjs"
+  }
+]

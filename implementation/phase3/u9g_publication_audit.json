@@ -1,0 +1,226 @@
+[
+  {
+    "repo": "PrismarineJS/prismarine-viewer",
+    "number": 511,
+    "review_id": 5196376845,
+    "review_url": "https://github.com/PrismarineJS/prismarine-viewer/pull/511#pullrequestreview-5196376845",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review — AI-generated, not manually written by the maintainer.**\n\nThe new host method is missing from the published TypeScript contract. I checked the current declarations with tsc and exercised the exact-head WorldRenderer with real THREE 0.128.0; eight focused host/texture tests pass. No browser/GL test was run.\n\nSkills used: prismarine-architecture-review helped trace the host extension contract through its exported declarations; prismarine-behavior-test-review guided the focused type/runtime checks; prismarine-review helped verify the current head and absence of duplicate feedback.",
+    "review_head": "05bd6ecb5578ecc72ac45abc52c819f8e59f2422",
+    "current_head": "05bd6ecb5578ecc72ac45abc52c819f8e59f2422",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T10:07:34.408812+00:00",
+    "inline_comments": [
+      {
+        "id": 4004102829,
+        "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/511#discussion_r4004102829",
+        "path": "viewer/lib/worldrenderer.js",
+        "line": 118,
+        "original_line": 118,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T10:05:41Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  },
+  {
+    "repo": "PrismarineJS/mineflayer",
+    "number": 4063,
+    "review_id": 5196179982,
+    "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4063#pullrequestreview-5196179982",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review — AI-generated, not manually written by the maintainer.**\n\nOne additional dependency-compatibility regression is inline. Validation: real 1.20.4 protocol client/server comparison against the current head and its actual base physics plugin, with the same installed dependencies; the head fails and the base passes. The existing focused 1.21.4 physics tests pass. No vanilla server suite was run.\n\nSkills used: prismarine-protocol-data-review checked the declared dependency range and feature availability; prismarine-behavior-test-review guided the observable regression test; prismarine-review prevented duplicating the existing lifecycle finding.",
+    "review_head": "fc480ee8c456de87ce77769b31ba8bcf88703043",
+    "current_head": "fc480ee8c456de87ce77769b31ba8bcf88703043",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T09:44:14.846689+00:00",
+    "inline_comments": [
+      {
+        "id": 4003932298,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4063#discussion_r4003932298",
+        "path": "lib/plugins/physics.js",
+        "line": 28,
+        "original_line": 28,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T09:41:39Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  },
+  {
+    "repo": "PrismarineJS/prismarine-viewer",
+    "number": 506,
+    "review_id": 5196178696,
+    "review_url": "https://github.com/PrismarineJS/prismarine-viewer/pull/506#pullrequestreview-5196178696",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review — AI-generated, not manually written by the maintainer.**\n\nRechecked the current head and all discussion and found one distinct dropped-item fallback regression after a known stack's texture lookup. Reproduced with the actual base/current rendering methods, Three.js 0.128.0 and the released minecraft-assets 1.17.0 index; image-loader callbacks and animation were controlled, and no WebGL or live server was run. The existing pending-stack and disposal comments were not repeated.\n\nSkills used: prismarine-behavior-test-review established the observable geometry regression; prismarine-architecture-review traced item-group ownership after lookup; prismarine-review checked current revisions and avoided duplicate feedback.",
+    "review_head": "4c2502419e916aec7cba4e5f2005d745ef30eae0",
+    "current_head": "4c2502419e916aec7cba4e5f2005d745ef30eae0",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T09:44:16.948951+00:00",
+    "inline_comments": [
+      {
+        "id": 4003931149,
+        "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/506#discussion_r4003931149",
+        "path": "viewer/lib/entity/Item.js",
+        "line": 89,
+        "original_line": 89,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T09:41:28Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  },
+  {
+    "repo": "PrismarineJS/mineflayer-pathfinder",
+    "number": 382,
+    "review_id": 5196305233,
+    "review_url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/382#pullrequestreview-5196305233",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review — AI-generated, not manually written by the maintainer.**\n\nI found one additional completion-boundary issue after comparing the current diff and all prior feedback. The current-head controller with released prismarine-physics 1.11.1 reaches a one-step goal but rejects when blocks is 1. This was a local simulation on a flat full-cube floor; I did not run the server suite.\n\nSkills used: prismarine-behavior-test-review helped check the observable completion result at the step limit; prismarine-review helped distinguish it from the existing cancellation and tick-deadline findings.",
+    "review_head": "c59be20d646a23fe1be0b14413de944d5edbab19",
+    "current_head": "c59be20d646a23fe1be0b14413de944d5edbab19",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T10:00:10.599494+00:00",
+    "inline_comments": [
+      {
+        "id": 4004041576,
+        "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/382#discussion_r4004041576",
+        "path": "lib/human.js",
+        "line": 586,
+        "original_line": 586,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T09:56:44Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  },
+  {
+    "repo": "PrismarineJS/prismarine-physics",
+    "number": 142,
+    "review_id": 5196315489,
+    "review_url": "https://github.com/PrismarineJS/prismarine-physics/pull/142#pullrequestreview-5196315489",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review — AI-generated, not manually written by the maintainer.**\n\nI found a separate fluid-path gap in the flight handling. All five added test bodies passed in a small assertion-adapter runner; an idle flying player still sank in water and lava using real 1.13.2 and 1.20.4 block data and this head's simulator. I also checked the vanilla Player/LivingEntity fluid gate and travel wrapper in the 1.20.3-pre1 source. No live vanilla server or full suite was run.\n\nSkills used: prismarine-behavior-test-review helped compare idle hover across actual block environments; prismarine-architecture-review helped trace the flight mode through the shared movement branches; prismarine-review helped avoid repeating the existing jump/sneak finding.",
+    "review_head": "73252f2cc9081751e9ae88e7c7b6fcd5c9f077ca",
+    "current_head": "73252f2cc9081751e9ae88e7c7b6fcd5c9f077ca",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T10:00:12.969980+00:00",
+    "inline_comments": [
+      {
+        "id": 4004050927,
+        "url": "https://github.com/PrismarineJS/prismarine-physics/pull/142#discussion_r4004050927",
+        "path": "index.js",
+        "line": 606,
+        "original_line": 606,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T09:58:04Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  },
+  {
+    "repo": "PrismarineJS/node-minecraft-protocol",
+    "number": 1522,
+    "review_id": 5196314342,
+    "review_url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1522#pullrequestreview-5196314342",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review — AI-generated, not manually written by the maintainer.**\n\nI checked the current handshake changes and public declarations, ran the 40 focused handshake tests successfully, and reproduced the TypeScript errors below against this head. The existing cookie-schema limitation is already documented and is not repeated here. No vanilla server or full suite was run.\n\nSkills used: prismarine-code-quality-review helped check the documented public API against its declarations; prismarine-review helped verify the current head and avoid duplicate feedback.",
+    "review_head": "cb12f2a990b11e238acdd7eb7d9f9c68c3469cc6",
+    "current_head": "cb12f2a990b11e238acdd7eb7d9f9c68c3469cc6",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T10:00:15.180415+00:00",
+    "inline_comments": [
+      {
+        "id": 4004049893,
+        "url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1522#discussion_r4004049893",
+        "path": "docs/API.md",
+        "line": 150,
+        "original_line": 150,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T09:57:55Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  },
+  {
+    "repo": "PrismarineJS/mineflayer",
+    "number": 4115,
+    "review_id": 5196198368,
+    "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4115#pullrequestreview-5196198368",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review — AI-generated, not manually written by the maintainer.**\n\nRe-reviewed head 27805567aa88bbc140c5b3d91766fe8a47fd105b and current discussion. All nine existing raycast tests pass; a focused stationary bottom-slab reproduction shows a visible top face rejected by strict mode. No vanilla server was run.\n\nSkills used: prismarine-behavior-test-review guided validation against the real world/chunk geometry; prismarine-review helped identify the separate root cause and avoid repeating prior feedback.",
+    "review_head": "27805567aa88bbc140c5b3d91766fe8a47fd105b",
+    "current_head": "27805567aa88bbc140c5b3d91766fe8a47fd105b",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T09:45:19.107581+00:00",
+    "inline_comments": [
+      {
+        "id": 4003948084,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4115#discussion_r4003948084",
+        "path": "lib/plugins/generic_place.js",
+        "line": 20,
+        "original_line": 20,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T09:44:00Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  },
+  {
+    "repo": "PrismarineJS/mineflayer",
+    "number": 4118,
+    "review_id": 5196271370,
+    "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4118#pullrequestreview-5196271370",
+    "review_state": "COMMENTED",
+    "review_body": "**Astra agent review — AI-generated, not manually written by the maintainer.**\n\nOne new finding on the effective interaction ranges. I checked the production entity handler and actual NMP encoders/decoders on 1.21.1 and 1.21.4, using minecraft-protocol 1.67.0 and minecraft-data 3.114.0, and traced vanilla's attribute packet, final clamping and reach getters. This was an in-process codec/plugin reproduction, not a live-server test.\n\nSkills used: prismarine-protocol-data-review helped distinguish the transmitted base/modifiers from the effective attribute; prismarine-behavior-test-review helped exercise the public reach predicates; prismarine-review helped separate this defect from the existing ownership and test-quality feedback.",
+    "review_head": "e0f82108183ceff1aeb9c8721720b68726d23c23",
+    "current_head": "e0f82108183ceff1aeb9c8721720b68726d23c23",
+    "state": "open",
+    "merged": false,
+    "verified_at": "2026-09-14T09:58:07.825913+00:00",
+    "inline_comments": [
+      {
+        "id": 4004011538,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4118#discussion_r4004011538",
+        "path": "lib/plugins/entities.js",
+        "line": 938,
+        "original_line": 938,
+        "side": "RIGHT",
+        "changed_line": true,
+        "author": "rom1504",
+        "created_at": "2026-09-14T09:52:25Z"
+      }
+    ],
+    "errors": [],
+    "notes": []
+  }
+]

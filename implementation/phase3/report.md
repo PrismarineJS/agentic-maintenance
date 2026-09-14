@@ -1,6 +1,6 @@
 # Phase3: historical review survey and review skills
 
-Date: 2026-09-14. Source: GitHub PRs and discussions retrieved for the frozen survey, plus separately recorded foundational issues and contribution documents. Status: all 500 cases accounted for; five skills written, evaluated and refined. The authorized U9G re-review follows this commit.
+Date: 2026-09-14. Source: GitHub PRs and discussions retrieved for the frozen survey, plus separately recorded foundational issues and contribution documents. Status: all 500 cases accounted for; five skills written, evaluated and refined. The authorized U9G re-review is also complete, with ten distinct subagents and verified public comments.
 
 ## Scope and outcomes
 
@@ -55,8 +55,23 @@ After freezing the revised skills, both arms found the same three supported conc
 
 Corpus/outcome checks pass for all 500 cases. Both paired prediction audits pass; all five final skills validate and match their frozen contents. A separate agent independently reproduced initial metric arithmetic and checked every prediction location across both stages. It found two adjacent context anchors and one baseline line outside a displayed hunk; historical predictions were never posted. The actual publication workflow must verify locations independently. All execution scripts were syntax-checked and exercised in the relevant collection, normalization, evaluation or audit pipeline; no application code changed or historical integration suite was claimed to run.
 
-## Subsequent U9G review pass
+## U9G review pass and commits
 
-The user authorized ten subagents to re-review pending U9G PRs after the survey, skill evaluation and first commit. At the preparatory census, 54 PRs remain open, including the earlier pilot, and their heads match the phase2 inventory. Reviews must refresh remote state and discussion, avoid equivalent prior feedback, and publish only justified inline COMMENT reviews. Every review and comment identifies Astra and explains which skills actually contributed. Ten agents run in successive waves because only three worker slots are available concurrently.
+Committed the design, 500-case survey, evaluated skills and report first as `cdfb9bf88c945d934176ecc873d4dc9e4d897820` on 2026-09-14 at 09:29:41 UTC. The subsequent authorized review used the frozen skills and ten distinct subagents, with up to three active workers. Nine workers covered ten domain batches; one handled both hashing and interactions after a transient worker-creation limit. The tenth independently re-reviewed five consequential findings/corrections. Those five overlap the 54 unique pending PRs.
 
-The subsequent execution will be recorded in `u9g_rereviews.md` and `.json`, with current heads, checks, justified no-comment decisions and verified comment links. A fresh census immediately before this commit still contains the same 54 open PRs. A no-new-comment decision is not an approval or proof of correctness.
+| Publication outcome | PRs |
+| --- | ---: |
+| New inline COMMENT review | 8 |
+| Corrective reply withdrawing an earlier finding | 2 |
+| No additional public comment | 44 |
+| Total reviewed | 54 |
+
+All 54 were still open and unmerged in the final census. Eight new reviews contain eight inline findings: legacy sneak dependency compatibility, partial-block raycast geometry, effective interaction-range bounds, final-step bridge completion, protocol API declarations, flying in fluids, missing item-texture fallback, and the viewer Host declaration. Each review summary and inline comment identifies Astra and explains the actual skills used. The two corrective replies do the same in the original threads.
+
+Production codec validation disproved the earlier Mineflayer #4086 and #4089 numeric-mapper objections: released NMP uses compiled ProtoDef, which accepts the numeric values that the isolated interpreter rejected. Both findings were explicitly withdrawn. This also exposed an execution gap: the initial interaction re-review retained the isolated-codec objection until cross-batch evidence corrected it. The skills already require checking the actual codec path; their evaluated contents were kept frozen. The live pass is operational evidence, not another blinded or causal comparison.
+
+The coordinator independently checked selected reproductions and all eight new reviews' remote COMMENTED state, commit, inline path/line, attribution and skill names. Both corrective replies were verified against their original thread IDs and bodies. The tenth agent independently supported both withdrawals and three selected new findings using actual client packet paths, compiler resolution and real rendering objects. No further correction arose from those five cross-checks.
+
+The [PR-by-PR report](u9g_rereviews.md), [complete records](u9g_rereviews.json), [execution metadata](u9g_execution.json), [publication audit](u9g_publication_audit.json), [corrections](u9g_corrections.json), [independent checks](u9g_independent_checks.json), and [final census](u9g_final_census.json) preserve details and validation limits. A [runnable codec-path example](reproductions/README.md) preserves the cause of the withdrawn findings. A no-new-comment decision is not an approval; existing unresolved concerns can remain. Application repositories were not changed, approved, merged or closed by this work.
+
+The final execution records and report update are committed separately after the prerequisite commit. The [final validation record](u9g_validation.json) also confirms that all 54 remote heads remained unchanged at completion. Validation covers the unchanged 500-case accounting and frozen skill files, all 54 assigned PR identities, all 10 distinct participating subagents, all 8 newly published reviews and both corrective replies. The three pre-existing untracked phase2 design files remain outside these commits.

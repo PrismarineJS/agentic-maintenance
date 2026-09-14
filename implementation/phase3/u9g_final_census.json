@@ -1,0 +1,394 @@
+[
+  {
+    "org": "PrismarineJS",
+    "retrieved_at": "2026-09-14T10:10:28.993Z",
+    "total": 50,
+    "prs": [
+      {
+        "repo": "PrismarineJS/minecraft-data",
+        "number": 1292,
+        "url": "https://github.com/PrismarineJS/minecraft-data/pull/1292",
+        "title": "Revert the 1.21.6 enum mappers whose ordinals never moved",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4118,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4118",
+        "title": "Expose the interaction ranges the server sends, and the reach check vanilla makes",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer-pathfinder",
+        "number": 382,
+        "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/382",
+        "title": "createHuman: bridge over gaps the way a player does",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4116,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4116",
+        "title": "waitForTicks: say when it is physics that is missing, not the server",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4115,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4115",
+        "title": "placeBlock: derive the face and the cursor from a raycast, like the client does",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4114,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4114",
+        "title": "placeEntity: write a complete use_item when placing a boat",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4112,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4112",
+        "title": "scoreboard: read the 1.20.3+ objective and score packets",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4111,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4111",
+        "title": "Read the scoreboard objective title as a chat component",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-viewer",
+        "number": 514,
+        "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/514",
+        "title": "Draw nothing for an invisible entity, like the vanilla client",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-item",
+        "number": 189,
+        "url": "https://github.com/PrismarineJS/prismarine-item/pull/189",
+        "title": "Read the custom name and lore components as the JSON string they used to be",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-item",
+        "number": 188,
+        "url": "https://github.com/PrismarineJS/prismarine-item/pull/188",
+        "title": "Render an item's custom name in displayName",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4108,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4108",
+        "title": "physics: a teleport leaves the standing flag alone",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4107,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4107",
+        "title": "fix: answer pings and teleports at the start of the next tick, in arrival order",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer-pathfinder",
+        "number": 379,
+        "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/379",
+        "title": "createHuman: hold the controller through a setback storm",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/minecraft-data",
+        "number": 1284,
+        "url": "https://github.com/PrismarineJS/minecraft-data/pull/1284",
+        "title": "Fix pc/26.1 client_command actionId: plain varint, not a mapper",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4104,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4104",
+        "title": "Accept play-phase resource packs when no resourcePack listener answers them",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4103,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4103",
+        "title": "Window state across close, re-login and respawn: stateId per window, close_window on respawn, closeWindow(null)",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer-pathfinder",
+        "number": 377,
+        "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/377",
+        "title": "createHuman: a walkTo for the goal in flight joins that walk instead of superseding it",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4099,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4099",
+        "title": "fix: cancel the deferred respawn reply once it is stale, and write no movement packets outside play",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-viewer",
+        "number": 513,
+        "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/513",
+        "title": "Unload chunks the server unloads, and follow the world across a transfer",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/minecraft-data",
+        "number": 1283,
+        "url": "https://github.com/PrismarineJS/minecraft-data/pull/1283",
+        "title": "Regenerate pc 1.10, 1.11 and 1.12 recipes from the game",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/minecraft-data-generator",
+        "number": 81,
+        "url": "https://github.com/PrismarineJS/minecraft-data-generator/pull/81",
+        "title": "Generate recipes for 1.10.2, 1.11.2 and 1.12.2",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4094,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4094",
+        "title": "Swing every tick while digging, skip STOP on instant breaks and abort with face DOWN",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4093,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4093",
+        "title": "Dismount by holding sneak for one tick on 1.21.3+",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4089,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4089",
+        "title": "Right-click entities like the vanilla client: interact pair, real sneak state, hit point; useOn and mount share the path",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4087,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4087",
+        "title": "Report resource packs as ACCEPTED, DOWNLOADED, SUCCESSFULLY_LOADED and deny once",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4086,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4086",
+        "title": "Send the client_command respawn after win_game with the actionId field",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4085,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4085",
+        "title": "use_item and use_item_on like the vanilla client: shared prediction sequence, cursor on the clicked face, no empty-hand use, swing after the packet",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-viewer",
+        "number": 511,
+        "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/511",
+        "title": "Parse the block states in the mesher, not on the calling thread",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-viewer",
+        "number": 510,
+        "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/510",
+        "title": "Decode host images without holding the event loop",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer-pathfinder",
+        "number": 376,
+        "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/376",
+        "title": "createHuman: cap the wait for the head to settle",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-physics",
+        "number": 142,
+        "url": "https://github.com/PrismarineJS/prismarine-physics/pull/142",
+        "title": "Obey the flight the server grants in the abilities packet",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4081,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4081",
+        "title": "fix: give teamRemoved the team that was removed",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/minecraft-data",
+        "number": 1278,
+        "url": "https://github.com/PrismarineJS/minecraft-data/pull/1278",
+        "title": "Fix pc/26.1 use_entity hand: plain varint, not a mapper",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-viewer",
+        "number": 506,
+        "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/506",
+        "title": "Render dropped items",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4075,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4075",
+        "title": "test: build only the versions under test",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4074,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4074",
+        "title": "test: gate the no-chunk physics check on a chunk load instead of a 2 s sleep",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/node-minecraft-protocol",
+        "number": 1526,
+        "url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1526",
+        "title": "test: select the version under test with MC_VERSION instead of a title grep",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/node-minecraft-protocol",
+        "number": 1525,
+        "url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1525",
+        "title": "fix: send a command with no signable argument as chat_command",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4065,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4065",
+        "title": "Send Client Information once, when the vanilla client does",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/node-minecraft-protocol",
+        "number": 1522,
+        "url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1522",
+        "title": "Match the vanilla client in the login/configuration handshake: cookies, brand, per-login chat session, known packs",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4064,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4064",
+        "title": "health: send player_loaded when the vanilla client would",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4063,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4063",
+        "title": "physics: send the movement input packets the vanilla client sends",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4062,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4062",
+        "title": "entities: read the 1.21.2+ entity_teleport layout (velocity, float rotation, relative flags)",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-viewer",
+        "number": 503,
+        "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/503",
+        "title": "Add viewer.waitForReady() for a fully textured first frame",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-viewer",
+        "number": 488,
+        "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/488",
+        "title": "Render negative-Y sections on 1.18+ worlds",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4027,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4027",
+        "title": "inventory: claim clicked slots by hash on 1.21.5+",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-item",
+        "number": 184,
+        "url": "https://github.com/PrismarineJS/prismarine-item/pull/184",
+        "title": "Add Item.toHashedNotch for 1.21.5+ window_click slot claims",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/mineflayer",
+        "number": 4021,
+        "url": "https://github.com/PrismarineJS/mineflayer/pull/4021",
+        "title": "placeBlock: reject an occupied target up front; nether test clears its sign spot",
+        "state": "open"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-viewer",
+        "number": 484,
+        "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/484",
+        "title": "Add Minecraft 26.1 support",
+        "state": "open"
+      }
+    ]
+  },
+  {
+    "org": "ProtoDef-io",
+    "retrieved_at": "2026-09-14T10:10:28.479Z",
+    "total": 4,
+    "prs": [
+      {
+        "repo": "ProtoDef-io/node-protodef",
+        "number": 180,
+        "url": "https://github.com/ProtoDef-io/node-protodef/pull/180",
+        "title": "Serializer: name the packet in write errors from a compiled protocol",
+        "state": "open"
+      },
+      {
+        "repo": "ProtoDef-io/node-protodef",
+        "number": 179,
+        "url": "https://github.com/ProtoDef-io/node-protodef/pull/179",
+        "title": "Throttle repeated packet-parse error logs in FullPacketParser",
+        "state": "open"
+      },
+      {
+        "repo": "ProtoDef-io/node-protodef",
+        "number": 177,
+        "url": "https://github.com/ProtoDef-io/node-protodef/pull/177",
+        "title": "Add the hash datatype",
+        "state": "open"
+      },
+      {
+        "repo": "ProtoDef-io/ProtoDef",
+        "number": 65,
+        "url": "https://github.com/ProtoDef-io/ProtoDef/pull/65",
+        "title": "Add the hash datatype",
+        "state": "open"
+      }
+    ]
+  }
+]

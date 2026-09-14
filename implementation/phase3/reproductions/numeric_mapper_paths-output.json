@@ -1,0 +1,89 @@
+{
+  "versions": {
+    "minecraft-protocol": "1.68.0",
+    "minecraft-data": "3.116.0",
+    "protodef": "1.19.0"
+  },
+  "compiledProductionChecks": [
+    {
+      "name": "client_command",
+      "field": "actionId",
+      "numeric": 0,
+      "named": "perform_respawn",
+      "bytes": "0c00",
+      "decoded": {
+        "name": "client_command",
+        "params": {
+          "actionId": "perform_respawn"
+        }
+      }
+    },
+    {
+      "name": "client_command",
+      "field": "actionId",
+      "numeric": 1,
+      "named": "request_stats",
+      "bytes": "0c01",
+      "decoded": {
+        "name": "client_command",
+        "params": {
+          "actionId": "request_stats"
+        }
+      }
+    },
+    {
+      "name": "client_command",
+      "field": "actionId",
+      "numeric": 2,
+      "named": "request_gamerule_values",
+      "bytes": "0c02",
+      "decoded": {
+        "name": "client_command",
+        "params": {
+          "actionId": "request_gamerule_values"
+        }
+      }
+    },
+    {
+      "name": "use_entity",
+      "field": "hand",
+      "numeric": 0,
+      "named": "main_hand",
+      "bytes": "1a01000000",
+      "decoded": {
+        "name": "use_entity",
+        "params": {
+          "target": 1,
+          "hand": "main_hand",
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "sneaking": false
+        }
+      }
+    },
+    {
+      "name": "use_entity",
+      "field": "hand",
+      "numeric": 1,
+      "named": "off_hand",
+      "bytes": "1a01010000",
+      "decoded": {
+        "name": "use_entity",
+        "params": {
+          "target": 1,
+          "hand": "off_hand",
+          "location": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "sneaking": false
+        }
+      }
+    }
+  ],
+  "interpretedNumericError": "SizeOf error for undefined : 0 is not in the mappings value"
+}
