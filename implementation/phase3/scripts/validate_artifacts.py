@@ -40,7 +40,15 @@ def validate(root, expected):
         assert front['name'] == file.parent.name
         assert front['description']
         names.append(front['name'])
-    assert len(names) == 5
+    assert set(names) == {
+        'prismarine-review',
+        'prismarine-architecture-review',
+        'prismarine-protocol-data-review',
+        'prismarine-lifecycle-action-review',
+        'prismarine-item-inventory-review',
+        'prismarine-geometry-movement-review',
+        'prismarine-world-render-review',
+    }
     print(json.dumps({'cases': len(cases), 'outcomes': dict(collections.Counter(r['outcome'] for r in cases)),
                       'skills': names, 'result': 'passed'}, indent=2))
 

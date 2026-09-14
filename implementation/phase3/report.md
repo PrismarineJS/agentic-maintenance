@@ -1,5 +1,7 @@
 # Phase3: historical review survey and review skills
 
+> Historical report: the five skills and evaluation below refer to commit `06251e0`. See the [domain-specific replacement report](domain_specific_review_skills.md) for the current seven-skill set. The old evaluation scores do not evaluate the replacement.
+
 Date: 2026-09-14. Source: GitHub PRs and discussions retrieved for the frozen survey, plus separately recorded foundational issues and contribution documents. Status: all 500 cases accounted for; five skills written, evaluated and refined. The authorized U9G re-review is also complete, with ten distinct subagents and verified public comments.
 
 ## Scope and outcomes
@@ -25,11 +27,11 @@ Five reusable skills live in the repository's top-level `skills/`:
 
 | Skill | Purpose |
 | --- | --- |
-| [prismarine-review](../../skills/prismarine-review/SKILL.md) | Common workflow: contracts, evidence, current revisions, dependency readiness, proportional findings and nonduplicate publication. |
-| [prismarine-code-quality-review](../../skills/prismarine-code-quality-review/SKILL.md) | Useful abstractions, clear public APIs, understandable branches, error/completion ownership, and measured performance claims. |
-| [prismarine-architecture-review](../../skills/prismarine-architecture-review/SKILL.md) | Package responsibility, shared mutable state, consumer propagation, extension contracts, and when broader refactoring is necessary. |
-| [prismarine-protocol-data-review](../../skills/prismarine-protocol-data-review/SKILL.md) | Source/generated data, codecs, named versus numeric representations, actual version boundaries, and consumer migration. |
-| [prismarine-behavior-test-review](../../skills/prismarine-behavior-test-review/SKILL.md) | Observable behavior, test oracles, fixture provenance, synchronization/lifecycle, and appropriate validation layers. |
+| [prismarine-review](https://github.com/PrismarineJS/agentic-maintenance/blob/06251e0/skills/prismarine-review/SKILL.md) | Common workflow: contracts, evidence, current revisions, dependency readiness, proportional findings and nonduplicate publication. |
+| [prismarine-code-quality-review](https://github.com/PrismarineJS/agentic-maintenance/blob/06251e0/skills/prismarine-code-quality-review/SKILL.md) | Useful abstractions, clear public APIs, understandable branches, error/completion ownership, and measured performance claims. |
+| [prismarine-architecture-review](https://github.com/PrismarineJS/agentic-maintenance/blob/06251e0/skills/prismarine-architecture-review/SKILL.md) | Package responsibility, shared mutable state, consumer propagation, extension contracts, and when broader refactoring is necessary. |
+| [prismarine-protocol-data-review](https://github.com/PrismarineJS/agentic-maintenance/blob/06251e0/skills/prismarine-protocol-data-review/SKILL.md) | Source/generated data, codecs, named versus numeric representations, actual version boundaries, and consumer migration. |
+| [prismarine-behavior-test-review](https://github.com/PrismarineJS/agentic-maintenance/blob/06251e0/skills/prismarine-behavior-test-review/SKILL.md) | Observable behavior, test oracles, fixture provenance, synchronization/lifecycle, and appropriate validation layers. |
 
 They are review aids with conditional checks and counterexamples. They are not installed globally and do not grant permission to publish reviews. [Principles and examples](principles.md) explain the source basis. The user's Astra attribution and nonduplicate-publication requirements are identified separately from mined historical preferences.
 

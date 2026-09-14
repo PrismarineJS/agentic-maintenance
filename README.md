@@ -33,7 +33,9 @@ skills/         ← reusable review instructions, one SKILL.md per skill
   Written *during/after* the work.
 - **`skills/`** — Reusable review skills. Start with
   [prismarine-review](skills/prismarine-review/SKILL.md), then select the relevant
-  code quality, architecture, protocol/data, or behavior/test skill. These files
+  protocol/data, lifecycle/actions, items/inventory, geometry/movement,
+  world/rendering, or architecture/public API skill. Code quality and regression
+  checks are included in the domain where they matter. These files
   can be read directly; this repository does not install them globally.
 
 A `design/phaseN/` document typically motivates one or more
@@ -46,6 +48,11 @@ A `design/phaseN/` document typically motivates one or more
 | 1 | mineflayer PR backlog triage | [design/phase1](design/phase1) | [implementation/phase1](implementation/phase1) |
 | 2 | U9G PR classification and inline reviews | [design/phase2](design/phase2) | [implementation/phase2](implementation/phase2) |
 | 3 | Historical review survey, skills, evaluation, and U9G re-review | [design/phase3](design/phase3/survey_for_review_skills.md) | [implementation/phase3](implementation/phase3/report.md) |
+
+The current domain-specific skills are described in the
+[revision design](design/phase3/domain_specific_review_skills.md) and
+[implementation report](implementation/phase3/domain_specific_review_skills.md).
+The original survey/evaluation report records the previous five-skill set.
 
 ## Conventions
 

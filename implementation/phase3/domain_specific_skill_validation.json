@@ -1,0 +1,232 @@
+{
+  "date": "2026-09-14",
+  "kind": "known-case functional validation, not a held-out benchmark",
+  "codec_probe_results": [
+    {
+      "versions": {
+        "minecraft-protocol": "1.67.0",
+        "minecraft-data": "3.114.0",
+        "protodef": "1.19.0"
+      },
+      "compiledProductionChecks": [
+        {
+          "name": "client_command",
+          "field": "actionId",
+          "numeric": 0,
+          "named": "perform_respawn",
+          "bytes": "0c00",
+          "decoded": {
+            "name": "client_command",
+            "params": {
+              "actionId": "perform_respawn"
+            }
+          }
+        },
+        {
+          "name": "client_command",
+          "field": "actionId",
+          "numeric": 1,
+          "named": "request_stats",
+          "bytes": "0c01",
+          "decoded": {
+            "name": "client_command",
+            "params": {
+              "actionId": "request_stats"
+            }
+          }
+        },
+        {
+          "name": "client_command",
+          "field": "actionId",
+          "numeric": 2,
+          "named": "request_gamerule_values",
+          "bytes": "0c02",
+          "decoded": {
+            "name": "client_command",
+            "params": {
+              "actionId": "request_gamerule_values"
+            }
+          }
+        },
+        {
+          "name": "use_entity",
+          "field": "hand",
+          "numeric": 0,
+          "named": "main_hand",
+          "bytes": "1a01000000",
+          "decoded": {
+            "name": "use_entity",
+            "params": {
+              "target": 1,
+              "hand": "main_hand",
+              "location": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "sneaking": false
+            }
+          }
+        },
+        {
+          "name": "use_entity",
+          "field": "hand",
+          "numeric": 1,
+          "named": "off_hand",
+          "bytes": "1a01010000",
+          "decoded": {
+            "name": "use_entity",
+            "params": {
+              "target": 1,
+              "hand": "off_hand",
+              "location": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "sneaking": false
+            }
+          }
+        }
+      ],
+      "interpretedNumericError": "SizeOf error for undefined : 0 is not in the mappings value"
+    },
+    {
+      "versions": {
+        "minecraft-protocol": "1.68.0",
+        "minecraft-data": "3.116.0",
+        "protodef": "1.19.0"
+      },
+      "compiledProductionChecks": [
+        {
+          "name": "client_command",
+          "field": "actionId",
+          "numeric": 0,
+          "named": "perform_respawn",
+          "bytes": "0c00",
+          "decoded": {
+            "name": "client_command",
+            "params": {
+              "actionId": "perform_respawn"
+            }
+          }
+        },
+        {
+          "name": "client_command",
+          "field": "actionId",
+          "numeric": 1,
+          "named": "request_stats",
+          "bytes": "0c01",
+          "decoded": {
+            "name": "client_command",
+            "params": {
+              "actionId": "request_stats"
+            }
+          }
+        },
+        {
+          "name": "client_command",
+          "field": "actionId",
+          "numeric": 2,
+          "named": "request_gamerule_values",
+          "bytes": "0c02",
+          "decoded": {
+            "name": "client_command",
+            "params": {
+              "actionId": "request_gamerule_values"
+            }
+          }
+        },
+        {
+          "name": "use_entity",
+          "field": "hand",
+          "numeric": 0,
+          "named": "main_hand",
+          "bytes": "1a01000000",
+          "decoded": {
+            "name": "use_entity",
+            "params": {
+              "target": 1,
+              "hand": "main_hand",
+              "location": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "sneaking": false
+            }
+          }
+        },
+        {
+          "name": "use_entity",
+          "field": "hand",
+          "numeric": 1,
+          "named": "off_hand",
+          "bytes": "1a01010000",
+          "decoded": {
+            "name": "use_entity",
+            "params": {
+              "target": 1,
+              "hand": "off_hand",
+              "location": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "sneaking": false
+            }
+          }
+        }
+      ],
+      "interpretedNumericError": "SizeOf error for undefined : 0 is not in the mappings value"
+    }
+  ],
+  "structural_validation": {
+    "skill_creator": "7/7 passed",
+    "relative_links": "passed for current skills and design",
+    "corpus_cases": 500,
+    "outcomes": {
+      "merged": 250,
+      "closed_unmerged": 183,
+      "open": 67
+    }
+  },
+  "independent_use_check": {
+    "agent": "validate_domain_skills",
+    "artifacts": [
+      "minecraft-data #1284 archived base/head protocol schemas",
+      "prismarine-viewer #511 archived source"
+    ],
+    "result": "Two compatibility findings supported with controls; no live publication",
+    "controls": [
+      "numeric actionIds 0/1/2/7 accepted by both schemas",
+      "custom Host succeeds with loadText",
+      "explicit blockStatesData bypasses loadText requirement"
+    ],
+    "skill_refinement": "Reworded test-extension instruction as existing tests and temporary probe for read-only review",
+    "limits": [
+      "known examples present in skills; not blinded or held-out",
+      "viewer baseline unavailable in independent check",
+      "actual viewer method evaluated in VM with texture loading stubbed",
+      "TypeScript skipLibCheck; no rendered pixels or live server"
+    ]
+  },
+  "skill_files_sha256": {
+    "skills/prismarine-architecture-review/SKILL.md": "e6260bbf371c3473d3b7d12a5ba97645a7be8376acc0419908bc71a99213cd46",
+    "skills/prismarine-architecture-review/references/api_checks.md": "3bdbed7d293fb44a1c9cdf5532a8dffed018798d7f25bb2e72484c7ac5908fc9",
+    "skills/prismarine-geometry-movement-review/SKILL.md": "d949ba00529f4c84f62379f30e8fb80253650519848ceb453783aa3721e55d57",
+    "skills/prismarine-geometry-movement-review/references/recipes.md": "b3fdc97df851b3c2a317f913ad3290f6d9deb4e06e02ffafbd44058e94a66155",
+    "skills/prismarine-item-inventory-review/SKILL.md": "d265740b27acf5064f5cbef1ca1f902b66da25e36212036d6773e10dd872a790",
+    "skills/prismarine-item-inventory-review/references/recipes.md": "f17d3cdf2168dc47441ca7d16ec8af90fe8c10dcc9b3f34ba87a6338fa6ea5ab",
+    "skills/prismarine-lifecycle-action-review/SKILL.md": "dced0c5ba882d1ca8f8da3b0e0eeee051ada47aafd76dd4d274d761696851739",
+    "skills/prismarine-lifecycle-action-review/references/recipes.md": "d6bf28d84de1f160410f01acfae27b10f8f68ce96f3a6e785074efd5ae19dc86",
+    "skills/prismarine-protocol-data-review/SKILL.md": "5e2bf3744bf7aec5c352810d9802eb44c255fcbd7a23fd7545d8b6de1d6be5ea",
+    "skills/prismarine-protocol-data-review/references/codec_checks.md": "5977cad46a002403e20e5574c396da67adc6c567027f666d4ca9ffb678a06384",
+    "skills/prismarine-protocol-data-review/references/sources.md": "9a13af06bfefea7fc2f9cb8d29d9c2d8d4c46e7045c083293af5e8e1a13cc1f4",
+    "skills/prismarine-protocol-data-review/scripts/numeric_mapper_paths.cjs": "0c3061201f0d006a57d89d26ade811c6a86d0d7487f5cfd65342c6441c730ed8",
+    "skills/prismarine-review/SKILL.md": "8b88f30480982c7c624a8f2af8b06dcbba7be20c1d75c604f5da687cec1b4aba",
+    "skills/prismarine-review/references/evidence.md": "c85e9e34288e6f060f3fa0718ac51b4566a6754cfad170926a40148b358e9319",
+    "skills/prismarine-world-render-review/SKILL.md": "f9bf36a10cbd3ffad91d7a7c8758eabd1308464f05fa0c85023f617786e4d0a0",
+    "skills/prismarine-world-render-review/references/recipes.md": "2d5e44289a176fc052204e72e5389c2c984b8ceacfdc0008a61f2a8e1a67b99a"
+  }
+}
