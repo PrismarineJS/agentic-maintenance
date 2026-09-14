@@ -1,0 +1,1029 @@
+{
+  "total_assigned": 53,
+  "processed": 53,
+  "remaining": 0,
+  "counts": {
+    "posted": 36,
+    "skipped": 17
+  },
+  "completed_batches": [
+    "hashing",
+    "movement",
+    "viewer_core",
+    "interactions",
+    "bot_lifecycle",
+    "bot_tests_scoreboard",
+    "pathfinder_physics",
+    "protocol_diagnostics",
+    "data_generation",
+    "viewer_stack_items"
+  ],
+  "results": [
+    {
+      "repo": "PrismarineJS/prismarine-item",
+      "number": 184,
+      "head": "0e154a4f48a65f8364c57a691d755064b68f24c4",
+      "status": "posted",
+      "reason": "Verified actionable integration failure",
+      "review_id": 5194968136,
+      "review_url": "https://github.com/PrismarineJS/prismarine-item/pull/184#pullrequestreview-5194968136",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-item/pull/184#discussion_r4002988950",
+          "path": "lib/hashOps.js",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nThe current node-protodef #177 implementation rejects every non-string `body`, but `valueType` here can still be an anonymous shape. For example, `hashComponent('custom_model_data', { floats: [1], flags: [], strings: [], colors: [] })` throws `hash body must be a named type, [\"list\",\"float\"] is not`. Replaying the supplied vectors with that implementation also fails for book pages, hidden components, profile properties, and container entries. This propagates through `Item.toHashedNotch`, so affected inventory clicks throw instead of sending a claim. Please register named aliases for composite shapes before wrapping them in `hash` (including list element shapes), update the structural tests that pass anonymous bodies directly, and rerun the vectors against the dependency's current head.",
+          "line": 65,
+          "position": 65
+        }
+      ],
+      "validation": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nReviewed at the maintainer's request. I inspected the current diff and existing discussion, and ran focused local reproductions using this PR's HashOps/component files with node-protodef #177's current hash implementation. The supplied vectors produced 89 matching component assertions and 12 failures from anonymous hash bodies. I did not run a vanilla server.",
+      "batch": "hashing"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4027,
+      "head": "63bada466843c3eb701827518a6918ddc4a98afd",
+      "status": "posted",
+      "reason": "Verified actionable integration failure",
+      "review_id": 5194969186,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4027#pullrequestreview-5194969186",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4027#discussion_r4002989691",
+          "path": "lib/plugins/inventory.js",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease raise the minimum `prismarine-item` dependency to the release that provides `toHashedNotch` when the upstream API lands. This PR still allows `^1.17.0`; an allowed installed version such as 1.18.0 has no such method, and prismarine-item #184 is still open. On 1.21.5+, this selects `undefined`, so both `clickWindow` and `_syncWindow` throw `toClickNotch is not a function` before sending their packet. A dependency bump plus a click/sync smoke check using the declared minimum version would make this API requirement explicit.",
+          "line": 554,
+          "position": 6
+        }
+      ],
+      "validation": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nReviewed at the maintainer's request. Validation was static inspection of the current inventory call sites and package requirement, a fresh check of prismarine-item #184 and master, and a local API check with prismarine-item 1.18.0. I did not run a vanilla server.",
+      "batch": "hashing"
+    },
+    {
+      "repo": "ProtoDef-io/node-protodef",
+      "number": 177,
+      "head": "dde6ce755124e8f42b4fc1e53ce2d84c73acdb09",
+      "status": "posted",
+      "reason": "Verified digest precision failure; published through authenticated GitHub CLI after connector access restriction",
+      "review_id": 5194981280,
+      "review_url": "https://github.com/ProtoDef-io/node-protodef/pull/177#pullrequestreview-5194981280",
+      "inline_comments": [
+        {
+          "url": "https://github.com/ProtoDef-io/node-protodef/pull/177#discussion_r4003000442",
+          "path": "src/datatypes/hash.js",
+          "line": 56,
+          "position": 56,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nChecking only the byte width allows `f32`/`lf32`, which cannot preserve a 32-bit CRC. With `Body: ['buffer', { count: 9 }]` and `['hash', { alg: 'crc32c', type: 'f32', body: 'Body' }]`, serializing `Buffer.from('123456789')` succeeds in both the interpreter and compiler, but reading the digest returns `0xe3069300` instead of `0xe3069283`. Please validate that the output representation can carry the complete digest, consistently in both paths, and add a regression that rejects lossy output types. Defining the supported integer representations and alias handling alongside the spec would also avoid accepting other fixed-size types whose writers cannot consume the numeric digest."
+        }
+      ],
+      "validation": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nReviewed at the maintainer's request. I checked the current implementation, tests, and resolved discussion points, then ran a focused local reproduction through both the interpreter and compiler. Both accept an f32 digest type and lose CRC32C bits. This was not a full repository test run.",
+      "batch": "hashing"
+    },
+    {
+      "repo": "ProtoDef-io/ProtoDef",
+      "number": 65,
+      "head": "a2b1cd2d84488012b7949fbe578d3781cc3329a4",
+      "status": "posted",
+      "reason": "Verified digest precision failure; published through authenticated GitHub CLI after connector access restriction",
+      "review_id": 5194983967,
+      "review_url": "https://github.com/ProtoDef-io/ProtoDef/pull/65#pullrequestreview-5194983967",
+      "inline_comments": [
+        {
+          "url": "https://github.com/ProtoDef-io/ProtoDef/pull/65#discussion_r4003002679",
+          "path": "doc/datatypes/utils.md",
+          "line": 131,
+          "position": 8,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nCould this require a lossless integer representation and define the supported widths/signed interpretation? Constant byte size alone permits `f32`: node-protodef #177 currently accepts it, and hashing the nine bytes `123456789` then reading that field returns `0xe3069300` instead of the CRC32C `0xe3069283` in both its interpreter and compiler. The `dataType` schema reference also allows fixed-size nonnumeric types without saying how a digest maps into them. An explicit representation contract (including aliases and what signed output means if wider than 32 bits) would let implementations reject unsupported types consistently instead of silently discarding digest bits."
+        }
+      ],
+      "validation": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nReviewed at the maintainer's request. I inspected the current schema and documentation and cross-checked node-protodef #177 with a local interpreter/compiler reproduction. The remaining inline point concerns the digest representation contract; no full repository test suite was run.",
+      "batch": "hashing"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4062,
+      "head": "cb6e354d203dc3cdf39deff6b171918041e137b4",
+      "status": "posted",
+      "reason": "ROTATE_DELTA ignored by entity teleport handler",
+      "review_id": 5194973514,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4062#pullrequestreview-5194973514",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4062#discussion_r4002993961",
+          "path": "lib/plugins/entities.js",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nCould this apply `flags.yawDelta` (ROTATE_DELTA) before adding the flagged velocity components? With an entity facing yaw 0 and moving at (1, 0, 0), a teleport to yaw 90 with `yawDelta`, `dx`, and `dz` set and zero packet velocity currently leaves velocity at (1, 0, 0); it should rotate to approximately (0, 0, 1). I reproduced the retained vector by executing this handler with real Vec3/conversion helpers. This makes the exposed velocity disagree with the teleported entity's motion. Please rotate the old velocity by the pitch/yaw change before the per-axis additions and cover that case, as the player teleport path in #4063 does. The same rotation-before-addition semantics are visible in [Azalea's implementation](https://azalea.matdoes.dev/src/azalea_protocol/common/movements.rs.html).",
+          "line": 362,
+          "position": 27,
+          "location_verified": "Verified current commit and diff_hunk ending at requested line through review-comments API"
+        }
+      ],
+      "validation": "Current diff and discussion refreshed; focused local current-code reproduction with real Vec3/conversions and stub client/clock/physics, no full server suite",
+      "batch": "movement"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4063,
+      "head": "fc480ee8c456de87ce77769b31ba8bcf88703043",
+      "status": "posted",
+      "reason": "Sent input/sprint caches survive player/session reset",
+      "review_id": 5194974065,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4063#pullrequestreview-5194974065",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4063#discussion_r4002994311",
+          "path": "lib/plugins/physics.js",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease reset or resynchronize the new sent-input/sprint caches when the player/session is recreated. These caches survive `login` and `respawn`, although the new server player starts with fresh input state. I reproduced holding sneak, sending one tick, then emitting `login`, a new position, and another tick: neither `player_input` nor PRESS_SHIFT_KEY is sent for the still-held control. The bot therefore believes sneak is held while the new server sees it released; retained sprint state has the same cache ownership problem. A focused transfer/respawn regression with unchanged held controls would cover this.",
+          "line": 259,
+          "position": 163,
+          "location_verified": "Verified current commit and diff_hunk ending at requested line through review-comments API"
+        }
+      ],
+      "validation": "Current diff and discussion refreshed; focused local current-code reproduction with real Vec3/conversions and stub client/clock/physics, no full server suite",
+      "batch": "movement"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4064,
+      "head": "1fc5227b448f0050f7cf4e09fd37ff786d7a6247",
+      "status": "posted",
+      "reason": "Previous level chunk announcement survives respawn",
+      "review_id": 5194986837,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4064#pullrequestreview-5194986837",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4064#discussion_r4003004940",
+          "path": "lib/plugins/health.js",
+          "line": 40,
+          "position": 31,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease clear the previous level's `chunksAnnounced` when handling a new login/respawn, before checking readiness. It is currently cleared only after a successful `player_loaded`. I reproduced `login \u2192 level_chunks_load_start` with the bot's column still absent, followed by `respawn`: the old announcement survives and this call immediately writes `player_loaded` before any announcement for the new level (the earlier respawn listener also sets `isAlive = false`, satisfying the readiness exception). This defeats the per-level guard during a level change before loading completes. Please separate starting a new level from the later `spawn()` readiness recheck, and add a regression for an unfinished load followed by respawn/transfer.",
+          "location_verified": "@@ -11,10 +11,42 @@ function inject (bot, options) {\n   // 1.21.4+ servers ignore block and item interactions until the client has\n   // sent player_loaded (or 60 ticks have passed)\n   function spawn () {\n-    if (bot.supportFeature('sendsPlayerLoadedPacket')) bot._client.write('player_loaded', {})\n+    sendPlayerLoadedWhenReady()\n     bot.emit('spawn')\n   }\n \n+  // player_loaded is sent at most once per level_chunks_load_start game event (join and every\n+  // respawn), never before it, and only once the column under the bot is loaded unless the bot\n+  // is outside the build height, a spectator or dead.\n+  let awaitingLoad = false\n+  let chunksAnnounced = false\n+  function sendPlayerLoadedWhenReady () {\n+    if (!bot.supportFeature('sendsPlayerLoadedPacket')) return\n+    awaitingLoad = true\n+    checkLoaded()\n+  }\n+  function checkLoaded () {\n+    if (!awaitingLoad || !chunksAnnounced) return\n+    const pos = bot.entity?.position\n+    if (!pos || !Number.isFinite(pos.x)) return\n+    const outsideBuildHeight = pos.y < bot.game.minY || pos.y >= bot.game.minY + bot.game.height\n+    if (!(outsideBuildHeight || bot.game.gameMode === 'spectator' || !bot.isAlive || bot.blockAt(pos) !== null)) return\n+    awaitingLoad = false\n+    chunksAnnounced = false\n+    bot._client.write('player_loaded', {})\n+  }\n+  // Every clientbound login and respawn starts a level whose chunks the server announces once.\n+  bot._client.on('login', sendPlayerLoadedWhenReady)\n+  bot._client.on('respawn', sendPlayerLoadedWhenReady)"
+        }
+      ],
+      "validation": "Current diff and discussion refreshed; focused local current-plugin execution using real Vec3/conversions and stub client/clock/physics, no full server suite",
+      "batch": "movement"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4107,
+      "head": "4ac7233799487bc7b105bb8504dd50e04dd9306b",
+      "status": "posted",
+      "reason": "Deferred teleport state reverses packet order and survives respawn",
+      "review_id": 5194987538,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4107#pullrequestreview-5194987538",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4107#discussion_r4003005532",
+          "path": "lib/plugins/physics.js",
+          "line": 397,
+          "position": 42,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nQueuing the entire teleport handler reverses its state updates relative to packet handlers that still run immediately. I reproduced `position(yaw=30)` followed by `player_rotation(yaw=90)` between ticks: the rotation first becomes 90, then `handleTeleport` overwrites it with 30 when the queue drains. The bot ends facing the earlier direction; a later velocity update has the same ordering risk. Please preserve arrival order for incoming state updates while retaining the shared reply FIFO\u2014for example, apply teleport state immediately and queue replies with captured values, or schedule the interacting handlers consistently. A mixed position/rotation regression would catch this.",
+          "location_verified": "@@ -371,7 +375,28 @@ function inject (bot, { physicsEnabled, maxCatchupTicks }) {\n   })\n \n   // player position and look (clientbound)\n-  bot._client.on('position', (packet) => {\n+  // The vanilla client hands every play packet to the client thread, which drains the queue at the\n+  // start of a tick (PacketUtils.ensureRunningOnSameThread) and writes each reply as the packet is\n+  // handled. So a teleport is answered at most once per tick however fast the server sends them,\n+  // and replies to different packets (a pong, a teleport confirm) leave in packet arrival order.\n+  const pendingReplies = []\n+  let replyTimer = null\n+\n+  function flushReplies () {\n+    clearTimeout(replyTimer)\n+    replyTimer = null\n+    if (bot._client.state !== 'play') return\n+    while (pendingReplies.length) pendingReplies.shift()()\n+  }\n+\n+  bot._replyOnNextTick = (reply) => {\n+    pendingReplies.push(reply)\n+    // While no tick is running (the login packet starts it) a reply waits at most one tick.\n+    if (doPhysicsTimer === null && replyTimer === null) replyTimer = setTimeout(flushReplies, PHYSICS_INTERVAL_MS)\n+  }\n+  bot._client.on('position', (packet) => { bot._replyOnNextTick(() => handleTeleport(packet)) })"
+        },
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4107#discussion_r4003005537",
+          "path": "lib/plugins/physics.js",
+          "line": 514,
+          "position": 63,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nThis cleanup also needs to cover respawn/world replacement. The `respawn` handler above only disables physics, and `flushReplies()` runs before that flag is checked. I reproduced queueing a teleport, emitting `respawn`, then ticking: the old coordinates are applied, the old teleport is confirmed, and `handleTeleport` enables physics again before the new world has positioned the bot. Please discard queued work belonging to the prior level on that transition (and invalidate it when leaving play), with a queued-teleport-then-respawn regression.",
+          "location_verified": "@@ -484,6 +509,9 @@ function inject (bot, { physicsEnabled, maxCatchupTicks }) {\n   bot.on('respawn', () => { shouldUsePhysics = false })\n   bot.on('login', () => {\n     shouldUsePhysics = false\n+    // A reply still queued here belongs to the world the bot just left, and its id means nothing\n+    // to the server it is about to talk to.\n+    pendingReplies.length = 0"
+        }
+      ],
+      "validation": "Current diff and discussion refreshed; focused local current-plugin execution using real Vec3/conversions and stub client/clock/physics, no full server suite",
+      "batch": "movement"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4108,
+      "head": "4f31b3e149a462651e5744497f0d81a6d31990d6",
+      "status": "posted",
+      "reason": "Retained onGround leaks into immediate teleport reply; coordinate #4063",
+      "review_id": 5194988219,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4108#pullrequestreview-5194988219",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4108#discussion_r4003006118",
+          "path": "lib/plugins/physics.js",
+          "line": 419,
+          "position": 3,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nKeeping the simulated standing state also changes the immediate teleport reply in this branch: `sendPacketPositionAndLook(..., bot.entity.onGround)` below now sends `onGround: true` if the bot was standing. I reproduced that with physics disabled. The teleport reply is supposed to carry false independently of the retained entity state, as the separate reply helper in #4063 already implements. Please include that bounded reply change here or make landing #4063 first an explicit dependency, and start the test's packet capture before sending the teleport so it checks the immediate reply as well as the later reminders (the current capture begins 200 ms afterward).",
+          "location_verified": "@@ -417,7 +417,6 @@ function inject (bot, { physicsEnabled, maxCatchupTicks }) {\n \n     bot.entity.yaw = conv.fromNotchianYaw(newYaw)\n     bot.entity.pitch = conv.fromNotchianPitch(newPitch)"
+        }
+      ],
+      "validation": "Current diff and discussion refreshed; focused local current-plugin execution using real Vec3/conversions and stub client/clock/physics, no full server suite",
+      "batch": "movement"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4099,
+      "head": "0556385444e76b348b7e16bad9cd476bbda21afc",
+      "status": "skipped",
+      "reason": "No new actionable inline finding: current implementation cancels pending respawn replies on newer position, login, end and start_configuration; reproduced all four cancellation paths. One existing CI version matrix remains failing, but no grounded changed-line defect was established. Interaction with #4107 is addressed on #4107 rather than duplicating a comment here.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Refreshed state/head, all changed files and discussion; static surrounding-handler/test inspection; current-plugin local reproduction with fake clock and client verified all four advertised cancellation paths. GitHub check-runs show MC 1.16.5/1.17.1/1.18.2/1.19 failure; other version matrices pass. Full server suite not rerun.",
+      "batch": "movement"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 488,
+      "head": "8049729deabbfe39d5beb14af5a543c927bb66a3",
+      "status": "posted",
+      "reason": "Two reproduced bounds issues; no existing reviewer duplicates.",
+      "review_id": 5194979351,
+      "review_url": "https://github.com/PrismarineJS/prismarine-viewer/pull/488#pullrequestreview-5194979351",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/488#discussion_r4002998802",
+          "path": "viewer/lib/worldrenderer.js",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nCould omitted bounds be inferred from the serialized column? The documented three-argument `Viewer.addColumn(x, z, chunk)` and `loadChunk({ x, z, chunk })` interfaces still reach these 0/256 defaults. Calling the current method with `new Chunk().toJson()` for 1.18.2 queues only Y=0..240, so those callers still lose the negative sections and the sections above 255 despite the bounds already being in the JSON. Please retain the existing call shape by deriving its bounds, and cover a modern column passed without the two new arguments.",
+          "line": 128,
+          "position": 6
+        },
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/488#discussion_r4002998810",
+          "path": "viewer/lib/world.js",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nCould the mesher's lower bound come from the loaded column/dimension rather than a default chunk? With a 1.18.2 column constructed using `{ minY: -128, worldHeight: 384 }`, `addColumn` preserves the column's -128 minimum but this world still reports -64. The new `models.js` checks consequently cull faces against air inside the valid -128..-65 range even when the renderer schedules those sections correctly. Please use the actual column bound for culling and add a custom-minY case alongside the normal overworld case.",
+          "line": 28,
+          "position": 5
+        }
+      ],
+      "validation": "Static inspection of all seven changed files and core API documentation; local Node reproduction using actual PR World/WorldRenderer methods, installed prismarine-chunk 1.18.2 implementation and intercepted dirty-section scheduling. No WebGL render/server test.",
+      "batch": "viewer_core"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 506,
+      "head": "4c2502419e916aec7cba4e5f2005d745ef30eae0",
+      "status": "posted",
+      "reason": "Reproduced partial-update and item disposal/late-load issues; no existing reviewer duplicates.",
+      "review_id": 5194983602,
+      "review_url": "https://github.com/PrismarineJS/prismarine-viewer/pull/506#pullrequestreview-5194983602",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/506#discussion_r4003002368",
+          "path": "viewer/lib/entities.js",
+          "line": 13,
+          "position": 13,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease retain the pending item's identity across partial updates. After an `entitySpawn` for an item without its stack, this returns null and stores nothing; `WorldView.entityMoved` then sends only `id/pos/pitch/yaw`, so the next update bypasses this guard and creates the magenta fallback mesh. I reproduced that event sequence with the PR's WorldView and Entities methods. This breaks the stated invariant that no mesh exists until the stack is known. Track pending item state (and clear it on deletion), or carry enough state on movement, and cover spawn \u2192 movement \u2192 metadata."
+        },
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/506#discussion_r4003002373",
+          "path": "viewer/lib/entity/Item.js",
+          "line": 97,
+          "position": 97,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nCould this item group provide an explicit disposal hook that also invalidates pending loads? `Entities.clear()`, deletion and stack replacement call `dispose3(group)`, but that helper only disposes `group.geometry` and calls `group.dispose?.()`; neither exists here, and it never visits this nested mesh. A loaded item's geometry/material therefore receive no disposal on removal. I also reproduced deleting an item while its texture callback was held: releasing the callback still creates and attaches a child to the removed group. Please dispose the item's owned geometry/material through the group hook and prevent late callbacks from allocating after disposal, while preserving shared cached textures. A delayed-loader removal test can cover both paths."
+        }
+      ],
+      "validation": "Static inspection of all seven changed files and current master after #490; local Node reproduction running PR WorldView/Entities/Item/dispose methods with stubbed THREE/TWEEN/loaders, exercising spawn-to-movement and delayed texture completion/removal. No WebGL or live-server test.",
+      "batch": "viewer_core"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 513,
+      "head": "814b753c96bbb311c4fc020a9c74e445abb642df",
+      "status": "posted",
+      "reason": "Reproduced stale load after server unload and world replacement; no existing duplicate.",
+      "review_id": 5194989764,
+      "review_url": "https://github.com/PrismarineJS/prismarine-viewer/pull/513#pullrequestreview-5194989764",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/513#discussion_r4003007332",
+          "path": "viewer/lib/worldView.js",
+          "line": 57,
+          "position": 11,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease invalidate in-flight `loadChunk` calls when a column is unloaded or the world changes. `loadChunk` awaits `this.world.getColumnAt(pos)` and then emits/stores the result unconditionally. I reproduced starting a deferred load, emitting `chunkColumnUnload`, replacing `bot.world` and emitting `login`, then resolving the old load: the viewer emits `unloadChunk` followed by an old-world `loadChunk` and restores `loadedChunks[key] = true`. Thus the new listeners can still leave the departed world's geometry visible or overwrite a new column at the same coordinates. Capture and check a world generation plus per-column invalidation token after the await, with a delayed-load regression test for unload/transfer."
+        }
+      ],
+      "validation": "Static inspection of changed file and load/unload call sites; local Node reproduction running actual PR WorldView with EventEmitter bot, real Vec3 and deferred getColumnAt; server unload followed by world replacement/login before resolving old request emits stale loadChunk and restores loadedChunks. No live transfer/server test.",
+      "batch": "viewer_core"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 514,
+      "head": "45f7de5cec3e9db3097b5e95bb43ba16331eb3f8",
+      "status": "posted",
+      "reason": "Reproduced invisible entity becoming drawable after partial movement update; no existing duplicate.",
+      "review_id": 5194993941,
+      "review_url": "https://github.com/PrismarineJS/prismarine-viewer/pull/514#pullrequestreview-5194993941",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/514#discussion_r4003010637",
+          "path": "viewer/lib/entities.js",
+          "line": 127,
+          "position": 11,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease preserve visibility state after removing the mesh. `WorldView.entityMoved` emits only `id/pos/pitch/yaw`, so the first movement after an invisible spawn or metadata update reaches this method without `invisible`; because the map entry was deleted, it creates a fallback mesh and the invisible entity becomes drawable again. I reproduced invisible `entitySpawn` \u2192 `entityMoved` through the PR's WorldView/Entities methods. Retain per-entity visibility across partial updates (clearing it on entity deletion/clear), or ensure all relevant updates carry it, and cover movement while invisible followed by becoming visible again."
+        }
+      ],
+      "validation": "Static inspection of both changed files and current master after #490; local Node reproduction wiring PR WorldView events into PR Entities with stubbed THREE/TWEEN: invisible spawn creates no mesh but entityMoved creates fallback Mesh. No WebGL/live-server test.",
+      "batch": "viewer_core"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4021,
+      "head": "4a16956f26e512b96550c8da11d3b319a37b0af5",
+      "status": "skipped",
+      "reason": "Current diff retains data/registry ownership issue already raised by rom1504 and acknowledged by author. Static inspection did not establish a distinct sufficiently certain new defect; avoid duplicating that unresolved request.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Read current diff, surrounding placement code, refreshed state/head, issue comments, inline comments and reviews.",
+      "batch": "interactions"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4085,
+      "head": "fa678c81777cb5584f6fabd4493b4a9716d75d73",
+      "status": "posted",
+      "reason": "Boat item-use sender does not consume shared prediction sequence; coordinated integration with #4114 required.",
+      "review_id": 5195006428,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4085#pullrequestreview-5195006428",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4085#discussion_r4003020523",
+          "path": "lib/plugins/sequence.js",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nThe shared counter still misses the boat `use_item` in `lib/plugins/place_entity.js`: `placeEntity()` calls `_genericPlace()` (consuming sequence N) and then writes `use_item` with only `hand`, so the second prediction does not consume N+1. #4114 repairs that payload but currently supplies a constant 0, so merging both as written still leaves this gap. Please wire that sender into `_nextSequence()` when integrating the two PRs, and cover an interleaved boat placement/item-use sequence through the real serializer (including both packets emitted by boat placement).",
+          "line": 9,
+          "position": 9
+        }
+      ],
+      "validation": "Static inspection; no runtime tests. Refreshed head and discussions; verified published review comments.",
+      "batch": "interactions"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4089,
+      "head": "ba08fc075d213babf4487e10c3becb7614ab0645",
+      "status": "posted",
+      "reason": "Please use the existing 26.1 hand enum here (`hand: 'main_hand'`) while keeping numeric hands in the older-version branch. The current minecraft-data 26.1 schema maps the varint to `main_hand`/`off_hand`; a local ProtoDef reproduction of that exact mapper rejects `0` with \u201c0 is not in the mappings value\u201d, whereas `main_hand` encodes as byte `00`. #1282 is now merged, while #1278 remains open. This can work with the current schema without requiring its mapper to be removed; keep the real-serializer test against that schema to verify the branch.",
+      "review_id": 5195026091,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4089#pullrequestreview-5195026091",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4089#discussion_r4003037700",
+          "path": "lib/plugins/inventory.js",
+          "line": 277,
+          "position": 33,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease use the existing 26.1 hand enum here (`hand: 'main_hand'`) while keeping numeric hands in the older-version branch. The current minecraft-data 26.1 schema maps the varint to `main_hand`/`off_hand`; a local ProtoDef reproduction of that exact mapper rejects `0` with \u201c0 is not in the mappings value\u201d, whereas `main_hand` encodes as byte `00`. #1282 is now merged, while #1278 remains open. This can work with the current schema without requiring its mapper to be removed; keep the real-serializer test against that schema to verify the branch."
+        }
+      ],
+      "validation": "Static inspection of current PR and current minecraft-data 26.1 schema; refreshed #1278/#1282 status; local ProtoDef reproduction of exact hand mapper. Full 26.1 serializer was unavailable in local installed minecraft-data. Refreshed head and threads immediately before posting; verified published body/path/diff hunk.",
+      "batch": "interactions"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4115,
+      "head": "27805567aa88bbc140c5b3d91766fe8a47fd105b",
+      "status": "posted",
+      "reason": "The hit is computed before the awaited turn, but movement can change the eye position before this saved cursor is sent. I reproduced this with the PR\u2019s real prismarine-world/chunk fixture: starting above `(0,63,0)`, moving the bot +0.2 on X during `lookAt` leaves the packet cursor at `(0.5,1,0.5)` while the final crosshair hits `(0.7,1,0.5)`, even with `strictFace: true`. A larger move can invalidate the face/block too. Please raycast from the current eye and final rotation after the await, revalidate the requested block/face, and use that hit for the packet (or retry/refuse according to strict/fallback policy). Add the moving-during-look case to the existing world-backed tests.",
+      "review_id": 5195029051,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4115#pullrequestreview-5195029051",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4115#discussion_r4003040350",
+          "path": "lib/plugins/generic_place.js",
+          "line": 75,
+          "position": 76,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nThe hit is computed before the awaited turn, but movement can change the eye position before this saved cursor is sent. I reproduced this with the PR\u2019s real prismarine-world/chunk fixture: starting above `(0,63,0)`, moving the bot +0.2 on X during `lookAt` leaves the packet cursor at `(0.5,1,0.5)` while the final crosshair hits `(0.7,1,0.5)`, even with `strictFace: true`. A larger move can invalidate the face/block too. Please raycast from the current eye and final rotation after the await, revalidate the requested block/face, and use that hit for the packet (or retry/refuse according to strict/fallback policy). Add the moving-during-look case to the existing world-backed tests."
+        }
+      ],
+      "validation": "Local reproduction using current PR plugin and existing real prismarine-world/chunk fixture; movement during look produces saved-versus-final cursor mismatch. Static inspection of current tests/docs and fallback policy. Refreshed head and threads immediately before posting; verified published body/path/diff hunk.",
+      "batch": "interactions"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4094,
+      "head": "36e6265f3b23a6fac255443b9041e1090c584cc8",
+      "status": "posted",
+      "reason": "The new instant-break path calls `_updateBlockState` synchronously before this assignment. That can emit `diggingCompleted`, whose listener can start the next `bot.dig(..., 'ignore')`; when the first call resumes here, it overwrites the second dig\u2019s abort closure with its own. I reproduced an instant first dig followed by a noninstant second dig from `diggingCompleted`: `stopDigging()` sends the second block\u2019s ABORT but removes the first block\u2019s listener, leaving `blockUpdate:<second position>` installed. Please install the operation\u2019s abort/cleanup state before any synchronous completion can fire, and ensure an older operation cannot replace a successor\u2019s state. Cover this event-handler reentry and cancellation sequence.",
+      "review_id": 5195030768,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4094#pullrequestreview-5195030768",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4094#discussion_r4003041810",
+          "path": "lib/plugins/digging.js",
+          "line": 179,
+          "position": 117,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nThe new instant-break path calls `_updateBlockState` synchronously before this assignment. That can emit `diggingCompleted`, whose listener can start the next `bot.dig(..., 'ignore')`; when the first call resumes here, it overwrites the second dig\u2019s abort closure with its own. I reproduced an instant first dig followed by a noninstant second dig from `diggingCompleted`: `stopDigging()` sends the second block\u2019s ABORT but removes the first block\u2019s listener, leaving `blockUpdate:<second position>` installed. Please install the operation\u2019s abort/cleanup state before any synchronous completion can fire, and ensure an older operation cannot replace a successor\u2019s state. Cover this event-handler reentry and cancellation sequence."
+        }
+      ],
+      "validation": "Local reproduction executing current digging plugin with real promise utilities and EventEmitter block updates; instant-completion reentry leaves successor blockUpdate listener after stopDigging. Static inspection of diff versus PR base. Refreshed head and threads immediately before posting; verified published body/path/diff hunk.",
+      "batch": "interactions"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4114,
+      "head": "b56eced2a30f1069f77b65689d27dad5be0e97a0",
+      "status": "skipped",
+      "reason": "Current payload fixes the serialization defect and all four existing serializer tests passed locally. Shared-counter integration is already explicitly discussed in PR body and received the concrete inline finding on #4085; no distinct defect justified an additional review here. Existing harness feedback remains visible.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Inspected current changed production and test code and surrounding placeEntity flow. Ran unchanged PR test cases through a lightweight runner with real installed minecraft-protocol serializer: 1.18.2, 1.19.4, 1.20.4, 1.21.4 all passed. Refreshed current state/head, issue comments, inline comments and reviews.",
+      "batch": "interactions"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4086,
+      "head": "02bc8ced4f231e5baf7fdfe525a7c1d6e793bd22",
+      "status": "posted",
+      "reason": "26.1 mapped actionId remains incompatible with numeric respawn",
+      "review_id": 5195022209,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4086#pullrequestreview-5195022209",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4086#discussion_r4003034226",
+          "path": "lib/plugins/game.js",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nCould this select the mapped respawn value on 26.1 as well? The current minecraft-data 26.1 schema still maps `actionId` to `perform_respawn` / `request_stats` / `request_gamerule_values`; #1284 is still open. Serializing this PR's `{ actionId: 0 }` against that schema fails with `0 is not in the mappings value`, whereas `{ actionId: 'perform_respawn' }` produces `00`. Thus the win-game path still fails to send its respawn on 26.1. Please retain the legacy numeric/payload branches and cover 26.1 with a serialized win-game regression using the supported mapper contract."
+        }
+      ],
+      "validation": "Current PR/files/comments/reviews refreshed; data #1284 open and current master 26.1 schema checked; local ProtoDef serialization: actionId 0 throws, perform_respawn yields 00.",
+      "batch": "bot_lifecycle"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4065,
+      "head": "b59072e9559a766b3ebe5de714eec4b517750adc",
+      "status": "posted",
+      "reason": "Initial options.clientSettings snapshot overrides later bot.setSettings during reconfiguration",
+      "review_id": 5195025494,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4065#pullrequestreview-5195025494",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4065#discussion_r4003037149",
+          "path": "lib/plugins/settings.js",
+          "line": 101,
+          "position": 43,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nThis is a snapshot of the initial settings, but `setSettings()` never updates it. With current node-minecraft-protocol master, entering configuration, calling `bot.setSettings({ viewDistance: 'short' })`, then receiving `start_configuration` sends view distances `12 \u2192 8 \u2192 12`; I reproduced that sequence with the two plugins. The server silently returns to the initial distance while `bot.settings.viewDistance` still says `short`. #1522 is still open and proposes suppressing the repeated configuration send, so please either make that behavior an enforced dependency or keep the settings source shared with subsequent updates. A configuration round-trip test after `setSettings()` would catch this."
+        }
+      ],
+      "validation": "Current PR/files/comments/reviews refreshed; nmp #1522 still open and current master play.js read; local execution yielded settings view distances [12,8,12] after initial config, setSettings short, and reconfiguration.",
+      "batch": "bot_lifecycle"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4093,
+      "head": "9eb574f3849981d1dfa784258cbaa88411911ecb",
+      "status": "posted",
+      "reason": "dismount wait depends on enabled physics and cleanup loses caller's held sneak",
+      "review_id": 5195031106,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4093#pullrequestreview-5195031106",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4093#discussion_r4003042107",
+          "path": "lib/plugins/entities.js",
+          "line": 898,
+          "position": 31,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\n`waitForTicks(1)` depends on simulation being active, so this changes dismount into a timeout when `bot.physicsEnabled === false`. The physics plugin only emits `physicsTick` inside `physicsEnabled && shouldUsePhysics` (and mounting itself sets `shouldUsePhysics = false`). Using the actual entities and physics plugins with physics disabled, `await bot.dismount()` rejected after 5050 ms despite the sneak packet already having been sent. Could the hold/release use a lifecycle that works without simulation, and be covered with physics disabled and a real mount/dismount path? Stubbing `waitForTicks` here hides the failure."
+        },
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4093#discussion_r4003042115",
+          "path": "lib/plugins/entities.js",
+          "line": 900,
+          "position": 34,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease preserve the caller's existing sneak state. If `getControlState('sneak')` was already true before `dismount()`, the unconditional cleanup changes it to false on either success or timeout, releasing a control the caller never asked this operation to release. I reproduced that with the real control-state implementation. Capture the previous value before the temporary hold and restore it in cleanup, with coverage for initially-held sneak and a rejected wait."
+        }
+      ],
+      "validation": "Current head and discussions refreshed; exact entities and physics plugins run with physicsEnabled false and initial sneak true: waitForTicks rejected after 5050ms and sneak became false. Published diff positions verified within changed dismount function.",
+      "batch": "bot_lifecycle"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4087,
+      "head": "dc290378d252dda9026c5183e2dd2431a58e1ae5",
+      "status": "skipped",
+      "reason": "No distinct correctness finding after validation; existing reviewer already comments on test quality.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Current diff/comments/reviews read. Actual resource_pack.js accepted and declined via real minecraft-protocol serializers/deserializers on 1.8.9, 1.20.2, 1.20.3 and 1.21.4: expected ordered [3,0] or [3,4,0], matching UUID/hash, exactly one decline. No live server.",
+      "batch": "bot_lifecycle"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4103,
+      "head": "5d4dab47f3bfe1f414222cd6c1d39b8b234c6107",
+      "status": "skipped",
+      "reason": "No distinct actionable inline finding; per-window state and close/login/respawn behavior passed focused checks. Merge conflict alone does not justify an inline complaint.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Current complete diff and surrounding inventory handlers read. Actual PR inventory plugin with real prismarine-windows and prismarine-item: closeWindow(null) no-op; click IDs [[1,5],[0,9]]; relogin closes locally without packet; respawn sends one close_window and drops window. No live server.",
+      "batch": "bot_lifecycle"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4118,
+      "head": "e0f82108183ceff1aeb9c8721720b68726d23c23",
+      "status": "skipped",
+      "reason": "Existing unresolved ownership question and server/client-test request already cover the actionable review points; no new defect established, so avoided duplication or inventing a mandatory extraction.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Current complete diff and attribute/entity handlers read. Real 1.21.4 entity_update_attributes packet serialized/deserialized through minecraft-protocol and delivered to actual PR entities plugin; additive modifier produced entity range 5 and absent block attribute returned 4.5. Existing getAttributeValue arithmetic move checked; ownership remains bounded reviewer question. No live server.",
+      "batch": "bot_lifecycle"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4111,
+      "head": "4ec9950e598d1349388e3303dfb74e590e1dc3aa",
+      "status": "skipped",
+      "reason": "No new actionable inline issue: ChatMessage API change is explicit in PR, docs and types; example interpolates title and remains compatible. Real server/client tests cover create/update and component extra. Overlap with #4112 is integration coordination rather than separate defect. Current checks all pass.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": [
+        "Refreshed current state/head, all 4 changed files, issue comments/reviews/inline comments and CI.",
+        "Static inspection of scoreboard title conversion, declarations, documentation, integration tests and examples/scoreboard.js. No local tests run for this PR."
+      ],
+      "batch": "bot_tests_scoreboard"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4112,
+      "head": "b5668ef0bc38907c7c4a526b99696639913c2697",
+      "status": "posted",
+      "reason": "Reproduced explicit unknown objective reset removing scores from unrelated objectives.",
+      "review_id": 5195059826,
+      "review_url": "https://github.com/PrismarineJS/mineflayer/pull/4112#pullrequestreview-5195059826",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer/pull/4112#discussion_r4003067278",
+          "path": "lib/plugins/scoreboard.js",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nAn explicitly named unknown objective also becomes `undefined` here, so `removeScore` treats it as a request to clear every objective. I reproduced this with scores for `player` in `kills` and `deaths`: `reset_score { entity_name: 'player', objective_name: 'missing' }` deleted both scores and emitted two `scoreRemoved` events. A reset for an objective that has already been removed should leave the other objectives intact. Could you distinguish an absent `objective_name` from a failed lookup, and add a regression test alongside the existing no-objective case?",
+          "line": 70
+        }
+      ],
+      "validation": [
+        "Fresh PR metadata, all 5 files, all comments/reviews and passing checks; head rechecked immediately before COMMENT review.",
+        "Node reproduction against fetched current plugin and ScoreBoard with installed prismarine-registry/prismarine-chat: unknown objective deleted both kills/deaths scores; known objective deleted only its score; absent objective deleted both as intended.",
+        "Publication verified via review comments endpoint.",
+        "GitHub retained diff position 49 rather than a line field; returned diff hunk verifies reset_score handler line 70."
+      ],
+      "batch": "bot_tests_scoreboard"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4116,
+      "head": "33f944e44f92b9eff7579fa66e24837d596ed974",
+      "status": "skipped",
+      "reason": "Diagnostic change is correct on inspection and three added tests pass locally. Existing inline reviewer already requests a real nmp server/client test; no distinct actionable defect found to add.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": [
+        "Refreshed current state/head, both changed files, all comments/reviews and CI (all pass).",
+        "Executed all three PR test cases against fetched exact current physics module using locally installed dependencies: 3 passing (6s).",
+        "Checked physicsEnabled initialization and wait/timer/listener cleanup; no new issue found."
+      ],
+      "batch": "bot_tests_scoreboard"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4074,
+      "head": "3a78e927600cbfc638c13997c668e7dea369c691",
+      "status": "skipped",
+      "reason": "No grounded new inline defect. Test adds a positive chunk/movement phase and shortens negative window. The earlier suspected listener race is not established: client.write returns synchronously and the await resumes as a microtask before socket delivery; movement is emitted on a later physics timer. Failed job reports external 1.19 nether spawn timeout, not this changed test.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": [
+        "Refreshed current state/head, complete changed file diff, all comments/reviews and CI.",
+        "Read surrounding internal test setup, physics tick/move emission, once helper and minecraft-protocol client.write implementation; no local server test run.",
+        "Fetched failed CI job 101604456577: changed no-chunk tests pass; failure is mineflayer_external 1.19v nether spawn timeout. Does not establish baseline equivalence, but provides no inline code finding."
+      ],
+      "batch": "bot_tests_scoreboard"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4075,
+      "head": "46c13151b62e71caa58587e061ca4f199f1ad38b",
+      "status": "skipped",
+      "reason": "No actionable code issue found in load-time version filtering or its CI integration. Failed CI job reports an external 1.16.5 book inventory transaction failure; no evidence ties it to version selection, so no gratuitous inline CI comment.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": [
+        "Refreshed state/head, all 4 changed files, all comments/reviews and CI.",
+        "Ran fetched exact version-selection module in Node VM for unset, single-version, whitespace/duplicate multi-version, and no-match cases: 4 checks pass using local testedVersions list (27 entries).",
+        "Static inspection of both test-file loop replacements and workflow per-version environment assignment.",
+        "Fetched failed CI job 101606596012: external 1.16.5 book test rejected slot-30 transaction. Baseline rerun not performed."
+      ],
+      "batch": "bot_tests_scoreboard"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4081,
+      "head": "f021eb8ad904576ca4e20370ed32497bb6319ce6",
+      "status": "skipped",
+      "reason": "Production fix correctly emits preserved team after map cleanup. Existing reviewer already raised packet-fixture/data normalization; no distinct issue found. Failed CI job reports external 1.19 nether timeout and explicitly passes added teamRemoved test.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": [
+        "Refreshed state/head, both changed files, all comments/reviews and CI.",
+        "Read current team handler and Team implementation; locally exercised exact fetched modules with real registry/chat dependencies for 1.8.8, 1.20.4 and 1.21.6 via EventEmitter packet source. Team identity, preserved members and cleaned bot maps pass for numeric/string modes.",
+        "Fetched failed job 101727179613: teamRemoved test passes, external 1.19 nether spawn times out. No live-server reproduction or baseline rerun performed."
+      ],
+      "batch": "bot_tests_scoreboard"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 376,
+      "head": "e836c40bb6a57660700c911c4e9511f9555546f5",
+      "status": "posted",
+      "reason": "Timeout cap reports success without a completed look; asks for explicit documented outcome.",
+      "review_id": 5195056101,
+      "review_url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/376#pullrequestreview-5195056101",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/376#discussion_r4003064192",
+          "path": "lib/human.js",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nThe wall-clock cap currently reports the same success as a settled head. I reproduced `lookAt(point, { settleMs: 20 })` with no physics ticks: it resolved after about 2 seconds with zero `bot.look` calls and an unchanged yaw. This conflicts with the documented promise that `lookAt` (and a `faceAt` walk) resolves after the look settles, so an awaiting caller can proceed without ever facing its target. Could cap expiry be surfaced distinctly and handled by both callers, or, if best-effort completion is intentional, explicitly documented as such in the public API? Please add an assertion covering the chosen timeout outcome; the new test only checks that the promise ends.",
+          "line": 428,
+          "position": 25
+        }
+      ],
+      "validation": "Fresh head, files and discussions checked. Static callers/docs inspection; unmodified current-head human.js run with event-emitter bot stub: no physics ticks, zero look calls, lookAt resolved after 2024ms. Server integration suite not run.",
+      "batch": "pathfinder_physics"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 377,
+      "head": "021933ef4a41ccd07d56538d0f9df02e4cf3aaa1",
+      "status": "posted",
+      "reason": "Joining by goal alone discards distinct radius, faceAt and timeout contracts.",
+      "review_id": 5195059042,
+      "review_url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/377#pullrequestreview-5195059042",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/377#discussion_r4003066664",
+          "path": "lib/human.js",
+          "line": 437,
+          "position": 12,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease include the effective walk options in the equivalence check before sharing this promise. Requests for the same point can have different `radius`, `faceAt`, or `timeout` contracts. In a local reproduction, `walkTo(goal, { radius: 5 })` followed immediately by `walkTo(goal, { radius: 0.1 })` returned the same promise and both resolved while the bot was still 2 blocks from the goal. Likewise, a newly supplied `faceAt` is silently discarded. Keep joining equivalent repeated requests, but supersede or explicitly update the operation when its options differ, and cover differing options in the regression test."
+        }
+      ],
+      "validation": "Fresh head/files/discussions; inspected actual startWalk option consumers and docs. Unmodified controller with minimal bot/pathfinder stub reproduced shared promise resolving radius-0.1 request 2 blocks from goal. Server integration suite not run.",
+      "batch": "pathfinder_physics"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 379,
+      "head": "79bed54cb602a431d2210811faf8d936cf584b2b",
+      "status": "posted",
+      "reason": "lookAt checks setback only before reaction delay and can rotate during the hold.",
+      "review_id": 5195070461,
+      "review_url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/379#pullrequestreview-5195070461",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/379#discussion_r4003076403",
+          "path": "lib/human.js",
+          "line": 472,
+          "position": 48,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease recheck the hold after the reaction-delay `await`, before assigning the head target. A `lookAt()` that starts just before three `forcedMove` events passes this check, then resumes inside the new hold and reclaims the head that the guard just released. I reproduced this with the current controller: the pending call made 8 `bot.look` calls and resolved while `human.held` was still true. This defeats the new promise that the controller remains held through the storm. Add a regression that starts `lookAt`, trips the guard during its reaction delay, and verifies a `setback` rejection with no subsequent rotation."
+        }
+      ],
+      "validation": "Fresh head/files/discussions; static guard and async caller inspection. Unmodified current-head human.js event-emitter bot reproduction: forcedMove storm during reaction delay, 8 look calls and resolved lookAt while human.held remained true. Server integration suite not run.",
+      "batch": "pathfinder_physics"
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 382,
+      "head": "c59be20d646a23fe1be0b14413de944d5edbab19",
+      "status": "posted",
+      "reason": "Bridge operations have no cancellation/ownership lifecycle and tick waits cannot enforce deadlines.",
+      "review_id": 5195076042,
+      "review_url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/382#pullrequestreview-5195076042",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/382#discussion_r4003080933",
+          "path": "lib/human.js",
+          "line": 562,
+          "position": 105,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease register bridging/standalone placement in the controller's operation lifecycle, with cancellation shared by `stop()`, `walkTo()` and subsequent bridges. This only cancels an already-created `walk`; the bridge itself is never recorded, and `stop()` neither sets `human.active = false` nor releases controls when `walk` is null. I reproduced starting a bridge and calling `stop()` during `stepOnto`: `forward` remained true. A walk still planning at entry can also become active afterward, and a newer walk/bridge can race the old bridge for the same head and controls. Check operation ownership after the awaits (including equip/aiming), and guard cleanup so an old operation cannot release its successor's controls. Please cover stop mid-step and supersession in both directions."
+        },
+        {
+          "url": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/382#discussion_r4003080939",
+          "path": "lib/human.js",
+          "line": 483,
+          "position": 26,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nThis wait has no wall-clock deadline, so the `Date.now() < until` checks in `toLip` and `stepOnto` cannot enforce their limits if physics ticks stop while awaiting it. In a local reproduction with `stepMs: 50`, stopping ticks after `forward` became true left the bridge pending and forward held past 150 ms; without another tick there is no path to the deadline check or cleanup. Give these waits a timer and cancellation path that remove their listener, and use `finally` cleanup for the owned forward/sneak/head state. Add a test that disables physics in the middle of a step and requires the operation to end within its configured bound."
+        }
+      ],
+      "validation": "Fresh head/files/discussions and author's live server/CI notes inspected. Actual human.js local bot-stub reproduction: stop during stepOnto retained forward=true; after tick stream stopped a stepMs=50 bridge was still pending at 150ms with forward held. Static cross-action ownership review. Server integration suite not run.",
+      "batch": "pathfinder_physics"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-physics",
+      "number": 142,
+      "head": "73252f2cc9081751e9ae88e7c7b6fcd5c9f077ca",
+      "status": "posted",
+      "reason": "New flying mode has no vertical jump/sneak input handling.",
+      "review_id": 5195079554,
+      "review_url": "https://github.com/PrismarineJS/prismarine-physics/pull/142#pullrequestreview-5195079554",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-physics/pull/142#discussion_r4003083801",
+          "path": "index.js",
+          "line": 606,
+          "position": 44,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nThe new flying mode preserves hover but never applies vertical flight input. `simulatePlayer` only adds upward velocity for water/lava or an on-ground jump, and sneak only scales horizontal input. Using this PR's `fakePlayer`/world fixture with `flying: true` and initial `vy = 0`, holding either jump or sneak for 40 ticks leaves `y = 80` and `vy = 0` throughout. Once the abilities fields are wired up, the bot can therefore neither ascend nor descend from a hover through its normal controls. Please apply the flying jump/sneak input before movement and damping, using the granted flying speed, and add ascent/descent cases alongside the idle-hover tests."
+        }
+      ],
+      "validation": "Fresh head/files/discussions; full current-head simulator and current-head lib dependencies inspected. Five new test bodies executed with Node assertion adapter, all passed. Added local fixture runs holding jump and sneak independently for 40 flying ticks each: y=80, vy=0 unchanged. Full suite/live server not run.",
+      "batch": "pathfinder_physics"
+    },
+    {
+      "repo": "PrismarineJS/node-minecraft-protocol",
+      "number": 1526,
+      "head": "80bc3b87a9d62b5ac96c157a34b8988894206687",
+      "status": "skipped",
+      "reason": "No distinct actionable inline defect found. Version-selection patch is focused; all version jobs fail, but dependency #1527 is already merged and CI-only status does not justify inventing a code finding.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Refreshed PR/head/files/all discussions and check runs; inspected all eight changed files; freshly confirmed #1527 merged. No tests run.",
+      "batch": "protocol_diagnostics"
+    },
+    {
+      "repo": "ProtoDef-io/node-protodef",
+      "number": 180,
+      "head": "d31ac124ee75e203797bc118af6b5e34df2f57ad",
+      "status": "skipped",
+      "reason": "Existing maintainer comment already asks to fix missing compiler error fields. Current wrapper intentionally documents packet.name and tests compiled/interpreted/no-name behavior; no independent concrete regression established, so no duplicate review posted.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Refreshed PR/head/full files/all discussions; inspected Serializer and all added tests. Static inspection only.",
+      "batch": "protocol_diagnostics"
+    },
+    {
+      "repo": "PrismarineJS/node-minecraft-protocol",
+      "number": 1525,
+      "head": "1aca229d1f829ccccc70fa3fc419f5e4fd82f7b1",
+      "status": "posted",
+      "reason": "Unsigned command consumes unsent last-seen acknowledgement state.",
+      "review_id": 5195059506,
+      "review_url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1525#pullrequestreview-5195059506",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1525#discussion_r4003067043",
+          "path": "src/client/chat.js",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nOn versions with `seperateSignedChatCommandPacket` (for example 1.21.8), the newly selected `chat_command` contains only `command`, so the acknowledgement fields in `chatPacket` never reach the server. However, this branch still calls `getAcknowledgements()` (which marks entries as acknowledged) and then resets `_lastSeenMessages.pending`. I reproduced receiving one signed message, sending `/list` with signing enabled, and then sending chat: the command clears pending from 1 to 0 and the following `chat_message` sends offset 0, although no packet reported that acknowledgement offset. This desynchronizes the last-seen window used for chat validation. Could the unsigned-command branch leave both the pending count and entry flags untouched, with a regression covering an unsigned command followed by signed chat? Older versions whose `chat_command` carries acknowledgements should retain their current accounting.",
+          "line": 427,
+          "position": 17
+        }
+      ],
+      "validation": "Fresh PR/head/files/discussions; current 1.21.8 wire schema; local VM-loaded current chat plugin with real installed minecraft-data and dependencies: one pending signature -> /list -> pending 0 and entry.pending false -> next signed chat offset 0. Reproduction /tmp/astra-inline-reviews/diagnostics-repro.cjs. No vanilla server/full suite. Verified published review comments.",
+      "batch": "protocol_diagnostics"
+    },
+    {
+      "repo": "ProtoDef-io/node-protodef",
+      "number": 179,
+      "head": "3ce26e3df2038f2500f502823cbac4cbd2c28703",
+      "status": "posted",
+      "reason": "Throttle permanently conflates distinct malformed-packet diagnostics.",
+      "review_id": 5195064149,
+      "review_url": "https://github.com/ProtoDef-io/node-protodef/pull/179#pullrequestreview-5195064149",
+      "inline_comments": [
+        {
+          "url": "https://github.com/ProtoDef-io/node-protodef/pull/179#discussion_r4003071086",
+          "path": "src/serializer.js",
+          "line": 87,
+          "position": 29,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nThe constant key combines every size mismatch in this parser, so a different malformed packet never gets its first full diagnostic. I reproduced this with a real one-byte container schema and buffers `01 63`, `01 63`, `02 58`, `02 58`: only the first packet's parsed value/buffer is logged; the second fault is silent at occurrence 3 and becomes just `chunk size mismatch (repeated 4 times)` at occurrence 4. Since these mismatches are only logged and the packets are still pushed downstream, the second fault's details are lost altogether. Could the grouping distinguish different packet/schema failures and preserve a first diagnostic for each, with bounded bookkeeping and an interleaved-malformed-packet test? The partial-read key has the same risk when different generated read paths share the first stack line."
+        }
+      ],
+      "validation": "Refreshed PR/head/files/all discussions. Loaded current FullPacketParser with real ProtoDef one-byte container schema; wrote distinct malformed buffers 0163 and 0258 twice each: logs retain only first buffer details, never second. No full suite. Posted via authorized gh API fallback, verified resulting comment body and diff location.",
+      "batch": "protocol_diagnostics"
+    },
+    {
+      "repo": "PrismarineJS/node-minecraft-protocol",
+      "number": 1522,
+      "head": "cb12f2a990b11e238acdd7eb7d9f9c68c3469cc6",
+      "status": "skipped",
+      "reason": "Prior cookie-schema objection is stale against current minecraft-data master: 1.21.8 packet_common_cookie_response.value is now ['option','ByteArray']. The author already documents the older-data limitation. New tests cover non-empty stored cookies, three protocol states, known packs, and one-time settings across reconfiguration. No independently established introduced lifecycle defect, so no speculative inline demand for more tests or duplicate dependency warning.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Refreshed current PR/head/full five-file diff and all discussions. Read cookies.js/play.js and all added server tests. Freshly fetched minecraft-data master data/pc/1.21.8/protocol.json and mineflayer #4065 status/body. Local installed minecraft-data 3.110.2 still has the bare ByteArray (release availability not established); latest source fix means dependency release status alone is not an inline code finding. Static inspection; no full server suite.",
+      "batch": "protocol_diagnostics"
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1278,
+      "head": "b3eb1d49bbf717ca07d0d269a5c682b225a69ef5",
+      "status": "posted",
+      "reason": "Named writes silently serialize as ordinal zero after mapper removal.",
+      "review_id": 5195019511,
+      "review_url": "https://github.com/PrismarineJS/minecraft-data/pull/1278#pullrequestreview-5195019511",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/minecraft-data/pull/1278#discussion_r4003031847",
+          "path": "data/pc/26.1/protocol.json",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nRemoving this mapper silently changes an existing `hand: 'off_hand'` write from byte `01` to `00` (main hand). I reproduced this with ProtoDef 1.19.0 using the changed field type: its varint writer coerces both names to zero, so this is a wrong-hand interaction rather than a useful migration error. Could we keep the named representation and adapt numeric callers, or supply an explicit compatibility path before removing it? Please cover both named hands in a serializer regression test; testing only main hand hides the regression.",
+          "line": 10855,
+          "position": 14
+        }
+      ],
+      "validation": "Current PR/head/files/comments/reviews refreshed; actual changed field type tested with installed ProtoDef 1.19.0 against original mapper. off_hand: 01 -> 00; request_stats: 01 -> 00 and request_gamerule_values: 02 -> 00. No live server test.",
+      "batch": "data_generation"
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1284,
+      "head": "2c7d1074d3feb595fc6988cb78e5c235b4d00798",
+      "status": "posted",
+      "reason": "Named writes silently serialize as ordinal zero after mapper removal.",
+      "review_id": 5195020077,
+      "review_url": "https://github.com/PrismarineJS/minecraft-data/pull/1284#pullrequestreview-5195020077",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/minecraft-data/pull/1284#discussion_r4003032373",
+          "path": "data/pc/26.1/protocol.json",
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nThis also changes already-valid named commands silently: with ProtoDef 1.19.0, `actionId: 'request_stats'` changes from byte `01` to `00`, and `'request_gamerule_values'` changes from `02` to `00`. Both now become `perform_respawn`, so stats/gamerule callers receive no requested response. I reproduced this using the changed field type. Could we retain the mapper and adapt numeric callers, or provide an explicit compatibility path for named writes? A serializer regression covering all three commands would catch this; the respawn-only validation cannot.",
+          "line": 10648,
+          "position": 15
+        }
+      ],
+      "validation": "Current PR/head/files/comments/reviews refreshed; actual changed field type tested with installed ProtoDef 1.19.0 against original mapper. off_hand: 01 -> 00; request_stats: 01 -> 00 and request_gamerule_values: 02 -> 00. No live server test.",
+      "batch": "data_generation"
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1292,
+      "head": "8f96413d2be41112d22f4c92c167ace72ee98474",
+      "status": "skipped",
+      "reason": "Existing unresolved VasilisDragon review already identifies varint-to-u8 mismatch and silent named 'hard' -> 00 write; maintainer discussion also covers invalid enum encoding. Current mineflayer game_state_change explicitly handles both numeric and named reasons. No distinct grounded inline issue beyond existing points.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Refreshed current PR/head/all 10 file diffs/comments/reviews and current mineflayer game.js consumer. Static review; no new tests needed for duplicated finding.",
+      "batch": "data_generation"
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data-generator",
+      "number": 81,
+      "head": "07febf489ae33431b74ccdeb5f4d748996080585",
+      "status": "posted",
+      "reason": "Generator omits cake crafting remainder outShape; generated files remove existing three-bucket remainder and Mineflayer skips collecting it.",
+      "review_id": 5195037655,
+      "review_url": "https://github.com/PrismarineJS/minecraft-data-generator/pull/81#pullrequestreview-5195037655",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/minecraft-data-generator/pull/81#discussion_r4003047880",
+          "path": "mc/1.12.2/src/main/java/dev/u9g/minecraftdatagenerator/generators/RecipeDataGenerator.java",
+          "line": 73,
+          "position": 170,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nCould the shaped generators also emit crafting remainders as `outShape`? Cake is a concrete case: its three milk buckets (335) leave three empty buckets (325), as documented in minecraft-data's recipe schema. These generators only emit `inShape`/`result`, and all three files in minecraft-data#1283 consequently lose the previously present bucket row. In Mineflayer `craft.js`, `updateOutShape()` clears the local crafting grid and returns when this field is absent, skipping the `putAway` calls that collect those buckets. Please preserve the remainder shape for all three versions and add a cake regression checking the three returned buckets."
+        }
+      ],
+      "validation": "Inspected all generator code, complete three generated recipe files and base cake entries; prismarine-recipe loads confirm cake outShape null in all versions, mixed-plank table metadata null. Local whole-output shape/id/count checks passed for 385/389/432 recipes. Traced fresh Mineflayer craft.js updateOutShape. No Java generator execution or live-server crafting.",
+      "batch": "data_generation"
+    },
+    {
+      "repo": "PrismarineJS/minecraft-data",
+      "number": 1283,
+      "head": "2e266c199adf7b0e1275ae9a826468555ff53289",
+      "status": "posted",
+      "reason": "Generator omits cake crafting remainder outShape; generated files remove existing three-bucket remainder and Mineflayer skips collecting it.",
+      "review_id": 5195038389,
+      "review_url": "https://github.com/PrismarineJS/minecraft-data/pull/1283#pullrequestreview-5195038389",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/minecraft-data/pull/1283#discussion_r4003048562",
+          "path": "data/pc/1.12/recipes.json",
+          "line": 7982,
+          "position": 9324,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\nPlease preserve cake's `outShape` when regenerating this entry (also affected in 1.10 and 1.11). The previous data has `[325, 325, 325]` in its top output row; the new record loses all three returned empty buckets. I loaded each new file through prismarine-recipe and confirmed cake now has `outShape === null`. Mineflayer's `craft.js` then takes `updateOutShape()`'s early branch, clearing the local grid instead of collecting the bucket slots. Fixing the generator's remainder extraction in minecraft-data-generator#81 and regenerating these entries would preserve that behavior; please add a cake remainder check."
+        }
+      ],
+      "validation": "Inspected all generator code, complete three generated recipe files and base cake entries; prismarine-recipe loads confirm cake outShape null in all versions, mixed-plank table metadata null. Local whole-output shape/id/count checks passed for 385/389/432 recipes. Traced fresh Mineflayer craft.js updateOutShape. No Java generator execution or live-server crafting.",
+      "batch": "data_generation"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 510,
+      "head": "3bbee612580004597f382bfac18b520e4021dcda",
+      "status": "skipped",
+      "reason": "Reviewed both current changed files and host implementation. #490 and #501 are merged; remaining stack retargeting is not an inline code defect. Single-sample timing robustness is plausible but no reproducible failure established, so no speculative inline finding.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Fresh PR metadata, full file patches, issue comments, inline comments and reviews; dependency states fetched live. Static inspection only; no test suite run.",
+      "batch": "viewer_stack_items"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 511,
+      "head": "05bd6ecb5578ecc72ac45abc52c819f8e59f2422",
+      "status": "skipped",
+      "reason": "Reviewed all eight current changed files, loadText host implementations, worker mesher path, documentation and tests. loadText is already documented and both parsed and text messages are supported. #510 remains open but a stack dependency alone is not an inline finding.",
+      "review_id": null,
+      "review_url": null,
+      "inline_comments": [],
+      "validation": "Fresh PR metadata, full file patches, issue comments, inline comments and reviews; dependency states fetched live. Static inspection only; no test suite run.",
+      "batch": "viewer_stack_items"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-item",
+      "number": 188,
+      "head": "45fd22d6348da326887bdc11e8f3ea4c459b467c",
+      "status": "posted",
+      "reason": "Reproduced translation loss and stale displayName after clearing customName.",
+      "review_id": 5195104967,
+      "review_url": "https://github.com/PrismarineJS/prismarine-item/pull/188#pullrequestreview-5195104967",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-item/pull/188#discussion_r4003105390",
+          "path": "index.js",
+          "line": 25,
+          "position": 25,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\n[P2] Preserve translated custom names. A 1.21.4 `custom_name` compound containing `translate: 'item.minecraft.diamond_sword'` makes `Item.fromNotch(...).displayName` equal `''`: this renderer only reads `text` and `extra`. The same simplified component renders as `Diamond Sword` through prismarine-chat with the item registry. Translated GUI labels therefore disappear instead of becoming usable display names. Could this use the shared chat renderer after normalizing the input, with a translated-name/`with` regression case?"
+        },
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-item/pull/188#discussion_r4003105400",
+          "path": "index.js",
+          "line": 93,
+          "position": 50,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\n[P2] Restore the base name when the custom name is cleared. With a stone item, `item.customName = 'Shop'; item.customName = null` leaves `customName === null` but `displayName === 'Shop'` because this branch never assigns the fallback. I reproduced this on the component path. Please restore the registry/metadata-variation display name when no custom component remains, and cover setting then clearing a name (while keeping an explicitly empty component empty)."
+        }
+      ],
+      "validation": "Current head rechecked immediately before posting; both published inline comments verified. Ran vsi-item-repro.cjs using exact head index.js/anvil.js with installed prismarine-registry/nbt/chat dependencies; translation rendered empty vs Diamond Sword, name removal left Shop vs Stone. No full test suite.",
+      "batch": "viewer_stack_items"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 503,
+      "head": "af9075bb69c4a8d895ea8710898c56cf25db2f42",
+      "status": "posted",
+      "reason": "Required atlas load failure still fulfills readiness; lazy entity texture requests start only on first render despite next-frame guarantee.",
+      "review_id": 5195107084,
+      "review_url": "https://github.com/PrismarineJS/prismarine-viewer/pull/503#pullrequestreview-5195107084",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/503#discussion_r4003107152",
+          "path": "viewer/lib/worldrenderer.js",
+          "line": 111,
+          "position": 127,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\n[P2] Do not report readiness when the block atlas failed. `loadPixels` catches a rejected `host.loadImage` and converts it to `null`, so this early return fulfills `texturesLoaded`. With a rejecting image loader and no outstanding sections, I reproduced `await waitForReady()` resolving while `material.map` is still unset. A missing atlas therefore produces an untextured capture that callers cannot distinguish from success. Please propagate a required-atlas failure (or an explicit unsuccessful readiness result) and add a rejecting-host case."
+        },
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/503#discussion_r4003107159",
+          "path": "viewer/lib/viewer.js",
+          "line": 135,
+          "position": 79,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\n[P2] Account for lazy entity textures in the first-frame contract. This only waits for `world`, but `entity/Entity.js:getMesh` starts its texture request in `mesh.onBeforeRender`, and applies the result asynchronously. For a newly added visible entity, even a successful `waitForReady()` leaves the first render starting the skin request, so that frame still has an untextured entity. Please either initiate/await the visible entities' texture work here, or explicitly scope the API/docs to block-atlas and chunk readiness; a first capture with an entity would exercise the distinction."
+        }
+      ],
+      "validation": "Current head rechecked before posting; publication verified. Exact WorldRenderer/textures code in isolated VM harness with stubbed THREE and rejecting host reproduces fulfilled readiness without map. Entity timing confirmed by static inspection of getMesh/onBeforeRender. Dependencies #490/#501 confirmed merged. No GL/full suite.",
+      "batch": "viewer_stack_items"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-viewer",
+      "number": 484,
+      "head": "dc777aa049507363ecefbb5e1dc8dba2c2160a11",
+      "status": "posted",
+      "reason": "Delayed boundsReady registration lets waitForChunksToRender fulfill before chunk work is queued. Did not attribute existing CI empty capture/entity pivot errors to this diff.",
+      "review_id": 5195118906,
+      "review_url": "https://github.com/PrismarineJS/prismarine-viewer/pull/484#pullrequestreview-5195118906",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-viewer/pull/484#discussion_r4003117629",
+          "path": "viewer/lib/worldrenderer.js",
+          "line": 151,
+          "position": 82,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\n[P2] Include deferred chunk scheduling in the render wait. Previously `addColumn` registered its outstanding sections synchronously; this now postpones all registration until `boundsReady` resolves. With a delayed `worldBounds.json` response, I reproduced `addColumn(...); await waitForChunksToRender()` returning with zero dirty messages sent, then 80 outstanding sections appearing when the bounds response arrives. A caller can therefore capture an empty frame after awaiting the existing render barrier. Please have that barrier include pending column scheduling (or register pending work before returning), and test it with a delayed bounds load."
+        }
+      ],
+      "validation": "Fresh head, current full diff/discussion, latest 1.14.4 job logs inspected; exact head WorldRenderer VM harness with delayed JSON callback, fake Worker/THREE and actual Vec3 demonstrated render wait resolving before any dirty message then 80 pending sections. Published diff hunk location verified. No browser/full suite.",
+      "batch": "viewer_stack_items"
+    },
+    {
+      "repo": "PrismarineJS/prismarine-item",
+      "number": 189,
+      "head": "7cb3fc659f6e8565dcc09e7dd0a3ffae8936aa2a",
+      "status": "posted",
+      "reason": "String-valued NBT components are returned without JSON quoting, causing literal JSON-looking names to render as different components in ChatMessage.fromNotch.",
+      "review_id": 5195122270,
+      "review_url": "https://github.com/PrismarineJS/prismarine-item/pull/189#pullrequestreview-5195122270",
+      "inline_comments": [
+        {
+          "url": "https://github.com/PrismarineJS/prismarine-item/pull/189#discussion_r4003121852",
+          "path": "index.js",
+          "line": 10,
+          "position": 10,
+          "body": "**Astra agent review \u2014 AI-generated, not manually written by the maintainer.**\n\n[P2] JSON-encode string-valued NBT components too. For a valid literal component `nbt.string('{\"text\":\"Hello\"}')`, this returns `'{\"text\":\"Hello\"}'` unquoted. I reproduced `ChatMessage.fromNotch(originalTag).toString()` yielding the literal `{\"text\":\"Hello\"}`, while `ChatMessage.fromNotch(item.customName).toString()` yields only `Hello`: the new getter output is interpreted as a different component. The same ambiguity affects lore lines. Please preserve the distinction between already serialized input strings and strings obtained by simplifying NBT, and cover a literal name/lore line that itself looks like JSON."
+        }
+      ],
+      "validation": "Exact head Item implementation tested with prismarine-nbt/registry/chat: NBT literal {\"text\":\"Hello\"} rendered as literal before conversion and Hello after getter conversion through Chat.fromNotch. Checked current upstream prismarine-chat source and refreshed head immediately before review batch. Publication diff hunk verified. No bool/modern-shape speculation or pre-existing setter defect posted. No full suite.",
+      "batch": "viewer_stack_items"
+    }
+  ],
+  "date": "2026-09-14",
+  "subagents": 10,
+  "inline_comment_count": 43,
+  "pilot_excluded": "https://github.com/PrismarineJS/mineflayer/pull/4104#discussion_r4002946527",
+  "method": "Ten agents revisited current PR code and discussions, using prior classifications as starting points. They posted COMMENT reviews only for actionable nonduplicate findings, with focused reproductions where practical. Primary agent verified published review status, attribution and inline locations. These checks do not constitute a full cross-repository CI run or approval of skipped PRs."
+}
