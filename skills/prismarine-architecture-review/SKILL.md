@@ -1,6 +1,6 @@
 ---
 name: prismarine-architecture-review
-description: Review PrismarineJS package boundaries, shared model ownership, CommonJS factories, declarations and domain abstractions. Use for cross-package refactoring, public API changes or duplicated protocol/model logic.
+description: Review PrismarineJS maintainability, plugin structure, package boundaries, shared models, APIs and runtime costs. Use for duplicated protocol/model logic, helper or fixture design, refactoring and public API changes, even when behavior tests pass.
 ---
 
 # Package architecture and public APIs
@@ -28,6 +28,10 @@ The shared-world direction in [Mineflayer #334](https://github.com/PrismarineJS/
 
 ## Review code quality through domain costs
 
+Compare the patch with neighboring plugins and the other PRs changing the same path. Repeated item-use packet assembly, independently maintained sequence state, or a parallel plugin framework can each merit a bounded cleanup before merge even if every current test passes. Identify which future protocol update would require editing the copies, or which state owner a reader must now reconstruct. Do not merely call code messy. Keep Mineflayer's loader generic and bot/protocol work in the relevant plugin or shared internal helper; shared use does not by itself justify putting protocol state in createBot.
+
+For reusable entity attributes or component/schema facts, inspect prismarine-entity, registry and data before adding another Mineflayer implementation. For a test that reconstructs a bot, packet source and plugin initialization, compare the existing NMP client/server harness: extra scaffolding can obscure both behavior and ownership. Use the [packet-test decision rules](../prismarine-protocol-data-review/references/packet_tests.md).
+
 Prefer a shared producer fix when the same derived value feeds several consumers. A command-only checksum repair misses ordinary chat if both use the broken producer ([NMP #1442](https://github.com/PrismarineJS/node-minecraft-protocol/pull/1442#discussion_r2726213801)). Name the missed consumer before requesting refactoring.
 
 For stack/component accessors, distinguish a stable object, a decoded copy and a live view. A getter that repeatedly decodes NBT/components can make edits disappear and add work on every inventory/render tick. Ask whether construction-time normalization or a clear mutation method matches actual updates; do not ban getters or caching categorically. [Item #110](https://github.com/PrismarineJS/prismarine-item/pull/110#issuecomment-1660498932) and [#126](https://github.com/PrismarineJS/prismarine-item/pull/126#issuecomment-2683151129) motivate this distinction.
@@ -35,6 +39,14 @@ For stack/component accessors, distinguish a stable object, a decoded copy and a
 Keep meaningful wire-version branches but factor repeated setup when it obscures their only difference. Label settings snapshots, requested input, sent input and acknowledged state by their roles; an ambiguous `_session` object can conceal which lifecycle owns it. Cleanup was requested but the bounded repair still approved in [NMP #1277](https://github.com/PrismarineJS/node-minecraft-protocol/pull/1277#pullrequestreview-1799704432).
 
 For codec/compiler abstraction changes, trace read/write/size and native/context registration together. Datatype-specific precompile injection can invert the extension contract ([ProtoDef #177](https://github.com/ProtoDef-io/node-protodef/pull/177#discussion_r3944863074)); check the final revision before repeating an earlier objection. Benchmark hot-path claims on equivalent packet workloads rather than counting lines.
+
+Keep sizing independent of writing; make sizeOf available to writers through a coherent compilation/context dependency rather than generating code during each call or introducing a sizeOf → write → sizeOf cycle. A generic hash type should specify supported algorithms and digest representations independently of Node's current crypto list. Reuse established hashing implementations instead of embedding another algorithm in compiler plumbing. These are checks of the extension contract, not a mandate to use one particular library.
+
+## Performance must preserve library consumers
+
+Trace the measured cost before accepting a cache or optimization: cold versus repeated compilation, number of versions actually loaded, existing in-memory reuse, and total test/application time. A fraction of a second per version does not explain an arbitrary suite slowdown. Compare equivalent workloads and account for serialization, I/O and invalidation overhead.
+
+NMP is also used by prismarine-viewer and prismarine-web-client. An implicit disk cache changes their platform contract, adds persistent side effects and needs an invalidation/cleanup owner; browser consumers cannot use Node filesystem writes. Check the existing memory cache before proposing persistence. Treat an explicit Node-only optional cache differently from adding a filesystem requirement to shared initialization. [NMP #1516](https://github.com/PrismarineJS/node-minecraft-protocol/pull/1516#pullrequestreview-5061987167) is the concrete rejection, not a ban on all caching.
 
 ## Match the usable API, including factory exports
 
@@ -44,6 +56,8 @@ For a new required host/adapter method, test an object that satisfies the declar
 
 ## Decide whether refactoring is required to land
 
-Require a shared change only when the local patch leaves the same demonstrated invariant broken elsewhere: configuration suppression beyond physics in [Mineflayer #3722](https://github.com/PrismarineJS/mineflayer/pull/3722#issuecomment-3314997503) is one example. Name the remaining paths and the smallest shared owner that covers them.
+Require a bounded shared change when the patch leaves a demonstrated invariant broken elsewhere **or introduces a concrete maintenance problem covered above**. Configuration suppression beyond physics in [Mineflayer #3722](https://github.com/PrismarineJS/mineflayer/pull/3722#issuecomment-3314997503) is a correctness example; repeated interaction assembly and incompatible plugin structure are maintenance examples. Name the affected paths and smallest suitable owner. Passing tests do not resolve an applicable maintainer request about those costs.
 
 A component compatibility repair could land before data redesign ([Item #127](https://github.com/PrismarineJS/prismarine-item/pull/127#pullrequestreview-2686529666)); generic codec placement could remain follow-up ([NMP #1309](https://github.com/PrismarineJS/node-minecraft-protocol/pull/1309#issuecomment-2408710582)). For coordinated releases, exercise the candidate dependency through the downstream consumer and state the required released minimum ([Mineflayer #3384](https://github.com/PrismarineJS/mineflayer/pull/3384#issuecomment-2156699400)). A package move without that migration is incomplete.
+
+Use [extremeheat's concrete standards and scope examples](references/extremeheat_standards.md) to decide whether the proposed simplification is part of this patch or a separate improvement. Do not require an ecosystem-wide redesign merely because a smaller shared repair is warranted.

@@ -54,6 +54,10 @@ The current domain-specific skills are described in the
 [implementation report](implementation/phase3/domain_specific_review_skills.md).
 The original survey/evaluation report records the previous five-skill set.
 
+The [September 21 standards update](implementation/phase3/extremeheat_review_standards.md)
+strengthens maintainability review, upstream data consistency and packet-test
+selection using extremeheat's review decisions.
+
 ## Conventions
 
 - One topic per Markdown file; use descriptive `snake_case` names

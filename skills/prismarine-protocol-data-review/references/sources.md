@@ -12,3 +12,12 @@ These precedents come from the frozen phase3 discovery corpus. Account attributi
 - [NMP #1275](https://github.com/PrismarineJS/node-minecraft-protocol/pull/1275): shared chat/NBT ownership is preferred to copying, while a public NMP export is accepted as a practical migration route. [NMP #1309](https://github.com/PrismarineJS/node-minecraft-protocol/pull/1309) similarly leaves generic codec placement as follow-up.
 - [minecraft-data-generator #24](https://github.com/PrismarineJS/minecraft-data-generator/pull/24): existing modules must remain valid, but support for every older version is explicitly unnecessary without a consumer. [Registry #18](https://github.com/PrismarineJS/prismarine-registry/pull/18): documented 1.19+ API availability is accepted instead of building historical fallbacks.
 - [NMP #1337](https://github.com/PrismarineJS/node-minecraft-protocol/issues/1337#issuecomment-2452952450): ask for the specific failing packet and dumped buffer; suspected compiler/dependency causes remain hypotheses. [prismarine-contribute package map](https://github.com/PrismarineJS/prismarine-contribute/blob/4317c201c884148c6263de2bdf487f6b6396ef20/info.md) supplies the modular ownership context, not current version guarantees.
+
+## Upstream consistency and general validation
+
+Supplement checked 2026-09-21: [extremeheat's standards](../../prismarine-architecture-review/references/extremeheat_standards.md) collect the original comments and dated outcomes. These add operational guidance to the older precedents above:
+
+- Mineflayer #4079 and data #1298: normalize accidental representation differences and preserve semantic packet/field names; distinguish true wire changes before adding features or backporting a rename.
+- Data #1276/#1297/#1286: express general uniqueness/reference constraints at their shared schema/validator owner, exercise applicable categories and retain the accepted local-stopgap exception.
+- Generator #79, data #1193 and #1007: explain disagreements with authoritative extraction, repair active generators, and document how the data can be reproduced.
+- Data #1301/#1298: use the existing version integration branch and refresh subsequent scaffolds after the preceding update lands. See [update ordering](https://github.com/PrismarineJS/minecraft-data/pull/1301#issuecomment-5739670610) and [shared branch rationale](https://github.com/PrismarineJS/minecraft-data/pull/1298#issuecomment-5661413881). These are collaboration/reviewability rules, not a ban on parallel independent work.
