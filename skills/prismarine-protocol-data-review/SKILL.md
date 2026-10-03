@@ -35,7 +35,7 @@ For a client-written packet, pair `createSerializer({ state, version, isServer: 
 
 **Isolate candidate schemas.** The inspected serializer caches by state/direction/version/compiled mode, omitting `customPackets`, and merges custom definitions into the loaded protocol object. Two schemas tested sequentially in one process may reuse or mutate the baseline. Run each candidate in a fresh process. Verify this behavior against the dependency under review before adapting the harness.
 
-For protocol/plugin behavior, prefer the existing real NMP client/server fixture over hand-built EventEmitter bots. Check the server implementation as well as the client when both implement the changed acknowledgement, signing or handshake contract; a self-consistent roundtrip still needs independent bytes/source when claiming vanilla fidelity. See [packet-test selection and controls](references/packet_tests.md). For a writer that advances past a supposedly zero byte, use a prefilled nonzero buffer: zero-initialized fixtures hide missing writes.
+For submitted protocol/plugin integration regressions, use the existing real NMP client/server fixture rather than hand-built EventEmitter bots; apply the [repository testing gate](../prismarine-review/references/testing_standards.md). Check the server implementation as well as the client when both implement the changed acknowledgement, signing or handshake contract; a self-consistent roundtrip still needs independent bytes/source when claiming vanilla fidelity. See [packet-test selection and controls](references/packet_tests.md). For a writer that advances past a supposedly zero byte, use a prefilled nonzero buffer: zero-initialized fixtures hide missing writes.
 
 ## Preserve mapper and registry contracts
 

@@ -2,11 +2,11 @@
 
 These are adaptable checks against specific reviewed code, not tests promised in every release. The [2026-09-14 re-review records](../../../implementation/phase3/u9g_rereviews.json) contain exact heads, dependencies, observations and limits. Recent Astra findings are engineering examples, not independent manual maintainer policy. The [independent checks](../../../implementation/phase3/u9g_independent_checks.json) withdrew the #4089 numeric-hand serialization objection: released compiled ProtoDef accepts it. That withdrawal does not validate missing released feature flags or the entire 26.1 interaction path.
 
-## Pick a partial block through the existing harness
+## Diagnose a partial-block failure, then cover it in the repository harness
 
 Source: Mineflayer [generic_place.js at #4115 head](https://github.com/PrismarineJS/mineflayer/blob/27805567aa88bbc140c5b3d91766fe8a47fd105b/lib/plugins/generic_place.js), its [genericPlaceRaycastTest.js](https://github.com/PrismarineJS/mineflayer/blob/27805567aa88bbc140c5b3d91766fe8a47fd105b/test/genericPlaceRaycastTest.js), and [finding](https://github.com/PrismarineJS/mineflayer/pull/4115#discussion_r4003948084).
 
-Extend that harness's `fakeBot`, `setBlock` and `crosshairHit` fixtures:
+The archived PR's `fakeBot`, `setBlock` and `crosshairHit` fixtures can isolate the geometric counterexample below. They are diagnostic probes, not the recommended maintained bot/plugin regression harness. Apply the [repository testing gate](../../prismarine-review/references/testing_standards.md) and put submitted Mineflayer integration coverage in its existing internal/external suite.
 
 ```js
 const bot = fakeBot()
@@ -43,7 +43,7 @@ Sources: physics [#142 index.js](https://github.com/PrismarineJS/prismarine-phys
 
 Reuse `flying.test.js`'s `fakePlayer` and idle controls; replace the world's `getBlock` with actual registry-created air, water, then lava blocks. Start at Y=80 with zero velocity and `flying: true`; run forty `simulatePlayer(state, world).apply(player)` ticks. Air is a positive control. The archived head yields 80, 79.12498338465008, 78.47999999999993 on both tested versions 1.13.2/1.20.4. Its five added tests pass. Vanilla source comparison used 1.20.3-pre1, not either executed version; this supports the missing fluid branch without claiming exhaustive cross-version equivalence.
 
-For `bridgeTo`, use the existing controller and a bot adapter whose ticks run released physics on a flat solid floor. `blocks: 1, radius: 0.6` must fulfill if the final step enters the radius. Archived #382 instead rejects after reaching distance 0.16770881824918615. This control needs no placement, so it isolates completion from server acceptance.
+For a diagnostic `bridgeTo` probe, use the existing controller and a bot adapter whose ticks run released physics on a flat solid floor. `blocks: 1, radius: 0.6` must fulfill if the final step enters the radius. Archived #382 instead rejects after reaching distance 0.16770881824918615. This control needs no placement, so it isolates completion from server acceptance. For maintained plugin/control regression coverage, translate the assertion into pathfinder's existing real-bot internal suite; the adapter alone does not satisfy that repository integration convention.
 
 The original local probes can be rerun if the phase3 archive exists (paths are workspace evidence, not installed-skill dependencies):
 

@@ -2,6 +2,8 @@
 
 Paths below are relative to the named repository. Links pin reviewed sources; their branch helpers are not release guarantees. Recent examples were validated on 2026-09-14 and are Astra engineering evidence, not independent manual maintainer policy. [Rereview records](../../../implementation/phase3/u9g_rereviews.json), [independent checks](../../../implementation/phase3/u9g_independent_checks.json) and [historical case records](../../../implementation/phase3/review_cases.jsonl) preserve revisions, dependencies and limits.
 
+Isolated plugin injection or registry-backed EventEmitters below describe diagnostic probes, not automatically acceptable submitted regression fixtures. For maintained Mineflayer bot/plugin coverage, use its existing actual-bot internal or external harness and apply the [repository testing gate](../../prismarine-review/references/testing_standards.md). Keep pure helper tests scoped to their real input contract.
+
 ## Settings, input and reply lifetime
 
 - [Settings source, #4065](https://github.com/PrismarineJS/mineflayer/blob/b59072e9559a766b3ebe5de714eec4b517750adc/lib/plugins/settings.js): inject the real settings plugin and NMP `src/client/play.js` with a registry-backed event emitter. Capture `settings.viewDistance`, emit `success`, switch to play, call `setSettings({ viewDistance: 'short' })`, emit `start_configuration`. Reviewed output is `[12,8,12]`; a synchronization fix should retain the updated setting. Test a caller-supplied `clientSettings` separately, respecting its intended precedence. The NMP 1.67.0 handler reads that options object on each configuration entry.

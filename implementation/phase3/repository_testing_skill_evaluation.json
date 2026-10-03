@@ -1,0 +1,530 @@
+{
+  "structure": {
+    "skill_structure": [
+      {
+        "skill": "prismarine-architecture-review",
+        "exit_code": 0,
+        "output": "Skill is valid!"
+      },
+      {
+        "skill": "prismarine-geometry-movement-review",
+        "exit_code": 0,
+        "output": "Skill is valid!"
+      },
+      {
+        "skill": "prismarine-item-inventory-review",
+        "exit_code": 0,
+        "output": "Skill is valid!"
+      },
+      {
+        "skill": "prismarine-lifecycle-action-review",
+        "exit_code": 0,
+        "output": "Skill is valid!"
+      },
+      {
+        "skill": "prismarine-protocol-data-review",
+        "exit_code": 0,
+        "output": "Skill is valid!"
+      },
+      {
+        "skill": "prismarine-review",
+        "exit_code": 0,
+        "output": "Skill is valid!"
+      },
+      {
+        "skill": "prismarine-world-render-review",
+        "exit_code": 0,
+        "output": "Skill is valid!"
+      }
+    ],
+    "local_links_checked": 36,
+    "local_links_missing": 0,
+    "git_diff_check": "passed"
+  },
+  "initial_precision_evaluation": {
+    "evaluator": "independent skill forward-test agent",
+    "evaluated_at": "2026-10-03T18:41:34.193429+00:00",
+    "scope": "Read updated common testing reference and geometry/world/lifecycle skills; actual diffs, current/historical discussions, candidate scripts, nearby harness and model tests. Did not read design/report. No publication or tracked-file changes.",
+    "skills": [
+      "prismarine-review",
+      "prismarine-geometry-movement-review",
+      "prismarine-world-render-review",
+      "prismarine-lifecycle-action-review"
+    ],
+    "cases": [
+      {
+        "case": "PrismarineJS/mineflayer#4053",
+        "head": "df543277b740eda5d8f3ca9817e822b980422fb0",
+        "route": "test/internalTest.js real createBot and NMP server, send entity_status and observe usingHeldItem/consume settlement; external test only if actual server consumption is claimed",
+        "objection": true,
+        "reason": "test/inventoryItemUseTest.js fabricates bot and client EventEmitters, no-op client.write and manually injects inventory. Real registry/version loop does not exercise bot setup or encoded packet path.",
+        "already_covered": true,
+        "existing_comment": "https://github.com/PrismarineJS/mineflayer/pull/4053#discussion_r4174311961",
+        "uncertainty": "Source/harness inspection only; no runtime execution. No new duplicate comment warranted."
+      },
+      {
+        "case": "PrismarineJS/mineflayer-pathfinder#386",
+        "head": "892b6eb65b7a463cacf6f2b94a2eab848e72747f",
+        "route": "test/internalTest.js pathfinder events real Mineflayer/NMP/chunk fixture; assert after path_update-producing tick unwinds",
+        "objection": true,
+        "reason": "New test fabricates bot state/world/control APIs and invokes pathfinder(bot) directly. Existing pathfinder events uses createBot, NMP server and loadPlugin. Actual A* computation does not establish surrounding plugin integration.",
+        "already_covered": true,
+        "existing_comment": "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/386#discussion_r4174313991",
+        "uncertainty": "No runtime execution. Need preserve continuation and post-callback assertions when moving to established harness."
+      },
+      {
+        "case": "PrismarineJS/prismarine-chunk#338",
+        "head": "99436d4a941c7002a1eeb98f8ce09a58e4352402",
+        "route": "test/versions.js allVersions/bedrockVersions plus test/ChunkColumn.test.js shared behavior; leave captured network-fixture matrices distinct",
+        "objection": true,
+        "reason": "test/bedrock-1.26.test.js duplicates generic construct/set/get/JSON behavior in release-specific file instead of shared matrix. Model inputs themselves are legitimate.",
+        "already_covered": true,
+        "existing_comment": "https://github.com/PrismarineJS/prismarine-chunk/pull/338#discussion_r4174319033",
+        "uncertainty": "Did not execute allVersions for new version; extending matrix can expose real API incompatibilities requiring resolution. Dedicated genuine wire-format assertions remain legitimate."
+      },
+      {
+        "case": "PrismarineJS/prismarine-physics#142",
+        "head": "bb4b53b765a27a6a5e58b7fe44232eb4dcc4eb66",
+        "state": "closed",
+        "merged": true,
+        "route": "Existing Mocha pure simulation route using actual Physics, PlayerState and prismarine-block with controlled player/world inputs",
+        "objection": false,
+        "reason": "New flying.test.js follows basic.test.js model fixtures and exercises real simulation. Fake player/world are explicit algorithm inputs, not replacements for claimed bot/server integration. Current tests include ascent/descent and fluid hover controls.",
+        "already_covered": "Historical runtime findings received author fixes; no testing-style objection needed.",
+        "uncertainty": "Inspection only, no runtime or vanilla differential validation; does not establish Mineflayer abilities integration."
+      },
+      {
+        "case": "PrismarineJS/mineflayer#4099",
+        "head": "37ac6d9934b702acd028ad828c59ed46b74efe80",
+        "state": "closed",
+        "merged": true,
+        "route": "Existing version-labelled internalTest.js real Mineflayer bot and NMP server",
+        "objection": false,
+        "reason": "Server sends login/chunks/teleports/configuration transition, asserts actual returned packets or production writes. The write wrapper delegates to originalWrite; bot.emit(death) injects bounded lifecycle precondition without replacing subject/transport. This is not same root cause as 4053.",
+        "already_covered": "No test-fixture objection identified.",
+        "uncertainty": "Inspection only; timing-based sleeps and all version runtime behavior not re-executed. Do not infer any EventEmitter use or wrapper warrants finding."
+      },
+      {
+        "case": "Mineflayer current onceWithCleanup utility tests",
+        "head": "f2b236a35facc0614e43578a26fd476564a1a1e5",
+        "route": "Existing version-labelled internalTest.js utility cases with real EventEmitter passed to actual onceWithCleanup",
+        "objection": false,
+        "reason": "EventEmitter is actual utility input. Assertions check rejection, error identity, no synchronous emit throw and listener removal. No fake bot/plugin subject.",
+        "already_covered": "No objection to post.",
+        "uncertainty": "Inspection only; repetition per version is inherited organization, not grounds for unsolicited restructuring."
+      },
+      {
+        "case": "ChunkSection and paletteStorage existing suites",
+        "head": "99436d4a941c7002a1eeb98f8ce09a58e4352402",
+        "route": "Existing Mocha model tests instantiate real ChunkSection and PalettedStorage",
+        "objection": false,
+        "reason": "Palette insertion/global conversion and storage resize/count checks exercise real local algorithms. Version-specific implementation import in ChunkSection tests is a focused format/model boundary, not duplicate version support smoke-file.",
+        "already_covered": "No objection to post.",
+        "uncertainty": "Inspection only; no runtime or coverage completeness assertion."
+      }
+    ],
+    "result": "All seven cases produce appropriately scoped decisions: three concrete objections already covered by maintainer comments, four legitimate positive controls. No mandatory wording defect found.",
+    "suggested_refinements": [
+      {
+        "severity": "optional precision improvement",
+        "suggestion": "Explicitly distinguish observing wrappers that call the original method, and bounded lifecycle stimuli on a real bot, from replacing the production boundary. Mineflayer4099 is a concrete positive example.",
+        "reason": "Prevents mechanical interpretation of the substituted-boundaries list as a ban on any direct emit or client.write wrapper."
+      }
+    ],
+    "limits": [
+      "These are inspection-based skill usability/precision checks, not runtime tests.",
+      "The common reference itself includes the three negative exemplars and model positives, so this is a regression/precision exercise, not evidence of broad unseen-case generalization.",
+      "Merged142/4099 are historical controls; they are not pending review targets."
+    ]
+  },
+  "refined_precision_evaluation": {
+    "evaluated_at": "2026-10-03T18:52:25.265604+00:00",
+    "scope": "Regression/precision evaluation of refined testing_standards.md; not unseen-case generalization. No design/report or published Astra conclusions used as authority.",
+    "rows": [
+      {
+        "repo": "PrismarineJS/mineflayer-pathfinder",
+        "number": 384,
+        "head": "6cb3ea5fe2693319f36e423e9d5b00c169162196",
+        "concrete_test_request": false,
+        "boundary_decision": "Focused algorithm route is appropriate",
+        "evidence": [
+          "Actual Movements instance classifies real prismarine-block states and computes neighbors, safeToBreak, landing heights.",
+          "The final cases install pathfinder to expose getPathFromTo, then compare actual unoptimized and postprocessed A* waypoints. They do not drive cancellation, physics ticks or pretend controls prove bot movement.",
+          "Controlled block map and minimal holder bot provide algorithm inputs; no-op clearControlStates is outside the asserted waypoint contract.",
+          "package.json runs standard then default-root Mocha; CI npm test has no version grep, so test/liquids.js is discovered."
+        ],
+        "findings": [],
+        "publication": "None; evaluate raw source rather than Astra authority",
+        "test_execution": "Not run; static assertions/production/runner/harness inspection"
+      },
+      {
+        "repo": "PrismarineJS/node-minecraft-protocol",
+        "number": 1536,
+        "head": "bb782e746229a5cb9fdce7f4854f23309ac1b3b2",
+        "concrete_test_request": true,
+        "boundary_decision": "Keep local unit fixture; repair CI discovery and index-zero assertion",
+        "evidence": [
+          "The fix changes channel-array lookup/removal and decoded payload dispatch. EventEmitter plus production injected plugin meaningfully exercises this local behavior. Existing declareCommandsTest has an injected EventEmitter client precedent.",
+          "The first test observes both removed and retained channel emissions and distinguishes the affected production behavior; packet encoding/network/server claims are not made.",
+          "CI runs npm run mochaTest -- -g ${{ matrix.mcVersion }}v. The new describe pluginChannels and its two it titles have no version label, so CI filters both out despite local Mocha discovery.",
+          "The second case listens on minecraft:unregister but emits example:only. Its received array stays empty even if example:only still dispatches. The last removed example channel is at index1 after minecraft:register removal; no observable assertion directly validates the initial index0 removal."
+        ],
+        "findings": [
+          {
+            "path": "test/pluginChannelsTest.js",
+            "line": 15,
+            "request": "Put the suite under supported version-labelled discovery or add an explicit CI unit-test run."
+          },
+          {
+            "path": "test/pluginChannelsTest.js",
+            "line": 36,
+            "request": "Observe the channel actually removed at index0, emit that payload, and also prove the retained neighbor still dispatches. Keep this as a focused unit test; no TCP rewrite required."
+          }
+        ],
+        "publication": "None; evaluate raw source rather than Astra authority",
+        "test_execution": "Not run; static assertions/production/runner/harness inspection"
+      },
+      {
+        "repo": "PrismarineJS/prismarine-registry",
+        "number": 57,
+        "head": "725fb82c851b35f6b39df2d81d454e17ed2d9861",
+        "concrete_test_request": true,
+        "boundary_decision": "Keep real model fixtures and integration harness; restore full palette assertions",
+        "evidence": [
+          "Hashed runtime-ID tests instantiate real registry and prismarine-block models, checking independent known hash/index constants, shared reference invariants, reload behavior, per-state lookup and absence of shared-data mutation. These are legitimate focused model cases.",
+          "Existing mcbedrock integration harness is extended for 1.21.70 item_registry and re-enabled, using real BDS packet collection.",
+          "mcbedrock.js changes whole sorted itemstates equality into reEncoded[0] versus itemstates[0]. A truncated output retaining the first row, changed later row or missing later fields passes; this is a concrete weakened regression assertion independent of mock style.",
+          "package.json uses root Mocha and CI npm test, so both model and BDS suites are discovered. CI swaps prismarine-block to a branch: candidate dependency evidence only, not released dependency readiness."
+        ],
+        "findings": [
+          {
+            "path": "test/mcbedrock.js",
+            "line": 44,
+            "request": "Compare full normalized palettes and lengths; if versions differ legitimately, normalize only those fields per version rather than sampling first row."
+          }
+        ],
+        "publication": "None; evaluate raw source rather than Astra authority",
+        "test_execution": "Not run; static assertions/production/runner/harness inspection"
+      }
+    ],
+    "remaining_overbroad_wording": [],
+    "conclusion": "Refinement correctly prevents mandatory integration migrations for algorithm/local-dispatch claims while preserving concrete assertion/discovery requests.",
+    "limitations": [
+      "No runtime execution, base/mutation control or external BDS session in this pass.",
+      "Findings need current discussion deduplication and legal-line revalidation before any publication; this task is evaluation only."
+    ]
+  },
+  "peer_review": [
+    {
+      "repo": "PrismarineJS/node-minecraft-protocol",
+      "number": 1536,
+      "reviewed": [
+        "published/drafted review payload",
+        "exact-head src/client/pluginChannels.js",
+        "test/pluginChannelsTest.js",
+        "test/serverTest.js",
+        "test/declareCommandsTest.js",
+        "prior discussion snapshot",
+        "1536-control.json"
+      ],
+      "dedup": "No equivalent prior finding; earlier Astra readiness is explicitly revised.",
+      "assessment": "Second inline is concrete and well supported. First inline combines valid CI exclusion with a potentially overbroad mandatory fixture replacement.",
+      "reason": "Channel registration/removal and decoded-event dispatch can be meaningfully unit-tested using EventEmitter; this is less obviously an integration-only behavior than bot actions. Exact head also contains an injected EventEmitter chat-plugin unit test. The channel codec still executes within the real plugin for typed channels. A no-op write is irrelevant when custom=false in all calls. CI exclusion and inaccurate index-zero assertion require repair regardless.",
+      "recommendation": "Keep vacuous-assertion and CI findings. Qualify real client/server route as integration regression guidance; allow a corrected focused unit case as supplementary evidence instead of imposing a blanket NMP plugin fixture ban.",
+      "test_execution": "No new execution. Independently traced code and read recorded fixed/mutated 2-pass runs."
+    },
+    {
+      "repo": "PrismarineJS/mineflayer-pathfinder",
+      "number": 384,
+      "reviewed": [
+        "review payload",
+        "complete test/liquids.js diff",
+        "prior discussion",
+        "getPathFromTo/postProcessPath source",
+        "existing internalTest util/getPathTo harness"
+      ],
+      "dedup": "No existing equivalent feedback.",
+      "assessment": "Repository-fit migration request has a real existing destination, but rationale risks misclassifying algorithm tests as fake integration.",
+      "reason": "Both disputed cases exercise actual AStar + production path postprocessing over real Block state objects. They compare raw vs processed coordinates, not packet initialization, controls, execution or server swim success. Calling pathfinder(bot) exposes the plugin closure but does not by itself turn an algorithm assertion into a lifecycle claim. Prior reported head/base negative controls also distinguish the bug.",
+      "recommendation": "Narrow to duplicate fixture maintenance/repository consistency if retaining requested migration; recognize existing tests as useful valid model evidence and do not make network initialization a general prerequisite for pure path algorithms.",
+      "test_execution": "Source inspection only; no fresh model run."
+    },
+    {
+      "repo": "PrismarineJS/mineflayer",
+      "number": 4094,
+      "reviewed": [
+        "review payload",
+        "complete changed test/internalTest.js hunks",
+        "prior body/reviews/inline discussions",
+        "actual internal bot/NMP harness"
+      ],
+      "dedup": "Existing re-entry correctness request differs from this writer/observation issue; no duplicate found.",
+      "assessment": "Well scoped and supported.",
+      "reason": "Tests explicitly claim packet status/order/sequence across versions but replace _client.write with a collector, so assertions never observe serialization or server-received fields. Review preserves useful local re-entry/listener assertions and limits the request to packet observations.",
+      "recommendation": "Retain. No correction needed.",
+      "test_execution": "Source inspection only."
+    }
+  ],
+  "refinements_applied": [
+    "Inspect overrides after real-bot setup, not just filename or initial createBot call.",
+    "Distinguish delegated observing wrappers and bounded lifecycle stimuli from replacing production paths.",
+    "Allow actual path algorithms exposed through plugins and NMP local decoded-dispatch unit tests.",
+    "Require successful protocol transitions to detect unexpected parser/connection errors; preserve expected malformed-packet tests."
+  ],
+  "publication": {
+    "comment_reviews_posted": 26,
+    "inline_comments_posted": 28,
+    "prs_with_retained_new_findings": 25,
+    "retained_new_inline_findings": 27,
+    "withdrawn_review_urls": [
+      "https://github.com/PrismarineJS/mineflayer-pathfinder/pull/384#pullrequestreview-5402200645"
+    ],
+    "narrowed_review_urls": [
+      "https://github.com/PrismarineJS/node-minecraft-protocol/pull/1536#pullrequestreview-5402190476"
+    ],
+    "read_back_errors": 0
+  },
+  "table_update": {
+    "original_rows": 491,
+    "pending": 474,
+    "merged": 16,
+    "closed_unmerged": 1,
+    "counts": {
+      "Integration / CI": 125,
+      "Ready for maintainer review": 137,
+      "Author changes": 138,
+      "Superseded / consolidate": 35,
+      "Design decision": 25,
+      "Specific validation": 4,
+      "Draft": 9,
+      "Close candidate": 1
+    },
+    "changed_rows": [
+      [
+        "PrismarineJS/minecraft-data",
+        1075
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        3786
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        3902
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4051
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4053
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4089
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4094
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4115
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4133
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4136
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4149
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4150
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4151
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4153
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4155
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4156
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4157
+      ],
+      [
+        "PrismarineJS/mineflayer-cmd",
+        86
+      ],
+      [
+        "PrismarineJS/mineflayer-collectblock",
+        145
+      ],
+      [
+        "PrismarineJS/mineflayer-pathfinder",
+        369
+      ],
+      [
+        "PrismarineJS/mineflayer-pathfinder",
+        386
+      ],
+      [
+        "PrismarineJS/mineflayer-tool",
+        105
+      ],
+      [
+        "PrismarineJS/node-minecraft-data",
+        457
+      ],
+      [
+        "PrismarineJS/node-minecraft-protocol",
+        1495
+      ],
+      [
+        "PrismarineJS/node-minecraft-protocol",
+        1528
+      ],
+      [
+        "PrismarineJS/node-minecraft-protocol",
+        1529
+      ],
+      [
+        "PrismarineJS/node-minecraft-protocol",
+        1536
+      ],
+      [
+        "PrismarineJS/node-minecraft-protocol",
+        1537
+      ],
+      [
+        "PrismarineJS/node-minecraft-protocol",
+        1539
+      ],
+      [
+        "PrismarineJS/prismarine-chunk",
+        338
+      ],
+      [
+        "PrismarineJS/prismarine-chunk",
+        339
+      ],
+      [
+        "PrismarineJS/prismarine-physics",
+        149
+      ],
+      [
+        "PrismarineJS/prismarine-physics",
+        151
+      ],
+      [
+        "PrismarineJS/prismarine-registry",
+        57
+      ],
+      [
+        "PrismarineJS/prismarine-viewer",
+        488
+      ],
+      [
+        "PrismarineJS/prismarine-viewer",
+        516
+      ]
+    ],
+    "ready_to_author_changes": [
+      [
+        "PrismarineJS/mineflayer",
+        4051
+      ],
+      [
+        "PrismarineJS/mineflayer",
+        4053
+      ],
+      [
+        "PrismarineJS/mineflayer-collectblock",
+        145
+      ],
+      [
+        "PrismarineJS/mineflayer-pathfinder",
+        386
+      ],
+      [
+        "PrismarineJS/node-minecraft-protocol",
+        1536
+      ],
+      [
+        "PrismarineJS/node-minecraft-protocol",
+        1539
+      ],
+      [
+        "PrismarineJS/prismarine-chunk",
+        338
+      ]
+    ],
+    "new_testing_findings": 25
+  },
+  "table_publication_readback": [
+    {
+      "endpoint": "repos/PrismarineJS/prismarine-contribute/issues/comments/5967329129",
+      "url": "https://github.com/PrismarineJS/prismarine-contribute/issues/18#issuecomment-5967329129",
+      "status": "unchanged",
+      "sha256": "cda27417575e8397f656badd0b03e7b93f985cd537a80e83d39bb642dc0b81c8"
+    },
+    {
+      "endpoint": "repos/PrismarineJS/prismarine-contribute/issues/comments/5967329418",
+      "url": "https://github.com/PrismarineJS/prismarine-contribute/issues/18#issuecomment-5967329418",
+      "status": "updated",
+      "sha256": "ee993b0dab4edee012a1cd994eba6af293a16738eede76351901fb33105ae287"
+    },
+    {
+      "endpoint": "repos/PrismarineJS/prismarine-contribute/issues/comments/5967329728",
+      "url": "https://github.com/PrismarineJS/prismarine-contribute/issues/18#issuecomment-5967329728",
+      "status": "updated",
+      "sha256": "8df45711835074ec125c52450b703f621dac4afcf244152189b561bfa331e036"
+    },
+    {
+      "endpoint": "repos/PrismarineJS/prismarine-contribute/issues/comments/5967330088",
+      "url": "https://github.com/PrismarineJS/prismarine-contribute/issues/18#issuecomment-5967330088",
+      "status": "updated",
+      "sha256": "17fa79f0f1461b08360a6d20b07a4be67e1490c42682cc2b30041e0acc3dc10b"
+    },
+    {
+      "endpoint": "repos/PrismarineJS/prismarine-contribute/issues/comments/5967330554",
+      "url": "https://github.com/PrismarineJS/prismarine-contribute/issues/18#issuecomment-5967330554",
+      "status": "updated",
+      "sha256": "8ecb5f99f24c382824583b45ef2fd38d8377fecedb4c89cdc38b474f65b08a3e"
+    },
+    {
+      "endpoint": "repos/PrismarineJS/prismarine-contribute/issues/comments/5967330934",
+      "url": "https://github.com/PrismarineJS/prismarine-contribute/issues/18#issuecomment-5967330934",
+      "status": "updated",
+      "sha256": "f0d5d6e18b35d64a8be127bd41894cdcb9a409f9c5c8ac680dd66ceaab58c779"
+    },
+    {
+      "endpoint": "repos/PrismarineJS/prismarine-contribute/issues/comments/5967331286",
+      "url": "https://github.com/PrismarineJS/prismarine-contribute/issues/18#issuecomment-5967331286",
+      "status": "unchanged",
+      "sha256": "c92f6c7f4c68c8419c72371e0210dd581b4730feb335427fcedbb7d5dc6d6f3d"
+    },
+    {
+      "endpoint": "repos/PrismarineJS/prismarine-contribute/issues/18",
+      "url": "https://github.com/PrismarineJS/prismarine-contribute/issues/18",
+      "status": "updated",
+      "sha256": "033b980463126a9027cd091a2f383e1505b7c5503ec1012eaf82d1a773953ddb"
+    }
+  ]
+}
