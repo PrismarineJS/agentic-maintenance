@@ -7,6 +7,8 @@ description: Review PrismarineJS correctness, maintainability and integration re
 
 Record repository, PR, base/head, dependency versions, open/closed state and **merged status separately**. Read the current diff, callers and existing discussion. Closed-unmerged may mean superseded; merge or approval is not a correctness oracle. Historical concerns can refer to code already fixed. [Historical exceptions](references/evidence.md) help when a precedent changes the review's scope.
 
+For the most important PRs, next merge batches or work ordering, also use [PR prioritization](../prismarine-pr-prioritization/SKILL.md). Establish readiness here, then rank by the maintainer's preferred ecosystem outcomes; importance does not clear review blockers.
+
 Select only the relevant domain skills:
 
 | Changed contract | Skill |

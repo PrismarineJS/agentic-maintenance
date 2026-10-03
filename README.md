@@ -35,7 +35,9 @@ skills/         ← reusable review instructions, one SKILL.md per skill
   [prismarine-review](skills/prismarine-review/SKILL.md), then select the relevant
   protocol/data, lifecycle/actions, items/inventory, geometry/movement,
   world/rendering, or architecture/public API skill. Code quality and regression
-  checks are included in the domain where they matter. These files
+  checks are included in the domain where they matter. Use
+  [PR prioritization](skills/prismarine-pr-prioritization/SKILL.md) to select the
+  most important work or the next ready merge batch. These files
   can be read directly; this repository does not install them globally.
 
 A `design/phaseN/` document typically motivates one or more
