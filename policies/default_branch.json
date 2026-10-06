@@ -1,0 +1,56 @@
+{
+  "policy_version": 1,
+  "organization": "PrismarineJS",
+  "scope": {
+    "visibility": "public",
+    "include_archived": false,
+    "include_forks": true,
+    "branch": "~DEFAULT_BRANCH"
+  },
+  "rulesets": [
+    {
+      "name": "pjs-ci-and-history",
+      "target": "branch",
+      "enforcement": "active",
+      "bypass_actors": [],
+      "conditions": {
+        "ref_name": { "include": ["~DEFAULT_BRANCH"], "exclude": [] }
+      },
+      "rules": [
+        { "type": "deletion" },
+        { "type": "non_fast_forward" },
+        {
+          "type": "required_status_checks",
+          "parameters": {
+            "required_status_checks": [{ "context": "ci", "integration_id": 15368 }],
+            "strict_required_status_checks_policy": true,
+            "do_not_enforce_on_create": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "pjs-pr-and-review",
+      "target": "branch",
+      "enforcement": "active",
+      "bypass_actors": [
+        { "actor_id": 5, "actor_type": "RepositoryRole", "bypass_mode": "pull_request" }
+      ],
+      "conditions": {
+        "ref_name": { "include": ["~DEFAULT_BRANCH"], "exclude": [] }
+      },
+      "rules": [
+        {
+          "type": "pull_request",
+          "parameters": {
+            "required_approving_review_count": 1,
+            "dismiss_stale_reviews_on_push": false,
+            "require_code_owner_review": false,
+            "require_last_push_approval": false,
+            "required_review_thread_resolution": false
+          }
+        }
+      ]
+    }
+  ]
+}
