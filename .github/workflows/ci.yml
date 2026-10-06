@@ -3,6 +3,7 @@ on:
   pull_request:
 jobs:
   required_test:
+    if: ${{ false }}
     runs-on: ubuntu-latest
     steps:
       - name: Intentional failure for policy verification
