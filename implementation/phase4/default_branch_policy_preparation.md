@@ -3,6 +3,9 @@
 Date: 2026-10-06. Source: GET-only GitHub audit and local validation.
 Status: prepared locally; no GitHub settings, workflows, branches, or PRs changed.
 
+This is the historical preparation snapshot, before rollout approval. See the
+[rollout report](default_branch_policy_rollout.md) for subsequent changes.
+
 The [design](../../design/phase4/default_branch_policy.md) and
 [policy JSON](../../policies/default_branch.json) preserve the requested admin
 review bypass while separating it from mandatory CI. Two rulesets per included
