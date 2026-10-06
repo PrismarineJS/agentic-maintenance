@@ -41,6 +41,14 @@ This protects ordinary push/merge operations. Administrators still possess
 permission to edit or remove repository rules; this is not an immutable policy
 against organization owners.
 
+GitHub expands omitted PR-rule parameters when reading the rule back. The
+2026-10-06 rollout observed empty `required_reviewers`, disabled
+`dismissal_restriction`, all three `allowed_merge_methods`, and
+`require_extra_approval_for_unattributed_changes: true`. These server defaults
+are preserved, not explicitly changed by the policy payload. Repository-level
+merge-method settings still apply. The audit normalizes these observed defaults
+on both sides, but flags different values or new unknown parameters for review.
+
 ## The `ci` check must represent real validation
 
 Retain each repository's established test harness and version/edition matrix.
@@ -80,16 +88,23 @@ does not certify a repository's tests or authorize activation.
 1. Refresh the settings and workflow inventory. Save the exact existing rules
    for rollback before any later authorized mutation. Treat 403/errors as
    unknown, never as evidence that a branch is unprotected.
-2. Prepare repository-specific CI PRs. Verify `ci` and its negative controls on
-   each repository before requiring it. The current proposal does not include
-   edits to those 94 repositories' workflows.
+2. Prepare repository-specific CI PRs. Preserve the existing mandatory jobs and
+   add a final `ci` gate. Require a passing run of the repository's actual suite
+   before activation. Test the shared gate against failed, cancelled, skipped,
+   missing and empty-matrix inputs, and verify failure/skip behavior on a
+   temporary pilot PR. A green lint-only or install-only workflow does not
+   establish behavioral test coverage for a code repository.
 3. Inspect release, data-update, formatting, deployment, and synchronization
    automation for direct default-branch pushes. Change those paths to PRs where
    necessary. Tag publishing and other unprotected branches are outside scope.
    No blanket automation bypass is proposed.
-4. Create the two rulesets disabled, inspect the payloads and target branch, then
-   activate them together during the authorized rollout. Keep existing protection
-   until the replacement is verified, so there is no unprotected interval.
+4. Create the two rulesets disabled and inspect their payloads and target branch.
+   Enable the PR/review rule after checking automation. Enable the separate CI
+   rule only when its prerequisite passes. Record this intermediate state as
+   **partial**, not compliant: PRs are required, but CI is not yet enforced by
+   the new policy. This allows the no-direct-push requirement to take effect
+   without requiring a nonexistent or permanently failing check. Keep existing
+   protection until its replacement is active, so there is no unprotected interval.
 5. Reconcile overlapping classic protection. Determine the actual rule pattern
    and other matching branches before changing it. Preserve any unrelated
    protection or stricter intentional rule. Do not delete a wildcard rule just
@@ -105,6 +120,13 @@ does not certify a repository's tests or authorize activation.
    audit is a later change, not created by this preparation. Rulesets on Free
    must be installed per repository; newly created repos are not automatically
    covered until provisioned. Leave broad organization rules and billing alone.
+
+The rollout record is in
+[implementation/phase4/default_branch_policy_rollout.md](../../implementation/phase4/default_branch_policy_rollout.md).
+It distinguishes observed CI results and settings readback from live permission
+tests. No default branch is rewritten to probe enforcement. A temporary negative
+control PR is closed without merging; normal-user behavior is not claimed to
+have been tested using the administrator's credentials.
 
 ## Preparation and validation
 

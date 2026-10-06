@@ -82,6 +82,18 @@ class PolicyTests(unittest.TestCase):
         actual["bypass_actors"] = [{"actor_type": "RepositoryRole", "actor_id": 5, "bypass_mode": "always"}]
         self.assertEqual(set(audit.ruleset_diff(actual, desired)), {"bypass_actors"})
 
+    def test_server_expanded_defaults_match_but_new_restrictions_do_not(self):
+        desired = POLICY["rulesets"][1]
+        actual = copy.deepcopy(desired)
+        params = actual["rules"][0]["parameters"]
+        params.update(copy.deepcopy(audit.PR_PARAMETER_DEFAULTS))
+        self.assertEqual(audit.ruleset_diff(actual, desired), {})
+        params["allowed_merge_methods"] = ["squash"]
+        self.assertIn("rules", audit.ruleset_diff(actual, desired))
+        params["allowed_merge_methods"] = ["merge", "squash", "rebase"]
+        params["future_unknown_requirement"] = True
+        self.assertIn("rules", audit.ruleset_diff(actual, desired))
+
     def test_inherited_name_collision_requires_manual_reconciliation(self):
         r = repository()
         r["rulesets"] = reply([{"id": 8, "name": POLICY["rulesets"][0]["name"],
@@ -96,6 +108,23 @@ class PolicyTests(unittest.TestCase):
         row = audit.analyze(r, POLICY)
         self.assertEqual(row["proposed_rulesets"][0]["action"], "unknown")
         self.assertIn("ruleset_details", row["read_errors"])
+
+    def test_active_rulesets_count_even_without_classic_protection(self):
+        r = repository()
+        r["rulesets"] = reply([
+            {"id": i, "name": rule["name"], "source_type": "Repository", "source": "PrismarineJS/example"}
+            for i, rule in enumerate(POLICY["rulesets"])
+        ])
+        r["ruleset_details"] = {str(i): reply(copy.deepcopy(rule)) for i, rule in enumerate(POLICY["rulesets"])}
+        summary = audit.make_report([r], POLICY)["summary"]
+        self.assertEqual(summary["repositories_matching_policy"], 1)
+        self.assertEqual(summary["review_rulesets_matching"], 1)
+        self.assertEqual(summary["ci_rulesets_matching"], 1)
+        r["ruleset_details"]["0"]["data"]["enforcement"] = "disabled"
+        summary = audit.make_report([r], POLICY)["summary"]
+        self.assertEqual(summary["repositories_matching_policy"], 0)
+        self.assertEqual(summary["review_rulesets_matching"], 1)
+        self.assertEqual(summary["ci_rulesets_matching"], 0)
 
     def test_get_only_transport_parses_every_page(self):
         result = subprocess.CompletedProcess([], 0, '[{"id":1}]\n[{"id":2}]', '')

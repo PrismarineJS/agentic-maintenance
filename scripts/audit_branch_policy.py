@@ -8,6 +8,7 @@ Writes PREFIX.json (replayable evidence and proposed changes) and PREFIX.md.
 
 import argparse
 import concurrent.futures
+import copy
 import datetime
 import json
 from pathlib import Path
@@ -17,6 +18,15 @@ from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 PAYLOAD_KEYS = ("name", "target", "enforcement", "bypass_actors", "conditions", "rules")
+# GitHub expands omitted PR parameters on GET. Observed on the pilot and
+# rollout repositories on 2026-10-06. Preserve these defaults rather than
+# repeatedly rewriting matching rules. Unexpected values/keys still drift.
+PR_PARAMETER_DEFAULTS = {
+    "required_reviewers": [],
+    "dismissal_restriction": {"enabled": False, "allowed_actors": []},
+    "allowed_merge_methods": ["merge", "squash", "rebase"],
+    "require_extra_approval_for_unattributed_changes": True,
+}
 
 
 def get(endpoint, paginate=False):
@@ -89,7 +99,17 @@ def canonical(value):
 
 
 def ruleset_diff(current, desired):
-    actual = {k: current.get(k) for k in PAYLOAD_KEYS}
+    def with_defaults(payload):
+        value = copy.deepcopy({k: payload.get(k) for k in PAYLOAD_KEYS})
+        for rule in value.get("rules") or []:
+            if rule.get("type") == "pull_request":
+                parameters = rule.setdefault("parameters", {})
+                for key, default in PR_PARAMETER_DEFAULTS.items():
+                    parameters.setdefault(key, copy.deepcopy(default))
+        return value
+
+    actual = with_defaults(current)
+    desired = with_defaults(desired)
     return {k: {"current": actual[k], "proposed": desired[k]}
             for k in PAYLOAD_KEYS if canonical(actual[k]) != canonical(desired[k])}
 
@@ -172,6 +192,9 @@ def make_report(records, policy):
         "named_checks": sum(bool(r["current"]["checks"]) for r in included),
         "ci_admin_bypass_to_remove": sum(r["current"]["admin_enforcement"] is False and r["current"]["classic_protection"] == "present" for r in included),
         "rulesets_to_create_after_prerequisites": sum(p["action"] == "create_after_prerequisites" for r in included for p in r["proposed_rulesets"]),
+        "repositories_matching_policy": sum(all(p["action"] == "matches" for p in r["proposed_rulesets"]) for r in included),
+        "review_rulesets_matching": sum(any(p["name"] == "pjs-pr-and-review" and p["action"] == "matches" for p in r["proposed_rulesets"]) for r in included),
+        "ci_rulesets_matching": sum(any(p["name"] == "pjs-ci-and-history" and p["action"] == "matches" for p in r["proposed_rulesets"]) for r in included),
         "repositories_with_read_errors": sum(bool(r["read_errors"]) for r in included),
         "activation_readiness_assessed": 0,
     }
@@ -184,11 +207,12 @@ def markdown(report):
     s = report["summary"]
     lines = ["# Proposed default-branch settings diff", "",
              "Date: " + report["generated_at"] + ". Source: GitHub GET-only audit.", "",
-             "No settings changed. The JSON companion contains the exact desired rulesets, current evidence, and per-repository diff.", "",
+             "This read-only audit makes no changes. The JSON companion contains the exact desired rulesets, current evidence, and per-repository diff.", "",
              "## Scope", "", f"- {s['inventoried']} repositories inventoried; {s['included']} public, unarchived repositories included.",
              f"- {s['archived_excluded']} archived and {s['private_excluded']} private repositories excluded.",
              f"- {s['rulesets_to_create_after_prerequisites']} proposed ruleset creations after CI/automation prerequisites; {s['classic_to_reconcile']} classic protections to reconcile.",
-             f"- {s['no_classic_protection']} default branches have no classic protection; {s['required_pr']} require a PR; {s['named_checks']} name required checks.",
+             f"- {s['repositories_matching_policy']} repositories match both policy rulesets; {s['review_rulesets_matching']} match the review rule and {s['ci_rulesets_matching']} match the CI/history rule.",
+             f"- Classic protection only: {s['no_classic_protection']} branches have none; {s['required_pr']} require a PR; {s['named_checks']} name required checks. These counts exclude the repository rulesets above.",
              f"- {s['repositories_with_read_errors']} included repositories have read errors. Activation readiness is not certified for any repository by this settings audit.", "",
              "## Intended behavior", "", "All included repositories: `ci` from GitHub Actions, up-to-date branch, no force pushes/deletion, no CI bypass. PR plus one approval, with repository-admin bypass **for PRs only**. Two independent rulesets keep that exception out of CI.", "",
              "Admins can merge a passing unapproved PR. They cannot use this exception to merge failing CI or push directly. Private repositories remain outside enforceable coverage on this plan.", "",
