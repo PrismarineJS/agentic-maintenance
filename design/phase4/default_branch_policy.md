@@ -52,15 +52,18 @@ on both sides, but flags different values or new unknown parameters for review.
 ## 2026-10-07 correction: passing CI without mandatory branch updates
 
 Requested by rom1504 ("Ok fix it") after reviewing the merge blockage reported
-by extremeheat. The intended uniform policy sets `strict_required_status_checks_policy: false` in all managed
-CI rulesets, including staged disabled rulesets. Applied to node-nethernet and
-bedrock-protocol on 2026-10-07. Automatic approval review requires explicit
-confirmation before applying this to the remaining 92 repositories. Preserve activation state,
-required GitHub Actions `ci`, history protections, and the separate admin
+by extremeheat. The uniform policy sets
+`strict_required_status_checks_policy: false` in all managed CI rulesets,
+including staged disabled rulesets. Applied first to node-nethernet and
+bedrock-protocol on 2026-10-07. rom1504 then explicitly approved the remaining
+92 repositories ("Yes go"). Preserve activation state, required GitHub Actions
+`ci`, history protections, and the separate admin
 PR-only review bypass. Existing unrelated/classic protections remain unchanged.
 
 Passing required CI remains mandatory wherever enabled. Merging another PR no
-longer forces every candidate to merge the base branch and run its suite again.
+longer forces a branch update and test rerun under this ruleset. Separate
+pre-existing classic protections may still require freshness; the correction
+report lists those exceptions.
 The tradeoff is that passing checks can predate newer base changes; maintainers
 should request a branch update when changes interact or the integration risk
 warrants one.
