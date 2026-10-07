@@ -21,7 +21,7 @@ not provide their enforced branch protections; do not make them public.
 
 | Ruleset | Rules | Bypass |
 |---|---|---|
-| `pjs-ci-and-history` | Require the `ci` check from GitHub Actions, require the branch to be up to date, prevent force pushes and deletion | None |
+| `pjs-ci-and-history` | Require the `ci` check from GitHub Actions, allow passing checks without requiring an up-to-date branch, prevent force pushes and deletion | None |
 | `pjs-pr-and-review` | Require a PR and normally one approval | Repository admins, only through a PR |
 
 Repository admin is GitHub's built-in `RepositoryRole` ID 5. GitHub Actions is
@@ -48,6 +48,31 @@ GitHub expands omitted PR-rule parameters when reading the rule back. The
 are preserved, not explicitly changed by the policy payload. Repository-level
 merge-method settings still apply. The audit normalizes these observed defaults
 on both sides, but flags different values or new unknown parameters for review.
+
+## 2026-10-07 correction: passing CI without mandatory branch updates
+
+Requested by rom1504 ("Ok fix it") after reviewing the merge blockage reported
+by extremeheat. The intended uniform policy sets `strict_required_status_checks_policy: false` in all managed
+CI rulesets, including staged disabled rulesets. Applied to node-nethernet and
+bedrock-protocol on 2026-10-07. Automatic approval review requires explicit
+confirmation before applying this to the remaining 92 repositories. Preserve activation state,
+required GitHub Actions `ci`, history protections, and the separate admin
+PR-only review bypass. Existing unrelated/classic protections remain unchanged.
+
+Passing required CI remains mandatory wherever enabled. Merging another PR no
+longer forces every candidate to merge the base branch and run its suite again.
+The tradeoff is that passing checks can predate newer base changes; maintainers
+should request a branch update when changes interact or the integration risk
+warrants one.
+
+Before introducing a new required check, inventory existing open PRs as well as
+the default branch. Existing runs cannot emit a newly added aggregate job. For
+affected PRs, merge the base into the PR branch with GitHub's update-branch API,
+using `expected_head_sha` to guard against concurrent author pushes, and verify
+the new pull-request CI run. Do not force-push, fabricate a status, or substitute
+a workflow-dispatch run for a qualifying PR check. Conflicts or real test failures
+need separate resolution. A one-time migration update is distinct from requiring
+updates after every future merge.
 
 ## The `ci` check must represent real validation
 

@@ -1,5 +1,8 @@
 # Default-branch policy rollout
 
+Follow-up: [2026-10-07 CI merge-policy correction](default_branch_policy_correction.md).
+This file records the original rollout; the follow-up records subsequent settings changes.
+
 Date: 2026-10-06T05:49:24.054633+00:00. Source: live GitHub API readback, CI logs, and authorized Astra-agent maintenance changes.
 
 Of **94** public, unarchived repositories, **94 require PRs** under the new review rule and **35 have the full policy active**. **59 still need CI prerequisites**. Administrators retain the PR-only approval exception; the CI/history ruleset has no bypass wherever active. GitHub billing and organization plan were not changed.
