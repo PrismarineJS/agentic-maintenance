@@ -39,7 +39,7 @@ class PolicyTests(unittest.TestCase):
         self.assertTrue({"deletion", "non_fast_forward"}.issubset(rules))
         checks = rules["required_status_checks"]["parameters"]
         self.assertEqual(checks["required_status_checks"], [{"context": "ci", "integration_id": 15368}])
-        self.assertTrue(checks["strict_required_status_checks_policy"])
+        self.assertFalse(checks["strict_required_status_checks_policy"])
         for rule in POLICY["rulesets"]:
             self.assertEqual(rule["conditions"]["ref_name"], {"include": ["~DEFAULT_BRANCH"], "exclude": []})
 

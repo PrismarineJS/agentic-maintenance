@@ -1,0 +1,1189 @@
+{
+  "date": "2026-10-07",
+  "applied": [
+    {
+      "repository": "node-nethernet",
+      "id": 24558060,
+      "before": {
+        "name": "pjs-ci-and-history",
+        "target": "branch",
+        "enforcement": "active",
+        "bypass_actors": [],
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "ci",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "after": {
+        "name": "pjs-ci-and-history",
+        "target": "branch",
+        "enforcement": "active",
+        "bypass_actors": [],
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": false,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "ci",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "verified": true
+    },
+    {
+      "repository": "bedrock-protocol",
+      "id": 24557800,
+      "before": {
+        "name": "pjs-ci-and-history",
+        "target": "branch",
+        "enforcement": "active",
+        "bypass_actors": [],
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": true,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "ci",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "after": {
+        "name": "pjs-ci-and-history",
+        "target": "branch",
+        "enforcement": "active",
+        "bypass_actors": [],
+        "conditions": {
+          "ref_name": {
+            "exclude": [],
+            "include": [
+              "~DEFAULT_BRANCH"
+            ]
+          }
+        },
+        "rules": [
+          {
+            "type": "deletion"
+          },
+          {
+            "type": "non_fast_forward"
+          },
+          {
+            "type": "required_status_checks",
+            "parameters": {
+              "strict_required_status_checks_policy": false,
+              "do_not_enforce_on_create": false,
+              "required_status_checks": [
+                {
+                  "context": "ci",
+                  "integration_id": 15368
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "verified": true
+    }
+  ],
+  "branch_updates": [
+    {
+      "url": "https://github.com/PrismarineJS/node-nethernet/pull/32",
+      "old_head": "77a0b38e92e140a75d96ad540794380dfef1af85",
+      "base": "077e86ab385a1b7b4372fd976b196b4d31bd6195",
+      "response": {
+        "message": "Updating pull request branch.",
+        "url": "https://api.github.com/repos/PrismarineJS/node-nethernet/pulls/32"
+      }
+    },
+    {
+      "url": "https://github.com/PrismarineJS/bedrock-protocol/pull/831",
+      "old_head": "d2973e71bc9c0130450035d1f19919f619d4fd86",
+      "base": "69c5141fef7b7c524f4d5282551e3a61670c74f9",
+      "response": {
+        "message": "Updating pull request branch.",
+        "url": "https://api.github.com/repos/PrismarineJS/bedrock-protocol/pulls/831"
+      }
+    }
+  ],
+  "pending_explicit_confirmation": [
+    {
+      "repository": "mineflayer",
+      "ruleset_id": 24557591,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-minecraft-protocol",
+      "ruleset_id": 24557592,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-vec3",
+      "ruleset_id": 24557593,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-navigate",
+      "ruleset_id": 24557608,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-radar",
+      "ruleset_id": 24557609,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-scaffold",
+      "ruleset_id": 24557610,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-yggdrasil",
+      "ruleset_id": 24557631,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "marketing-and-media",
+      "ruleset_id": 24557634,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarinejs.github.io",
+      "ruleset_id": 24557636,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-chunk",
+      "ruleset_id": 24557644,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-world",
+      "ruleset_id": 24557647,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-nbt",
+      "ruleset_id": 24557651,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-provider-anvil",
+      "ruleset_id": 24557666,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-data",
+      "ruleset_id": 24557667,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-mojangson",
+      "ruleset_id": 24557668,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-minecraft-data",
+      "ruleset_id": 24557678,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "flying-squid",
+      "ruleset_id": 24557680,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-block",
+      "ruleset_id": 24557681,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-biome",
+      "ruleset_id": 24557692,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-entity",
+      "ruleset_id": 24557693,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-minecraft-wrap",
+      "ruleset_id": 24557695,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-wiki-extractor",
+      "ruleset_id": 24557720,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mcdevs-wiki-extractor",
+      "ruleset_id": 24557724,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-world-sync",
+      "ruleset_id": 24557725,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-jar-extractor",
+      "ruleset_id": 24557741,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-item",
+      "ruleset_id": 24557743,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-classic-protocol",
+      "ruleset_id": 24557744,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-windows",
+      "ruleset_id": 24557760,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-recipe",
+      "ruleset_id": 24557763,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-minecraft-extractor",
+      "ruleset_id": 24557765,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "diamond-square",
+      "ruleset_id": 24557785,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-minecraft-protocol-forge",
+      "ruleset_id": 24557787,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "MineflayerArmorManager",
+      "ruleset_id": 24557788,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "dazed-sheep",
+      "ruleset_id": 24557803,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "auto-sheep",
+      "ruleset_id": 24557806,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "flying-squid-modpe",
+      "ruleset_id": 24557816,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-assets",
+      "ruleset_id": 24557817,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-minecraft-assets",
+      "ruleset_id": 24557821,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "burger-extractor",
+      "ruleset_id": 24557828,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "numerous-alpaca",
+      "ruleset_id": 24557829,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "auto-alpaca",
+      "ruleset_id": 24557830,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-classic-protocol-extension",
+      "ruleset_id": 24557840,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-data-auto-updater",
+      "ruleset_id": 24557842,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-contribute",
+      "ruleset_id": 24557844,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-chunk-dumper",
+      "ruleset_id": 24557858,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "McDataExtracting",
+      "ruleset_id": 24557859,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-pathfinder",
+      "ruleset_id": 24557862,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-viewer",
+      "ruleset_id": 24557880,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-statemachine",
+      "ruleset_id": 24557881,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-physics",
+      "ruleset_id": 24557883,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-proxy",
+      "ruleset_id": 24557896,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-template",
+      "ruleset_id": 24557897,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-gameplay",
+      "ruleset_id": 24557898,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-packet-dumper",
+      "ruleset_id": 24557906,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-chat",
+      "ruleset_id": 24557908,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-meta",
+      "ruleset_id": 24557909,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-loottable",
+      "ruleset_id": 24557925,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-provider-raw",
+      "ruleset_id": 24557927,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-collectblock",
+      "ruleset_id": 24557930,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-pvp",
+      "ruleset_id": 24557943,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-cmd",
+      "ruleset_id": 24557944,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-design",
+      "ruleset_id": 24557945,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-tool",
+      "ruleset_id": 24557965,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-updates",
+      "ruleset_id": 24557966,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-schematic",
+      "ruleset_id": 24557968,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "bedrock-provider",
+      "ruleset_id": 24557979,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "speedrun-challenge-ssgp",
+      "ruleset_id": 24557980,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-rng",
+      "ruleset_id": 24557982,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-builder",
+      "ruleset_id": 24557991,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-web-client",
+      "ruleset_id": 24557992,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "net-browserify",
+      "ruleset_id": 24557993,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-process",
+      "ruleset_id": 24558000,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-inventory-gui",
+      "ruleset_id": 24558001,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "entity-model-extractor",
+      "ruleset_id": 24558002,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-test-api",
+      "ruleset_id": 24558007,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-packets",
+      "ruleset_id": 24558008,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-minecraft-packets",
+      "ruleset_id": 24558011,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "gdmc-challenge-2021",
+      "ruleset_id": 24558020,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-auth",
+      "ruleset_id": 24558021,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-registry",
+      "ruleset_id": 24558023,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-realms",
+      "ruleset_id": 24558034,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "mineflayer-gptj",
+      "ruleset_id": 24558035,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-data-generator",
+      "ruleset_id": 24558036,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": ".github",
+      "ruleset_id": 24558044,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "node-canvas-webgl",
+      "ruleset_id": 24558045,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-archiver",
+      "ruleset_id": 24558046,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "minecraft-assets-pixel-perfection",
+      "ruleset_id": 24558054,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-repo-actions",
+      "ruleset_id": 24558057,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "llm-guides",
+      "ruleset_id": 24558068,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-monotree",
+      "ruleset_id": 24558073,
+      "enforcement": "disabled",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "agentic-maintenance",
+      "ruleset_id": 24557327,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    },
+    {
+      "repository": "prismarine-xbox-services",
+      "ruleset_id": 24558075,
+      "enforcement": "active",
+      "change": {
+        "strict_required_status_checks_policy": {
+          "from": true,
+          "to": false
+        }
+      }
+    }
+  ]
+}
