@@ -8,6 +8,15 @@ This repo holds the *thinking* behind maintenance work — analysis, plans, and
 implementation records — as plain Markdown so it can be reviewed, versioned, and
 picked up by humans or agents.
 
+## Principles and architectural direction
+
+[PRINCIPLES.md](PRINCIPLES.md) records the maintainer's six principles. Apply them
+to existing systems as well as proposed changes. Start with
+[system review](skills/prismarine-system-review/SKILL.md) for a capability-wide
+assessment, or [PR review](skills/prismarine-review/SKILL.md) for a bounded change.
+Assessments distinguish current evidence, proposed targets and accepted decisions.
+The first application is [world block state and reusable queries](design/phase5/world_block_state_and_queries.md).
+
 ## Structure
 
 Work is organized into **phases**. Each phase has a planning side and an
@@ -22,7 +31,8 @@ implementation/
   phase1/        ← execution records: what we actually did, decisions, outcomes
   phase2/
   ...
-skills/         ← reusable review instructions, one SKILL.md per skill
+PRINCIPLES.md   ← stable architectural direction
+skills/         ← reusable PR and system review instructions
 policies/       ← shared repository settings
 scripts/        ← read-only policy audits and CI gate generation
 tests/          ← offline checks for maintenance tooling
@@ -54,6 +64,7 @@ A `design/phaseN/` document typically motivates one or more
 | 2 | U9G PR classification and inline reviews | [design/phase2](design/phase2) | [implementation/phase2](implementation/phase2) |
 | 3 | Historical review survey, skills, evaluation, and U9G re-review | [design/phase3](design/phase3/survey_for_review_skills.md) | [implementation/phase3](implementation/phase3/report.md) |
 | 4 | Default-branch policy and repository settings | [Policy design](design/phase4/default_branch_policy.md) | [Rollout and remaining prerequisites](implementation/phase4/default_branch_policy_rollout.md) |
+| 5 | Principles and whole-system architectural review | [Adoption design](design/phase5/principles_and_system_review.md) | [Implementation and pilot](implementation/phase5/principles_and_system_review.md) |
 
 The current domain-specific skills are described in the
 [revision design](design/phase3/domain_specific_review_skills.md) and
