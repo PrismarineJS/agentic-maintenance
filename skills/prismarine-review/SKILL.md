@@ -5,6 +5,18 @@ description: Review PrismarineJS correctness, maintainability and integration re
 
 # PrismarineJS review
 
+Read [the maintainer's principles](../../PRINCIPLES.md) and locate any relevant
+accepted design or system assessment in `design/` and `implementation/`. Treat
+agent proposals as proposals and verify dated evidence against the current code.
+For the relevant principles, judge the resulting system's direction: improving,
+preserving or worsening it. Inspect enough surrounding code and sibling changes
+to catch duplicated ownership or inconsistent APIs that a diff alone conceals.
+Separate new/amplified debt from unrelated pre-existing debt; name the concrete
+cost and bounded next step. A small repair need not complete a broader migration.
+Use [system review](../prismarine-system-review/SKILL.md) when the task calls for
+an existing-system assessment or a shared architectural plan; do not silently
+expand every PR review into a full ecosystem audit.
+
 Record repository, PR, base/head, dependency versions, open/closed state and **merged status separately**. Read the current diff, callers and existing discussion. Closed-unmerged may mean superseded; merge or approval is not a correctness oracle. Historical concerns can refer to code already fixed. [Historical exceptions](references/evidence.md) help when a precedent changes the review's scope.
 
 For the most important PRs, next merge batches or work ordering, also use [PR prioritization](../prismarine-pr-prioritization/SKILL.md). Establish readiness here, then rank by the maintainer's preferred ecosystem outcomes; importance does not clear review blockers.

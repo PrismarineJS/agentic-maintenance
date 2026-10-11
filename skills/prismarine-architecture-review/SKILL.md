@@ -5,6 +5,14 @@ description: Review PrismarineJS maintainability, plugin structure, package boun
 
 # Package architecture and public APIs
 
+Use [PRINCIPLES.md](../../PRINCIPLES.md) as the architectural direction. Assess
+what the resulting design does to shared data, package independence, separation
+of computation/state, version generality, public capabilities and portable
+contracts. Read applicable accepted designs and dated system assessments, keeping
+proposed targets distinct from maintainer decisions. For an assessment of an
+existing capability, use [system review](../prismarine-system-review/SKILL.md) to
+connect local findings into one target and migration path.
+
 PrismarineJS deliberately provides independent packages that bots, servers, proxies and viewers can reuse. Review whether the proposed code preserves that reuse; extraction by itself is not an improvement. The [contribute package map](https://github.com/PrismarineJS/prismarine-contribute/blob/4317c201c884148c6263de2bdf487f6b6396ef20/info.md) explains the organization, and [contribute #15](https://github.com/PrismarineJS/prismarine-contribute/issues/15#issuecomment-1575661657) explicitly defends independent packages.
 
 ## Locate the owner using the actual consumer chain
